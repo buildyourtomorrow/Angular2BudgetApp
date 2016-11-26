@@ -1,0 +1,31 @@
+<!doctype>
+<html>
+    <head>
+        <base href="/">
+        <title>Build Your Tomorrow</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <!-- Load Angular 2 libraries -->
+        <!-- IE required polyfills, in this exact order -->
+        <!-- 1. Load libraries -->
+        <!-- Polyfill(s) for older browsers -->
+        <script src="/node_modules/core-js/client/shim.min.js"></script>
+        <script src="/node_modules/zone.js/dist/zone.js"></script>
+        <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+        <script src="/node_modules/systemjs/dist/system.src.js"></script>
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+        <!-- Latest minor release -->
+        <script src="http://cdn.auth0.com/js/lock/10.6.1/lock.min.js"></script>
+        <!-- Bootstrap and Jquery and Font-awesome needed for accordion-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/2d126d0983.js"></script>
+        <script src="/systemjs.config.js"></script>
+        <script>
+            System.import('app').catch(function(err){ console.error(err); });
+        </script>
+    </head>
+    <body>
+        <my-app>Loading...</my-app>
+    </body>
+</html>
