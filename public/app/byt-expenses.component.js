@@ -12,6 +12,11 @@ var core_1 = require('@angular/core');
 var byt_dashboard_overview_service_1 = require('./byt-dashboard-overview.service');
 var byt_dashboard_overview_service_2 = require("./byt-dashboard-overview.service");
 var byt_last_expense_entry_component_1 = require('./byt-last-expense-entry.component');
+/*
+All of the expense categories need to update any time that an expense is either added or removed from all expenses. Therefore, the expensesCategoryTotals object
+is reset then the for loops add up all categories once again. This happens on three occassions. When an expense is added or removed by the user as mentioned
+above and when the component is first initialized.
+*/
 var BYTExpensesComponent = (function () {
     function BYTExpensesComponent(_getBYTUser, _bytRemoveTransaction) {
         this._getBYTUser = _getBYTUser;
@@ -126,6 +131,10 @@ var BYTExpensesComponent = (function () {
                     },
                     {
                         name: "Charities",
+                        total: 0
+                    },
+                    {
+                        name: "Family",
                         total: 0
                     }]
             },
@@ -267,6 +276,18 @@ var BYTExpensesComponent = (function () {
                     },
                     {
                         name: "Wedding",
+                        total: 0
+                    },
+                    {
+                        name: "Birthday parties",
+                        total: 0
+                    },
+                    {
+                        name: "Baby showers",
+                        total: 0
+                    },
+                    {
+                        name: "Special events",
                         total: 0
                     }]
             },
@@ -514,6 +535,10 @@ var BYTExpensesComponent = (function () {
                         {
                             name: "Charities",
                             total: 0
+                        },
+                        {
+                            name: "Family",
+                            total: 0
                         }]
                 },
                 {
@@ -654,6 +679,18 @@ var BYTExpensesComponent = (function () {
                         },
                         {
                             name: "Wedding",
+                            total: 0
+                        },
+                        {
+                            name: "Birthday parties",
+                            total: 0
+                        },
+                        {
+                            name: "Baby showers",
+                            total: 0
+                        },
+                        {
+                            name: "Special events",
                             total: 0
                         }]
                 },
@@ -875,6 +912,9 @@ var BYTExpensesComponent = (function () {
                 if (this.allExpenses[i].subCategory === "Special Occasion") {
                     this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
                 }
+                if (this.allExpenses[i].subCategory === "Giving") {
+                    this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
+                }
             }
             ;
             if (this.allExpenses[i].category === "Household") {
@@ -981,6 +1021,15 @@ var BYTExpensesComponent = (function () {
                 }
                 if (this.allExpenses[i].subCategory === "Wedding") {
                     this.expensesCategoryTotals[9].subCategory[1].total += this.allExpenses[i].amount;
+                }
+                if (this.allExpenses[i].subCategory === "Birthday parties") {
+                    this.expensesCategoryTotals[9].subCategory[2].total += this.allExpenses[i].amount;
+                }
+                if (this.allExpenses[i].subCategory === "Baby showers") {
+                    this.expensesCategoryTotals[9].subCategory[3].total += this.allExpenses[i].amount;
+                }
+                if (this.allExpenses[i].subCategory === "Special events") {
+                    this.expensesCategoryTotals[9].subCategory[4].total += this.allExpenses[i].amount;
                 }
             }
             ;
@@ -1204,6 +1253,10 @@ var BYTExpensesComponent = (function () {
                         {
                             name: "Charities",
                             total: 0
+                        },
+                        {
+                            name: "Family",
+                            total: 0
                         }]
                 },
                 {
@@ -1344,6 +1397,18 @@ var BYTExpensesComponent = (function () {
                         },
                         {
                             name: "Wedding",
+                            total: 0
+                        },
+                        {
+                            name: "Birthday parties",
+                            total: 0
+                        },
+                        {
+                            name: "Baby showers",
+                            total: 0
+                        },
+                        {
+                            name: "Special events",
                             total: 0
                         }]
                 },
@@ -1565,6 +1630,9 @@ var BYTExpensesComponent = (function () {
                 if (this.allExpenses[i].subCategory === "Special Occasion") {
                     this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
                 }
+                if (this.allExpenses[i].subCategory === "Giving") {
+                    this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
+                }
             }
             ;
             if (this.allExpenses[i].category === "Household") {
@@ -1671,6 +1739,15 @@ var BYTExpensesComponent = (function () {
                 }
                 if (this.allExpenses[i].subCategory === "Wedding") {
                     this.expensesCategoryTotals[9].subCategory[1].total += this.allExpenses[i].amount;
+                }
+                if (this.allExpenses[i].subCategory === "Birthday parties") {
+                    this.expensesCategoryTotals[9].subCategory[2].total += this.allExpenses[i].amount;
+                }
+                if (this.allExpenses[i].subCategory === "Baby showers") {
+                    this.expensesCategoryTotals[9].subCategory[3].total += this.allExpenses[i].amount;
+                }
+                if (this.allExpenses[i].subCategory === "Special events") {
+                    this.expensesCategoryTotals[9].subCategory[4].total += this.allExpenses[i].amount;
                 }
             }
             ;
@@ -1888,6 +1965,10 @@ var BYTExpensesComponent = (function () {
                             {
                                 name: "Charities",
                                 total: 0
+                            },
+                            {
+                                name: "x",
+                                total: 0
                             }]
                     },
                     {
@@ -2028,6 +2109,18 @@ var BYTExpensesComponent = (function () {
                             },
                             {
                                 name: "Wedding",
+                                total: 0
+                            },
+                            {
+                                name: "Birthday parties",
+                                total: 0
+                            },
+                            {
+                                name: "Baby showers",
+                                total: 0
+                            },
+                            {
+                                name: "Special events",
                                 total: 0
                             }]
                     },
@@ -2249,6 +2342,9 @@ var BYTExpensesComponent = (function () {
                     if (_this.allExpenses[i].subCategory === "Special Occasion") {
                         _this.expensesCategoryTotals[4].subCategory[5].total += _this.allExpenses[i].amount;
                     }
+                    if (_this.allExpenses[i].subCategory === "Giving") {
+                        _this.expensesCategoryTotals[4].subCategory[6].total += _this.allExpenses[i].amount;
+                    }
                 }
                 ;
                 if (_this.allExpenses[i].category === "Household") {
@@ -2356,6 +2452,15 @@ var BYTExpensesComponent = (function () {
                     if (_this.allExpenses[i].subCategory === "Wedding") {
                         _this.expensesCategoryTotals[9].subCategory[1].total += _this.allExpenses[i].amount;
                     }
+                    if (_this.allExpenses[i].subCategory === "Birthday parties") {
+                        _this.expensesCategoryTotals[9].subCategory[2].total += _this.allExpenses[i].amount;
+                    }
+                    if (_this.allExpenses[i].subCategory === "Baby showers") {
+                        _this.expensesCategoryTotals[9].subCategory[3].total += _this.allExpenses[i].amount;
+                    }
+                    if (_this.allExpenses[i].subCategory === "Special events") {
+                        _this.expensesCategoryTotals[9].subCategory[4].total += _this.allExpenses[i].amount;
+                    }
                 }
                 ;
                 if (_this.allExpenses[i].category === "Transportation") {
@@ -2456,15 +2561,6 @@ var BYTExpensesComponent = (function () {
             ;
         });
     };
-    BYTExpensesComponent.prototype.calculateTotal = function () {
-        var total = 0;
-        for (var i = 0; i < this.allExpenses.length; i++) {
-            total += Math.floor(this.allExpenses[i].amount);
-        }
-        ;
-        return this.totalSpentOnExpenses = total;
-    };
-    ;
     __decorate([
         core_1.ViewChild(byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent), 
         __metadata('design:type', byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent)

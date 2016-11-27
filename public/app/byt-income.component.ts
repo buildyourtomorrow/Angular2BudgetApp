@@ -10,8 +10,8 @@ import {BYTLastIncomeEntryComponent} from './byt-last-income-entry.component'
 	styleUrls: ['app/byt-income.component.css']
 })
 export class BYTIncomeComponent implements OnInit {
-	allIncome: Object[];
-	incomeCategoryTotals: Object[];
+	allIncome: any[];
+	incomeCategoryTotals: any[];
 	byt_active: boolean = true;
 	allIncomeLength: number;
 
@@ -26,7 +26,53 @@ export class BYTIncomeComponent implements OnInit {
 	getAllIncome(){
 		this._getBYTUser.getUser().subscribe(user => {
 			this.allIncome = user.income;
-			this.allIncomeLength = user.income.length; 			
+			this.allIncomeLength = user.income.length;
+
+			this.incomeCategoryTotals = [
+				{category: "Wages", total: 0},
+				{category: "Rental Property", total: 0},
+				{category: "Limited Partnerships", total: 0},
+				{category: "Market Investments", total: 0},
+				{category: "Sole Proprietorship", total: 0},
+				{category: "Corporation", total: 0},
+				{category: "Child Support", total: 0},
+				{category: "Taxes", total: 0},
+				{category: "Refund", total: 0},
+				{category: "Other", total: 0}
+			];
+
+			for (let i = 0; i < this.allIncome.length; i++){
+				if (this.allIncome[i].category === "Wages") {
+					this.incomeCategoryTotals[0].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Rental Property") {
+					this.incomeCategoryTotals[1].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Limited Partnerships") {
+					this.incomeCategoryTotals[2].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Market Investments") {
+					this.incomeCategoryTotals[3].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Sole Proprietorship") {
+					this.incomeCategoryTotals[4].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Corporation") {
+					this.incomeCategoryTotals[5].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Child Support") {
+					this.incomeCategoryTotals[6].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Taxes") {
+					this.incomeCategoryTotals[7].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Refund") {
+					this.incomeCategoryTotals[8].total += this.allIncome[i].amount;
+				};
+				if (this.allIncome[i].category === "Other") {
+					this.incomeCategoryTotals[9].total += this.allIncome[i].amount;
+				};
+			};
 		})
 	}
 
@@ -57,7 +103,9 @@ export class BYTIncomeComponent implements OnInit {
 			{category: "Sole Proprietorship", total: 0},
 			{category: "Corporation", total: 0},
 			{category: "Child Support", total: 0},
-			{category: "Taxes", total: 0}
+			{category: "Taxes", total: 0},
+			{category: "Refund", total: 0},
+			{category: "Other", total: 0}
 		];
 
 		for (let i = 0; i < this.allIncome.length; i++){
@@ -84,6 +132,12 @@ export class BYTIncomeComponent implements OnInit {
 			};
 			if (this.allIncome[i].category === "Taxes") {
 				this.incomeCategoryTotals[7].total += this.allIncome[i].amount;
+			};
+			if (this.allIncome[i].category === "Refund") {
+				this.incomeCategoryTotals[8].total += this.allIncome[i].amount;
+			};
+			if (this.allIncome[i].category === "Other") {
+				this.incomeCategoryTotals[9].total += this.allIncome[i].amount;
 			};
 		};
 	}

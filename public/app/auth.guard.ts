@@ -19,3 +19,21 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
+
+@Injectable()
+export class AuthCheck implements CanActivate {
+  constructor(private auth: Auth, private router: Router) {}
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if(this.auth.authenticated()){
+      console.log('passed')
+      this.router.navigate(['app/dashboard'])
+      return true;
+    }  
+    else {
+      console.log('blocked')
+      //this.router.navigate(['/login']);
+      return true;
+    }
+  }
+}

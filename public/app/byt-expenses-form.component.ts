@@ -50,7 +50,8 @@ export class BYTExpensesFormComponent {
         Giving:[
             { name: "Tithing"},
             { name: "Offerings"},
-            { name: "Charities"}
+            { name: "Charities"},
+            { name: "Family"}
         ],
         Household :[
             { name: "Toiletries"},
@@ -89,7 +90,10 @@ export class BYTExpensesFormComponent {
 		],
         Events: [
             { name: "Moving"},
-            { name: "Wedding"}
+            { name: "Wedding"},
+            { name: "Birthday parties"},
+            { name: "Baby showers"},
+            { name: "Special events"},
         ],
         Transportation: [
             { name: "Fuel"},
@@ -135,7 +139,7 @@ export class BYTExpensesFormComponent {
 		this.submitted = false;
 		this.expensesForm.emit(this.model);
         this._bytPostExpense.bytPostExpenseForm(this.model).subscribe(user => {})
-		this.model = new BYTExpenseFormModel(1, new Date, '', '');
+		this.model = new BYTExpenseFormModel(1, '', new Date, '', '', '');
 
 	}
 

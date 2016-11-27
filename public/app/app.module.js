@@ -42,6 +42,7 @@ var byt_home_component_1 = require("./byt-home.component");
 var auth_service_1 = require("./auth.service");
 var byt_login_component_1 = require("./byt-login.component");
 var auth_guard_1 = require("./auth.guard");
+var auth_guard_2 = require("./auth.guard");
 var byt_dashboard_overview_service_2 = require('./byt-dashboard-overview.service');
 var byt_dashboard_overview_service_3 = require("./byt-dashboard-overview.service");
 var byt_dashboard_overview_service_4 = require("./byt-dashboard-overview.service");
@@ -49,7 +50,7 @@ var byt_dashboard_overview_service_5 = require("./byt-dashboard-overview.service
 var byt_dashboard_overview_service_6 = require("./byt-dashboard-overview.service");
 var byt_app_component_1 = require("./byt-app.component");
 var routes = [
-    { path: 'login', component: byt_login_component_1.BYTLoginComponent },
+    { path: 'login', component: byt_login_component_1.BYTLoginComponent, canActivate: [auth_guard_2.AuthCheck] },
     { path: '', component: byt_home_component_1.BYTHomeComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'app', component: byt_app_component_1.BYTAppComponent, canActivate: [auth_guard_1.AuthGuard],
         children: [
@@ -91,7 +92,7 @@ var AppModule = (function () {
                 byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_bills_form_component_1.BYTBillsFormComponent,
                 byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent, byt_expenses_component_1.BYTExpensesComponent, byt_expenses_form_component_1.BYTExpensesFormComponent, byt_education_component_1.BYTEducationComponent,
                 byt_home_component_1.BYTHomeComponent, byt_login_component_1.BYTLoginComponent, byt_app_component_1.BYTAppComponent],
-            providers: [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, angular2_jwt_1.AUTH_PROVIDERS, auth_guard_1.AuthGuard, byt_dashboard_overview_service_2.BYTPostProjections, byt_dashboard_overview_service_3.BYTPostIncome, byt_dashboard_overview_service_4.BYTPostBill,
+            providers: [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, angular2_jwt_1.AUTH_PROVIDERS, auth_guard_1.AuthGuard, auth_guard_2.AuthCheck, byt_dashboard_overview_service_2.BYTPostProjections, byt_dashboard_overview_service_3.BYTPostIncome, byt_dashboard_overview_service_4.BYTPostBill,
                 byt_dashboard_overview_service_5.BYTPostExpense, byt_dashboard_overview_service_6.BYTRemoveTransaction],
             bootstrap: [app_component_1.AppComponent]
         }), 

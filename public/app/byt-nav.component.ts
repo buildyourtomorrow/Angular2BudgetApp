@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 import {GetBYTUser} from './byt-dashboard-overview.service';
 import {Auth} from './auth.service';
@@ -11,7 +12,7 @@ import {Auth} from './auth.service';
 })
 export class BYTNavComponent implements OnInit {
 	nickName: string;
-	constructor (private _getBYTUser: GetBYTUser, private _auth: Auth) {}
+	constructor (private _getBYTUser: GetBYTUser, private _auth: Auth, private router: Router) {}
 
 	ngOnInit(){
 		this._getBYTUser.getUser().subscribe(user => {
@@ -21,7 +22,8 @@ export class BYTNavComponent implements OnInit {
 
 	logout(){
 		this._auth.logout();
-		window.location.href='http://app.buildyourtomorrow.com';
+		this.router.navigate(['login'])
+		//window.location.href='http://app.buildyourtomorrow.com';
 	}
 
 }

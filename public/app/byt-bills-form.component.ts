@@ -53,13 +53,15 @@ export class BYTBillsFormComponent {
         Insurance:[
             { name: "Car insurance"},
             { name: "Homeowner's insurance"},
-            { name: "Renter's insurance"}
+            { name: "Renter's insurance"},
+            { name: "Life insurance"}
         ],
         Debt :[
             { name: "Credit card"},
             { name: "Student loan"},
             { name: "Personal loan"},
-            { name: "Car loan"}
+            { name: "Car loan"},
+            { name: "Medical"}
 		],
 		Taxes :[
             { name: "Personal"},
@@ -67,7 +69,8 @@ export class BYTBillsFormComponent {
             { name: "House"}
 		],
 		Entertainment: [
-			{ name: "Streaming movies/music"}
+			{ name: "Streaming movies/music"},
+            { name: "Monthly subscriptions"}
 		],
 		ChildCare: [
 			{ name: "Babysitter"},
@@ -87,7 +90,7 @@ export class BYTBillsFormComponent {
 		this.submitted = false;
 		this.billsForm.emit(this.model);
         this._bytPostBill.bytPostBillForm(this.model).subscribe(user => {})
-		this.model = new BYTBillFormModel(1, new Date, '', '');
+		this.model = new BYTBillFormModel(1, '', new Date, '', '', '');
 	}
 
 }

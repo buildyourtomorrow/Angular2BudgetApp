@@ -53,13 +53,15 @@ var BYTBillsFormComponent = (function () {
             Insurance: [
                 { name: "Car insurance" },
                 { name: "Homeowner's insurance" },
-                { name: "Renter's insurance" }
+                { name: "Renter's insurance" },
+                { name: "Life insurance" }
             ],
             Debt: [
                 { name: "Credit card" },
                 { name: "Student loan" },
                 { name: "Personal loan" },
-                { name: "Car loan" }
+                { name: "Car loan" },
+                { name: "Medical" }
             ],
             Taxes: [
                 { name: "Personal" },
@@ -67,7 +69,8 @@ var BYTBillsFormComponent = (function () {
                 { name: "House" }
             ],
             Entertainment: [
-                { name: "Streaming movies/music" }
+                { name: "Streaming movies/music" },
+                { name: "Monthly subscriptions" }
             ],
             ChildCare: [
                 { name: "Babysitter" },
@@ -86,7 +89,7 @@ var BYTBillsFormComponent = (function () {
         this.submitted = false;
         this.billsForm.emit(this.model);
         this._bytPostBill.bytPostBillForm(this.model).subscribe(function (user) { });
-        this.model = new byt_bill_form_model_component_1.BYTBillFormModel(1, new Date, '', '');
+        this.model = new byt_bill_form_model_component_1.BYTBillFormModel(1, '', new Date, '', '', '');
     };
     BYTBillsFormComponent = __decorate([
         core_1.Component({

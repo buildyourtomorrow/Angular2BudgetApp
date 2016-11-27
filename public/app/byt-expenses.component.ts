@@ -4,14 +4,20 @@ import {GetBYTUser} from './byt-dashboard-overview.service';
 import {BYTRemoveTransaction} from "./byt-dashboard-overview.service";
 import {BYTLastExpenseEntryComponent} from './byt-last-expense-entry.component';
 
+/*
+All of the expense categories need to update any time that an expense is either added or removed from all expenses. Therefore, the expensesCategoryTotals object
+is reset then the for loops add up all categories once again. This happens on three occassions. When an expense is added or removed by the user as mentioned 
+above and when the component is first initialized.
+*/
+
 @Component({
 	selector: 'byt-expenses',
 	templateUrl: '/app/byt-expenses.component.html',
 	styleUrls: ['app/byt-expenses.component.css']
 })
 export class BYTExpensesComponent implements OnInit {
-	allExpenses: Object[];
-	expensesCategoryTotals: Object[] =
+	allExpenses: any[];
+	expensesCategoryTotals: any[] =
 	[{
 		category: "Clothing",
 		total: 0,
@@ -122,6 +128,10 @@ export class BYTExpensesComponent implements OnInit {
 		},
 		{
 			name: "Charities",
+			total: 0
+		},
+		{
+			name: "Family",
 			total: 0
 		}]
 	},
@@ -263,6 +273,18 @@ export class BYTExpensesComponent implements OnInit {
 		},
 		{
 			name: "Wedding",
+			total: 0 
+		},
+		{
+			name: "Birthday parties",
+			total: 0 
+		},
+		{
+			name: "Baby showers",
+			total: 0 
+		},
+		{
+			name: "Special events",
 			total: 0 
 		}]
 	},
@@ -516,6 +538,10 @@ export class BYTExpensesComponent implements OnInit {
 			{
 				name: "Charities",
 				total: 0
+			},
+			{
+				name: "Family",
+				total: 0
 			}]
 		},
 		{ 
@@ -656,6 +682,18 @@ export class BYTExpensesComponent implements OnInit {
 			},
 			{
 				name: "Wedding",
+				total: 0 
+			},
+			{
+				name: "Birthday parties",
+				total: 0 
+			},
+			{
+				name: "Baby showers",
+				total: 0 
+			},
+			{
+				name: "Special events",
 				total: 0 
 			}]
 		},
@@ -874,6 +912,9 @@ export class BYTExpensesComponent implements OnInit {
 				if (this.allExpenses[i].subCategory === "Special Occasion") {
 					this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
 				}
+				if (this.allExpenses[i].subCategory === "Giving") {
+					this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
+				}
 			};
 			if (this.allExpenses[i].category === "Household") {
 				this.expensesCategoryTotals[5].total += this.allExpenses[i].amount;	
@@ -975,6 +1016,15 @@ export class BYTExpensesComponent implements OnInit {
 				}
 				if (this.allExpenses[i].subCategory === "Wedding") {
 					this.expensesCategoryTotals[9].subCategory[1].total += this.allExpenses[i].amount;
+				}
+				if (this.allExpenses[i].subCategory === "Birthday parties") {
+					this.expensesCategoryTotals[9].subCategory[2].total += this.allExpenses[i].amount;
+				}
+				if (this.allExpenses[i].subCategory === "Baby showers") {
+					this.expensesCategoryTotals[9].subCategory[3].total += this.allExpenses[i].amount;
+				}
+				if (this.allExpenses[i].subCategory === "Special events") {
+					this.expensesCategoryTotals[9].subCategory[4].total += this.allExpenses[i].amount;
 				}
 			};
 			if (this.allExpenses[i].category === "Transportation") {
@@ -1192,6 +1242,10 @@ export class BYTExpensesComponent implements OnInit {
 			{
 				name: "Charities",
 				total: 0
+			},
+			{
+				name: "Family",
+				total: 0
 			}]
 		},
 		{ 
@@ -1332,6 +1386,18 @@ export class BYTExpensesComponent implements OnInit {
 			},
 			{
 				name: "Wedding",
+				total: 0 
+			},
+			{
+				name: "Birthday parties",
+				total: 0 
+			},
+			{
+				name: "Baby showers",
+				total: 0 
+			},
+			{
+				name: "Special events",
 				total: 0 
 			}]
 		},
@@ -1550,6 +1616,9 @@ export class BYTExpensesComponent implements OnInit {
 				if (this.allExpenses[i].subCategory === "Special Occasion") {
 					this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
 				}
+				if (this.allExpenses[i].subCategory === "Giving") {
+					this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
+				}
 			};
 			if (this.allExpenses[i].category === "Household") {
 				this.expensesCategoryTotals[5].total += this.allExpenses[i].amount;	
@@ -1651,6 +1720,15 @@ export class BYTExpensesComponent implements OnInit {
 				}
 				if (this.allExpenses[i].subCategory === "Wedding") {
 					this.expensesCategoryTotals[9].subCategory[1].total += this.allExpenses[i].amount;
+				}
+				if (this.allExpenses[i].subCategory === "Birthday parties") {
+					this.expensesCategoryTotals[9].subCategory[2].total += this.allExpenses[i].amount;
+				}
+				if (this.allExpenses[i].subCategory === "Baby showers") {
+					this.expensesCategoryTotals[9].subCategory[3].total += this.allExpenses[i].amount;
+				}
+				if (this.allExpenses[i].subCategory === "Special events") {
+					this.expensesCategoryTotals[9].subCategory[4].total += this.allExpenses[i].amount;
 				}
 			};
 			if (this.allExpenses[i].category === "Transportation") {
@@ -1862,6 +1940,10 @@ export class BYTExpensesComponent implements OnInit {
 				{
 					name: "Charities",
 					total: 0
+				},
+				{
+					name: "x",
+					total: 0
 				}]
 			},
 			{ 
@@ -2002,6 +2084,18 @@ export class BYTExpensesComponent implements OnInit {
 				},
 				{
 					name: "Wedding",
+					total: 0 
+				},
+				{
+					name: "Birthday parties",
+					total: 0 
+				},
+				{
+					name: "Baby showers",
+					total: 0 
+				},
+				{
+					name: "Special events",
 					total: 0 
 				}]
 			},
@@ -2220,6 +2314,9 @@ export class BYTExpensesComponent implements OnInit {
 					if (this.allExpenses[i].subCategory === "Special Occasion") {
 						this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
 					}
+					if (this.allExpenses[i].subCategory === "Giving") {
+						this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
+					}
 				};
 				if (this.allExpenses[i].category === "Household") {
 					this.expensesCategoryTotals[5].total += this.allExpenses[i].amount;	
@@ -2322,6 +2419,15 @@ export class BYTExpensesComponent implements OnInit {
 					if (this.allExpenses[i].subCategory === "Wedding") {
 						this.expensesCategoryTotals[9].subCategory[1].total += this.allExpenses[i].amount;
 					}
+					if (this.allExpenses[i].subCategory === "Birthday parties") {
+						this.expensesCategoryTotals[9].subCategory[2].total += this.allExpenses[i].amount;
+					}
+					if (this.allExpenses[i].subCategory === "Baby showers") {
+						this.expensesCategoryTotals[9].subCategory[3].total += this.allExpenses[i].amount;
+					}
+					if (this.allExpenses[i].subCategory === "Special events") {
+						this.expensesCategoryTotals[9].subCategory[4].total += this.allExpenses[i].amount;
+					}
 				};
 				if (this.allExpenses[i].category === "Transportation") {
 					this.expensesCategoryTotals[10].total += this.allExpenses[i].amount;	
@@ -2416,13 +2522,4 @@ export class BYTExpensesComponent implements OnInit {
 			};
 		});
 	}
-
-	calculateTotal(){
-		let total = 0;	
-		for (let i = 0; i < this.allExpenses.length; i++) {
-			total += Math.floor(this.allExpenses[i].amount);
-		};
-		return this.totalSpentOnExpenses = total;
-	};
-
 }

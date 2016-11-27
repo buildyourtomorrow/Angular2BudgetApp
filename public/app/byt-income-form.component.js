@@ -25,7 +25,9 @@ var BYTIncomeFormComponent = (function () {
             { name: "Sole Proprietorship" },
             { name: "Corporation" },
             { name: "Child Support" },
-            { name: "Taxes" }
+            { name: "Taxes" },
+            { name: "Refund" },
+            { name: "Other" }
         ];
     }
     BYTIncomeFormComponent.prototype.submitIncome = function () {
@@ -35,7 +37,7 @@ var BYTIncomeFormComponent = (function () {
         this.submitted = false;
         this.incomeForm.emit(this.model);
         this._bytPostIncome.bytPostIncomeForm(this.model).subscribe(function (user) { });
-        this.model = new byt_income_form_model_1.BYTIncomeFormModel(1, new Date, '', '');
+        this.model = new byt_income_form_model_1.BYTIncomeFormModel(1, '', new Date, '', '');
     };
     BYTIncomeFormComponent = __decorate([
         core_1.Component({

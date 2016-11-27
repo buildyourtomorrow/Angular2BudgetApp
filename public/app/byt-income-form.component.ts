@@ -25,7 +25,9 @@ export class BYTIncomeFormComponent {
 		{ name: "Sole Proprietorship" },
 		{ name: "Corporation" },
 		{ name: "Child Support" },
-		{ name: "Taxes" }
+		{ name: "Taxes" },
+		{ name: "Refund" },
+		{ name: "Other" }
 	];
 
 	submitIncome(){
@@ -36,7 +38,7 @@ export class BYTIncomeFormComponent {
 		this.submitted = false;
 		this.incomeForm.emit(this.model);
 		this._bytPostIncome.bytPostIncomeForm(this.model).subscribe(user => {})
-		this.model = new BYTIncomeFormModel(1, new Date, '', '');
+		this.model = new BYTIncomeFormModel(1, '', new Date, '', '');
 	}
 
 }

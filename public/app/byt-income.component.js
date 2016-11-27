@@ -27,6 +27,61 @@ var BYTIncomeComponent = (function () {
         this._getBYTUser.getUser().subscribe(function (user) {
             _this.allIncome = user.income;
             _this.allIncomeLength = user.income.length;
+            _this.incomeCategoryTotals = [
+                { category: "Wages", total: 0 },
+                { category: "Rental Property", total: 0 },
+                { category: "Limited Partnerships", total: 0 },
+                { category: "Market Investments", total: 0 },
+                { category: "Sole Proprietorship", total: 0 },
+                { category: "Corporation", total: 0 },
+                { category: "Child Support", total: 0 },
+                { category: "Taxes", total: 0 },
+                { category: "Refund", total: 0 },
+                { category: "Other", total: 0 }
+            ];
+            for (var i = 0; i < _this.allIncome.length; i++) {
+                if (_this.allIncome[i].category === "Wages") {
+                    _this.incomeCategoryTotals[0].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Rental Property") {
+                    _this.incomeCategoryTotals[1].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Limited Partnerships") {
+                    _this.incomeCategoryTotals[2].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Market Investments") {
+                    _this.incomeCategoryTotals[3].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Sole Proprietorship") {
+                    _this.incomeCategoryTotals[4].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Corporation") {
+                    _this.incomeCategoryTotals[5].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Child Support") {
+                    _this.incomeCategoryTotals[6].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Taxes") {
+                    _this.incomeCategoryTotals[7].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Refund") {
+                    _this.incomeCategoryTotals[8].total += _this.allIncome[i].amount;
+                }
+                ;
+                if (_this.allIncome[i].category === "Other") {
+                    _this.incomeCategoryTotals[9].total += _this.allIncome[i].amount;
+                }
+                ;
+            }
+            ;
         });
     };
     BYTIncomeComponent.prototype.childIncomeForm = function ($event) {
@@ -55,7 +110,9 @@ var BYTIncomeComponent = (function () {
             { category: "Sole Proprietorship", total: 0 },
             { category: "Corporation", total: 0 },
             { category: "Child Support", total: 0 },
-            { category: "Taxes", total: 0 }
+            { category: "Taxes", total: 0 },
+            { category: "Refund", total: 0 },
+            { category: "Other", total: 0 }
         ];
         for (var i = 0; i < this.allIncome.length; i++) {
             if (this.allIncome[i].category === "Wages") {
@@ -88,6 +145,14 @@ var BYTIncomeComponent = (function () {
             ;
             if (this.allIncome[i].category === "Taxes") {
                 this.incomeCategoryTotals[7].total += this.allIncome[i].amount;
+            }
+            ;
+            if (this.allIncome[i].category === "Refund") {
+                this.incomeCategoryTotals[8].total += this.allIncome[i].amount;
+            }
+            ;
+            if (this.allIncome[i].category === "Other") {
+                this.incomeCategoryTotals[9].total += this.allIncome[i].amount;
             }
             ;
         }

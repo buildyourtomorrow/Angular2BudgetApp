@@ -4,14 +4,20 @@ import {GetBYTUser} from './byt-dashboard-overview.service';
 import {BYTRemoveTransaction} from "./byt-dashboard-overview.service";
 import {BYTLastBillEntryComponent} from './byt-last-bill-entry.component';
 
+/*
+All of the bill categories need to update any time that a bill is either added or removed from all bills. Therefore, the billsCategoryTotals object is 
+reset then the for loops add up all categories once again. This happens on three occassions. When a bill is added or removed by the user as mentioned above
+and when the component is first initialized.
+*/
+
 @Component({
 	selector: 'byt-bills',
 	templateUrl: '/app/byt-bills.component.html',
 	styleUrls: ['app/byt-bills.component.css']
 })
 export class BYTBillsComponent implements OnInit {
-	allBills: Object[];
-	billsCategoryTotals: Object[] = 
+	allBills: any[];
+	billsCategoryTotals: any[] = 
 	[{
 		category: "Housing",
 		total: 0,
@@ -135,6 +141,10 @@ export class BYTBillsComponent implements OnInit {
 		{
 			name: "Renter's insurance",
 			total: 0
+		},
+		{
+			name: "Life insurance",
+			total: 0
 		}]
 	},
 	{ 
@@ -155,6 +165,10 @@ export class BYTBillsComponent implements OnInit {
 		},
 		{
 			name: "Car loan",
+			total: 0
+		},
+		{
+			name: "Medical",
 			total: 0
 		}]
 	},
@@ -181,6 +195,10 @@ export class BYTBillsComponent implements OnInit {
 		show: true,
 		subCategory: [{
 			name: "Streaming movies/music",
+			total: 0 
+		},
+		{
+			name: "Monthly subscriptions",
 			total: 0 
 		}]
 	},
@@ -214,6 +232,7 @@ export class BYTBillsComponent implements OnInit {
 		}]
 	}];
 	byt_active: boolean = true;
+	isRequesting: boolean;
 	allBillsLength: number;
 	totalSpentOnBills: number;
 
@@ -351,6 +370,10 @@ export class BYTBillsComponent implements OnInit {
 			{
 				name: "Renter's insurance",
 				total: 0
+			},
+			{
+				name: "Life insurance",
+				total: 0
 			}]
 		},
 		{ 
@@ -371,6 +394,10 @@ export class BYTBillsComponent implements OnInit {
 			},
 			{
 				name: "Car loan",
+				total: 0
+			},
+			{
+				name: "Medical",
 				total: 0
 			}]
 		},
@@ -397,6 +424,10 @@ export class BYTBillsComponent implements OnInit {
 			show: true,
 			subCategory: [{
 				name: "Streaming movies/music",
+				total: 0 
+			},
+			{
+				name: "Monthly subscriptions",
 				total: 0 
 			}]
 		},
@@ -520,6 +551,9 @@ export class BYTBillsComponent implements OnInit {
 				if (this.allBills[i].subCategory === "Renter's insurance") {
 					this.billsCategoryTotals[4].subCategory[2].total += this.allBills[i].amount;
 				}
+				if (this.allBills[i].subCategory === "Life insurance") {
+					this.billsCategoryTotals[4].subCategory[3].total += this.allBills[i].amount;
+				}
 			};
 			if (this.allBills[i].category === "Debt") {
 				this.billsCategoryTotals[5].total += this.allBills[i].amount;	
@@ -534,6 +568,9 @@ export class BYTBillsComponent implements OnInit {
 				}
 				if (this.allBills[i].subCategory === "Car loan") {
 					this.billsCategoryTotals[5].subCategory[3].total += this.allBills[i].amount;
+				}
+				if (this.allBills[i].subCategory === "Medical") {
+					this.billsCategoryTotals[5].subCategory[4].total += this.allBills[i].amount;
 				}
 			};
 			if (this.allBills[i].category === "Taxes") {
@@ -552,6 +589,9 @@ export class BYTBillsComponent implements OnInit {
 				this.billsCategoryTotals[7].total += this.allBills[i].amount;	
 				if (this.allBills[i].subCategory === "Streaming movies/music") {
 					this.billsCategoryTotals[7].subCategory[0].total += this.allBills[i].amount;
+				}
+				if (this.allBills[i].subCategory === "Monthly subscriptions") {
+					this.billsCategoryTotals[7].subCategory[1].total += this.allBills[i].amount;
 				}
 			};
 			if (this.allBills[i].category === "ChildCare") {
@@ -576,8 +616,11 @@ export class BYTBillsComponent implements OnInit {
 				}
 			};
 		};
+		// update the back end with the code just below.
 		this._bytRemoveTransaction.bytRemoveBill(index).subscribe(user => {});
+		// update the view
 		this.allBillsLength = this.allBills.length;
+		// update last transaction component
 		this._lastBillEntry.updateViewFunction(this.allBills);
 		if(this.allBillsLength === 0){
 			this.byt_active = true;
@@ -712,6 +755,10 @@ export class BYTBillsComponent implements OnInit {
 			{
 				name: "Renter's insurance",
 				total: 0
+			},
+			{
+				name: "Life insurance",
+				total: 0
 			}]
 		},
 		{ 
@@ -732,6 +779,10 @@ export class BYTBillsComponent implements OnInit {
 			},
 			{
 				name: "Car loan",
+				total: 0
+			},
+			{
+				name: "Medical",
 				total: 0
 			}]
 		},
@@ -758,6 +809,10 @@ export class BYTBillsComponent implements OnInit {
 			show: true,
 			subCategory: [{
 				name: "Streaming movies/music",
+				total: 0 
+			},
+			{
+				name: "Monthly subscriptions",
 				total: 0 
 			}]
 		},
@@ -881,6 +936,9 @@ export class BYTBillsComponent implements OnInit {
 				if (this.allBills[i].subCategory === "Renter's insurance") {
 					this.billsCategoryTotals[4].subCategory[2].total += this.allBills[i].amount;
 				}
+				if (this.allBills[i].subCategory === "Life insurance") {
+					this.billsCategoryTotals[4].subCategory[3].total += this.allBills[i].amount;
+				}
 			};
 			if (this.allBills[i].category === "Debt") {
 				this.billsCategoryTotals[5].total += this.allBills[i].amount;	
@@ -895,6 +953,9 @@ export class BYTBillsComponent implements OnInit {
 				}
 				if (this.allBills[i].subCategory === "Car loan") {
 					this.billsCategoryTotals[5].subCategory[3].total += this.allBills[i].amount;
+				}
+				if (this.allBills[i].subCategory === "Medical") {
+					this.billsCategoryTotals[5].subCategory[4].total += this.allBills[i].amount;
 				}
 			};
 			if (this.allBills[i].category === "Taxes") {
@@ -913,6 +974,9 @@ export class BYTBillsComponent implements OnInit {
 				this.billsCategoryTotals[7].total += this.allBills[i].amount;	
 				if (this.allBills[i].subCategory === "Streaming movies/music") {
 					this.billsCategoryTotals[7].subCategory[0].total += this.allBills[i].amount;
+				}
+				if (this.allBills[i].subCategory === "Monthly subscriptions") {
+					this.billsCategoryTotals[7].subCategory[1].total += this.allBills[i].amount;
 				}
 			};
 			if (this.allBills[i].category === "ChildCare") {
@@ -937,7 +1001,6 @@ export class BYTBillsComponent implements OnInit {
 				}
 			};
 		};
-		this.calculateTotal();
 	}
 
 	getAllBills(){
@@ -947,7 +1010,7 @@ export class BYTBillsComponent implements OnInit {
 			this.allBillsLength = user.monthlyBills.length; 
 
 			this.billsCategoryTotals = 
-			[{
+				[{
 				category: "Housing",
 				total: 0,
 				show: true,
@@ -1070,6 +1133,10 @@ export class BYTBillsComponent implements OnInit {
 				{
 					name: "Renter's insurance",
 					total: 0
+				},
+				{
+					name: "Life insurance",
+					total: 0
 				}]
 			},
 			{ 
@@ -1090,6 +1157,10 @@ export class BYTBillsComponent implements OnInit {
 				},
 				{
 					name: "Car loan",
+					total: 0
+				},
+				{
+					name: "Medical",
 					total: 0
 				}]
 			},
@@ -1116,6 +1187,10 @@ export class BYTBillsComponent implements OnInit {
 				show: true,
 				subCategory: [{
 					name: "Streaming movies/music",
+					total: 0 
+				},
+				{
+					name: "Monthly subscriptions",
 					total: 0 
 				}]
 			},
@@ -1239,6 +1314,9 @@ export class BYTBillsComponent implements OnInit {
 					if (this.allBills[i].subCategory === "Renter's insurance") {
 						this.billsCategoryTotals[4].subCategory[2].total += this.allBills[i].amount;
 					}
+					if (this.allBills[i].subCategory === "Life insurance") {
+						this.billsCategoryTotals[4].subCategory[3].total += this.allBills[i].amount;
+					}
 				};
 				if (this.allBills[i].category === "Debt") {
 					this.billsCategoryTotals[5].total += this.allBills[i].amount;	
@@ -1253,6 +1331,9 @@ export class BYTBillsComponent implements OnInit {
 					}
 					if (this.allBills[i].subCategory === "Car loan") {
 						this.billsCategoryTotals[5].subCategory[3].total += this.allBills[i].amount;
+					}
+					if (this.allBills[i].subCategory === "Medical") {
+						this.billsCategoryTotals[5].subCategory[4].total += this.allBills[i].amount;
 					}
 				};
 				if (this.allBills[i].category === "Taxes") {
@@ -1271,6 +1352,9 @@ export class BYTBillsComponent implements OnInit {
 					this.billsCategoryTotals[7].total += this.allBills[i].amount;	
 					if (this.allBills[i].subCategory === "Streaming movies/music") {
 						this.billsCategoryTotals[7].subCategory[0].total += this.allBills[i].amount;
+					}
+					if (this.allBills[i].subCategory === "Monthly subscriptions") {
+						this.billsCategoryTotals[7].subCategory[1].total += this.allBills[i].amount;
 					}
 				};
 				if (this.allBills[i].category === "ChildCare") {
@@ -1297,13 +1381,4 @@ export class BYTBillsComponent implements OnInit {
 			};
 		});
 	}
-
-	calculateTotal(){
-		let total = 0;	
-		for (let i = 0; i < this.allBills.length; i++) {
-			total += Math.floor(this.allBills[i].amount);
-		};
-		return this.totalSpentOnBills = total;
-	};
-
 }

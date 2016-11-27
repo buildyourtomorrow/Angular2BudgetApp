@@ -50,7 +50,8 @@ var BYTExpensesFormComponent = (function () {
             Giving: [
                 { name: "Tithing" },
                 { name: "Offerings" },
-                { name: "Charities" }
+                { name: "Charities" },
+                { name: "Family" }
             ],
             Household: [
                 { name: "Toiletries" },
@@ -89,7 +90,10 @@ var BYTExpensesFormComponent = (function () {
             ],
             Events: [
                 { name: "Moving" },
-                { name: "Wedding" }
+                { name: "Wedding" },
+                { name: "Birthday parties" },
+                { name: "Baby showers" },
+                { name: "Special events" },
             ],
             Transportation: [
                 { name: "Fuel" },
@@ -134,7 +138,7 @@ var BYTExpensesFormComponent = (function () {
         this.submitted = false;
         this.expensesForm.emit(this.model);
         this._bytPostExpense.bytPostExpenseForm(this.model).subscribe(function (user) { });
-        this.model = new byt_expense_form_model_component_1.BYTExpenseFormModel(1, new Date, '', '');
+        this.model = new byt_expense_form_model_component_1.BYTExpenseFormModel(1, '', new Date, '', '', '');
     };
     BYTExpensesFormComponent = __decorate([
         core_1.Component({

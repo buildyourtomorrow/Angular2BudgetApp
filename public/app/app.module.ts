@@ -33,6 +33,7 @@ import {BYTHomeComponent} from "./byt-home.component";
 import {Auth} from "./auth.service";
 import {BYTLoginComponent} from "./byt-login.component";
 import {AuthGuard} from "./auth.guard";
+import {AuthCheck} from "./auth.guard";
 import {BYTPostProjections} from './byt-dashboard-overview.service';
 import {BYTPostIncome} from "./byt-dashboard-overview.service";
 import {BYTPostBill} from "./byt-dashboard-overview.service";
@@ -42,7 +43,7 @@ import {BYTAppComponent} from "./byt-app.component";
 
 const routes: Routes = [
   
-  { path: 'login', component: BYTLoginComponent },
+  { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
   { path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
   { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard], 
     children: 
@@ -82,7 +83,7 @@ const routes: Routes = [
   				  BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
             BYTHomeComponent, BYTLoginComponent, BYTAppComponent],
-  providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, BYTPostProjections, BYTPostIncome, BYTPostBill, 
+  providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
   bootstrap: [ AppComponent ]
 })

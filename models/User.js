@@ -209,7 +209,9 @@ UserSchema.methods.calcIncomeCategoryTotals = function(){
 		{category: "Sole Proprietorship", total: 0},
 		{category: "Corporation", total: 0},
 		{category: "Child Support", total: 0},
-		{category: "Taxes", total: 0}
+		{category: "Taxes", total: 0},
+		{category: "Refund", total: 0},
+		{category: "Other", total: 0}
 	];
 
 	for (i = 0; i < this.income.length; i++){
@@ -235,6 +237,12 @@ UserSchema.methods.calcIncomeCategoryTotals = function(){
 			this.incomeCategoryTotals[6].total += this.income[i].amount;
 		};
 		if (this.income[i].category === "Taxes") {
+			this.incomeCategoryTotals[7].total += this.income[i].amount;
+		};
+		if (this.income[i].category === "Refund") {
+			this.incomeCategoryTotals[6].total += this.income[i].amount;
+		};
+		if (this.income[i].category === "Other") {
 			this.incomeCategoryTotals[7].total += this.income[i].amount;
 		};
 		this.save();
@@ -360,6 +368,10 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			{
 				name: "Renter's insurance",
 				total: 0
+			},
+			{
+				name: "Life insurance",
+				total: 0
 			}]
 		},
 		{ 
@@ -379,6 +391,10 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			},
 			{
 				name: "Car loan",
+				total: 0
+			},
+			{
+				name: "Medical",
 				total: 0
 			}]
 		},
@@ -403,6 +419,10 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			total: 0,
 			subCategory: [{
 				name: "Streaming movies/music",
+				total: 0 
+			},
+			{
+				name: "Monthly subscriptions",
 				total: 0 
 			}]
 		},
@@ -526,6 +546,9 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			if (this.monthlyBills[i].subCategory === "Renter's insurance") {
 				this.billsCategoryTotals[4].subCategory[2].total += this.monthlyBills[i].amount;
 			}
+			if (this.monthlyBills[i].subCategory === "Life insurance") {
+				this.billsCategoryTotals[4].subCategory[3].total += this.monthlyBills[i].amount;
+			}
 		};
 		if (this.monthlyBills[i].category === "Debt") {
 			this.billsCategoryTotals[5].total += this.monthlyBills[i].amount;	
@@ -540,6 +563,9 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			}
 			if (this.monthlyBills[i].subCategory === "Car loan") {
 				this.billsCategoryTotals[5].subCategory[3].total += this.monthlyBills[i].amount;
+			}
+			if (this.monthlyBills[i].subCategory === "Medical") {
+				this.billsCategoryTotals[5].subCategory[4].total += this.monthlyBills[i].amount;
 			}
 		};
 		if (this.monthlyBills[i].category === "Taxes") {
@@ -558,6 +584,9 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			this.billsCategoryTotals[7].total += this.monthlyBills[i].amount;	
 			if (this.monthlyBills[i].subCategory === "Streaming movies/music") {
 				this.billsCategoryTotals[7].subCategory[0].total += this.monthlyBills[i].amount;
+			}
+			if (this.monthlyBills[i].subCategory === "Monthly subscriptions") {
+				this.billsCategoryTotals[7].subCategory[1].total += this.monthlyBills[i].amount;
 			}
 		};
 		if (this.monthlyBills[i].category === "Child Care") {
@@ -692,6 +721,10 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			},
 			{
 				name: "Charities",
+				total: 0
+			},
+			{
+				name: "Family",
 				total: 0
 			}]
 		},
@@ -828,6 +861,18 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			},
 			{
 				name: "Wedding",
+				total: 0 
+			},
+			{
+				name: "Birthday parties",
+				total: 0 
+			},
+			{
+				name: "Baby showers",
+				total: 0 
+			},
+			{
+				name: "Special events",
 				total: 0 
 			}]
 		},
@@ -1042,6 +1087,9 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			if (this.monthlyExpenses[i].subCategory === "Special Occasion") {
 				this.expCategoryTotals[4].subCategory[5].total += this.monthlyExpenses[i].amount;
 			}
+			if (this.monthlyExpenses[i].subCategory === "Family") {
+				this.expCategoryTotals[4].subCategory[6].total += this.monthlyExpenses[i].amount;
+			}
 		};
 		if (this.monthlyExpenses[i].category === "Household") {
 			this.expCategoryTotals[5].total += this.monthlyExpenses[i].amount;	
@@ -1143,6 +1191,15 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			}
 			if (this.monthlyExpenses[i].subCategory === "Wedding") {
 				this.expCategoryTotals[9].subCategory[1].total += this.monthlyExpenses[i].amount;
+			}
+			if (this.monthlyExpenses[i].subCategory === "Birthday parties") {
+				this.expCategoryTotals[9].subCategory[2].total += this.monthlyExpenses[i].amount;
+			}
+			if (this.monthlyExpenses[i].subCategory === "Baby showers") {
+				this.expCategoryTotals[9].subCategory[3].total += this.monthlyExpenses[i].amount;
+			}
+			if (this.monthlyExpenses[i].subCategory === "Special events") {
+				this.expCategoryTotals[9].subCategory[4].total += this.monthlyExpenses[i].amount;
 			}
 		};
 		if (this.monthlyExpenses[i].category === "Transportation") {

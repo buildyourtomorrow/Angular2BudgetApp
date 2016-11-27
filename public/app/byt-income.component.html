@@ -25,6 +25,15 @@
 				</section>
 			</section>
 		</section>
+		<section *ngIf="allIncomeLength > 0" class="panel-group">
+			<section *ngFor="let category of incomeCategoryTotals | bytOrderBy">
+				<section class="panel">
+					<section class="panel-heading" *ngIf="category.total > 0">
+						<section class="panel-title" style="font-size: 14px; text-decoration: none; margin: 2px;">{{category.category}} - {{category.total | number:'.0-0'}}</section>	
+					</section>
+				</section>
+			</section>
+		</section>
     </section>
 </section>
 <byt-income-form (incomeForm)="childIncomeForm($event)"></byt-income-form>

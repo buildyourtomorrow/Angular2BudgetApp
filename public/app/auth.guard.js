@@ -34,4 +34,28 @@ var AuthGuard = (function () {
     return AuthGuard;
 }());
 exports.AuthGuard = AuthGuard;
+var AuthCheck = (function () {
+    function AuthCheck(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    AuthCheck.prototype.canActivate = function (next, state) {
+        if (this.auth.authenticated()) {
+            console.log('passed');
+            this.router.navigate(['app/dashboard']);
+            return true;
+        }
+        else {
+            console.log('blocked');
+            //this.router.navigate(['/login']);
+            return true;
+        }
+    };
+    AuthCheck = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [auth_service_1.Auth, router_1.Router])
+    ], AuthCheck);
+    return AuthCheck;
+}());
+exports.AuthCheck = AuthCheck;
 //# sourceMappingURL=auth.guard.js.map

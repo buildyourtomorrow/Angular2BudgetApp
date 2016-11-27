@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var byt_dashboard_overview_service_1 = require('./byt-dashboard-overview.service');
 var auth_service_1 = require('./auth.service');
 var BYTNavComponent = (function () {
-    function BYTNavComponent(_getBYTUser, _auth) {
+    function BYTNavComponent(_getBYTUser, _auth, router) {
         this._getBYTUser = _getBYTUser;
         this._auth = _auth;
+        this.router = router;
     }
     BYTNavComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -24,7 +26,8 @@ var BYTNavComponent = (function () {
     };
     BYTNavComponent.prototype.logout = function () {
         this._auth.logout();
-        window.location.href = 'http://app.buildyourtomorrow.com';
+        this.router.navigate(['login']);
+        //window.location.href='http://app.buildyourtomorrow.com';
     };
     BYTNavComponent = __decorate([
         core_1.Component({
@@ -33,7 +36,7 @@ var BYTNavComponent = (function () {
             styleUrls: ['app/byt-nav.component.css'],
             providers: [byt_dashboard_overview_service_1.GetBYTUser]
         }), 
-        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth])
+        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, router_1.Router])
     ], BYTNavComponent);
     return BYTNavComponent;
 }());
