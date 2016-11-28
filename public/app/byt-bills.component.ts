@@ -1010,7 +1010,7 @@ export class BYTBillsComponent implements OnInit {
 			this.allBillsLength = user.monthlyBills.length; 
 
 			this.billsCategoryTotals = 
-				[{
+			[{
 				category: "Housing",
 				total: 0,
 				show: true,

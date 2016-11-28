@@ -62,17 +62,14 @@ export class BYTDashboardExpenseAnalysisComponent implements OnInit {
 	}
 	calcText(){
 		if (this.upBy > 0) {
-			this.specialVarUpBy = '#00FF00';
 			this.specialVarUpByWord = 'Up by';
 			this.upByComment = "Ayo, we can spend " + Math.floor(this.upBy) + " without going over budget.";
 		} 
 		if (this.upBy === 0) {
 			this.specialVarUpByWord = 'Up by';
 			this.upByComment = "Add a spending limit wangsta";
-			this.specialVarUpBy = '#666666';
 		} 
 		if (this.upBy < 0) {
-			this.specialVarUpBy = '#FE7878';
 			this.specialVarUpByWord = 'Down by';
 			this.upByComment = "OMG, we're behind budget by " + Math.floor(this.upBy) + " Let's get it together people";
 		}

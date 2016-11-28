@@ -28,7 +28,7 @@ var BYTDashboardOverviewComponent = (function () {
             _this.totalIncome = user.totalIncome;
             _this.totalBills = user.billsTotal;
             _this.totalSpent = user.totalSpent;
-        });
+        }, function (error) { console.log("Error happened" + error); }, function () { console.log("the subscription is completed"); });
         if (this.totalIncome - this.totalBills - this.totalSpent > 0) {
             this.savingMoneyBaby = "Keep saving that money homie.";
         }

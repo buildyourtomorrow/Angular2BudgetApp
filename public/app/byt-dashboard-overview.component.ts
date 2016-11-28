@@ -32,14 +32,14 @@ export class BYTDashboardOverviewComponent implements OnInit {
 	constructor (private _getBYTUser: GetBYTUser, private _bytPostProjections: BYTPostProjections) {}
 
 	ngOnInit(){
-		this._getBYTUser.getUser().subscribe(user => {
+		this._getBYTUser.getUser().subscribe(user => {	
 			this.projectedIncome = user.projectedIncome;
 			this.projectedBills = user.projectedBills;
 			this.projectedExpenses = user.projectedExpenses;
 			this.totalIncome = user.totalIncome;
 			this.totalBills = user.billsTotal;
-			this.totalSpent = user.totalSpent;					
-		})
+			this.totalSpent = user.totalSpent;			
+		});
 		if (this.totalIncome - this.totalBills - this.totalSpent > 0) {
 			this.savingMoneyBaby = "Keep saving that money homie.";
 		} else if (this.totalIncome - this.totalBills - this.totalSpent === 0) {
@@ -55,14 +55,14 @@ export class BYTDashboardOverviewComponent implements OnInit {
     	this.bytIncomeProjection = !this.bytIncomeProjection;
     	this._bytPostProjections.bytPostIncomeProjection(projectedIncome).subscribe(user => {
     		this.projectedIncome = user.projectedIncome;
-    	})
+    	});
     };
 
     editBillProjection(projectedBills){
     	this.bytBillProjection = !this.bytBillProjection;
     	this._bytPostProjections.bytPostBillProjection(projectedBills).subscribe(user => {
     		this.projectedBills = user.projectedBills;
-    	})
+    	});
     };
 
     editExpProjection(projectedExpenses){
@@ -71,6 +71,6 @@ export class BYTDashboardOverviewComponent implements OnInit {
     	this.dailyBudget.calcDailyBudget(); //child function
     	this._bytPostProjections.bytPostExpensesProjection(projectedExpenses).subscribe(user => {
     		this.projectedExpenses = user.projectedExpenses;
-    	})
+    	});
     };
 }

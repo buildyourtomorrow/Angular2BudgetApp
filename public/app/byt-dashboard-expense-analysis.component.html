@@ -18,14 +18,14 @@
 					</tr>
 					<tr>
 						<td class="dashboard_analysis_1">{{specialVarUpByWord}}</td>
-						<td class="animated bounceInDown" *ngIf="upBy < 0" class="dashboard_analysis_2" style="color: {{specialVarUpBy}}">{{upBy|number:'.0-0'}} &#9785; &#9763;</td>
-						<td class="animated bounce" *ngIf="upBy > 0" class="dashboard_analysis_2" style="color: {{specialVarUpBy}}">{{upBy | number:'.0-0'}} &#9786; &#9734;</td>
-						<td *ngIf="upBy === 0" class="dashboard_analysis_2" style="color: {{specialVarUpBy}}">{{upBy | number:'.0-0'}}</td>
+						<td *ngIf="upBy<0" class="dashboard_analysis_2" style="color: #FE7878">{{upBy|number:'.0-0'}} &#9785; &#9763;</td>
+						<td *ngIf="upBy>0" class="dashboard_analysis_2" style="color: #00FF00">{{upBy | number:'.0-0'}} &#9786; &#9734;</td>
+						<td *ngIf="upBy===0" class="dashboard_analysis_2" style="color: #666666">{{upBy | number:'.0-0'}}</td>
 					</tr>			
 				</tbody>
 			</table>
 		</section>
-	</section>				
+	</section>
 </section>
 <section class="row animate-show" *ngIf="byt_show_section">
 	<section class="table-responsive">
