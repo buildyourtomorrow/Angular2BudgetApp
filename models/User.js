@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
@@ -16,7 +12,6 @@ var UserSchema = new mongoose.Schema({
 	}, // nickname of user in auth0
 	income: [{
 		id: Number,
-<<<<<<< HEAD
 		description: String,
 		category: String,
 		amount: Number,
@@ -25,8 +20,6 @@ var UserSchema = new mongoose.Schema({
 	assets: [{
 		id: Number,
 		description: String,
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		category: String,
 		amount: Number,
 		date: Date
@@ -38,10 +31,7 @@ var UserSchema = new mongoose.Schema({
 	},
 	monthlyBills: [{
 		id: Number,
-<<<<<<< HEAD
 		description: String,
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		category: String,
 		subCategory: String,
 		amount: Number,
@@ -52,7 +42,6 @@ var UserSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
-<<<<<<< HEAD
 	totalAssets: {
 		id: Number,
 		type: Number,
@@ -61,10 +50,6 @@ var UserSchema = new mongoose.Schema({
 	monthlyExpenses: [{ 
 		id: Number,
 		description: String,
-=======
-	monthlyExpenses: [{ 
-		id: Number,
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		category: String,
 		subCategory: String,
 		amount: Number,
@@ -117,13 +102,10 @@ var UserSchema = new mongoose.Schema({
 		category: String,
 		total: Number
 	}],
-<<<<<<< HEAD
 	assetCategoryTotals: [{
 		category: String,
 		total: Number
 	}],
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 	billsCategoryTotals: [{
 		category: String,
 		total: Number,
@@ -151,7 +133,6 @@ UserSchema.methods.calcTotalIncome = function(allIncome){
 	this.save();
 };
 
-<<<<<<< HEAD
 UserSchema.methods.calcTotalAssets = function(assets){		
 	var total = 0;
 	for (i = 0; i < assets.length; i++) {	
@@ -161,8 +142,6 @@ UserSchema.methods.calcTotalAssets = function(assets){
 	this.save();
 };
 
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 UserSchema.methods.calcTotalBills = function(allbills){		
 	var total = 0;
 	for (i = 0; i < allbills.length; i++) {	
@@ -254,13 +233,9 @@ UserSchema.methods.calcIncomeCategoryTotals = function(){
 		{category: "Sole Proprietorship", total: 0},
 		{category: "Corporation", total: 0},
 		{category: "Child Support", total: 0},
-<<<<<<< HEAD
 		{category: "Taxes", total: 0},
 		{category: "Refund", total: 0},
 		{category: "Other", total: 0}
-=======
-		{category: "Taxes", total: 0}
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 	];
 
 	for (i = 0; i < this.income.length; i++){
@@ -288,7 +263,6 @@ UserSchema.methods.calcIncomeCategoryTotals = function(){
 		if (this.income[i].category === "Taxes") {
 			this.incomeCategoryTotals[7].total += this.income[i].amount;
 		};
-<<<<<<< HEAD
 		if (this.income[i].category === "Refund") {
 			this.incomeCategoryTotals[6].total += this.income[i].amount;
 		};
@@ -343,8 +317,6 @@ UserSchema.methods.calcAssetCategoryTotals = function(){
 		if (this.income[i].category === "Other") {
 			this.incomeCategoryTotals[7].total += this.income[i].amount;
 		};
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		this.save();
 	};
 }
@@ -468,13 +440,10 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			{
 				name: "Renter's insurance",
 				total: 0
-<<<<<<< HEAD
 			},
 			{
 				name: "Life insurance",
 				total: 0
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 			}]
 		},
 		{ 
@@ -495,13 +464,10 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			{
 				name: "Car loan",
 				total: 0
-<<<<<<< HEAD
 			},
 			{
 				name: "Medical",
 				total: 0
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 			}]
 		},
 		{
@@ -526,13 +492,10 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			subCategory: [{
 				name: "Streaming movies/music",
 				total: 0 
-<<<<<<< HEAD
 			},
 			{
 				name: "Monthly subscriptions",
 				total: 0 
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 			}]
 		},
 		{
@@ -655,12 +618,9 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			if (this.monthlyBills[i].subCategory === "Renter's insurance") {
 				this.billsCategoryTotals[4].subCategory[2].total += this.monthlyBills[i].amount;
 			}
-<<<<<<< HEAD
 			if (this.monthlyBills[i].subCategory === "Life insurance") {
 				this.billsCategoryTotals[4].subCategory[3].total += this.monthlyBills[i].amount;
 			}
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		};
 		if (this.monthlyBills[i].category === "Debt") {
 			this.billsCategoryTotals[5].total += this.monthlyBills[i].amount;	
@@ -676,12 +636,9 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			if (this.monthlyBills[i].subCategory === "Car loan") {
 				this.billsCategoryTotals[5].subCategory[3].total += this.monthlyBills[i].amount;
 			}
-<<<<<<< HEAD
 			if (this.monthlyBills[i].subCategory === "Medical") {
 				this.billsCategoryTotals[5].subCategory[4].total += this.monthlyBills[i].amount;
 			}
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		};
 		if (this.monthlyBills[i].category === "Taxes") {
 			this.billsCategoryTotals[6].total += this.monthlyBills[i].amount;	
@@ -700,12 +657,9 @@ UserSchema.methods.calcBillCategoryTotals = function(){
 			if (this.monthlyBills[i].subCategory === "Streaming movies/music") {
 				this.billsCategoryTotals[7].subCategory[0].total += this.monthlyBills[i].amount;
 			}
-<<<<<<< HEAD
 			if (this.monthlyBills[i].subCategory === "Monthly subscriptions") {
 				this.billsCategoryTotals[7].subCategory[1].total += this.monthlyBills[i].amount;
 			}
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		};
 		if (this.monthlyBills[i].category === "Child Care") {
 			this.billsCategoryTotals[8].total += this.monthlyBills[i].amount;	
@@ -840,13 +794,10 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			{
 				name: "Charities",
 				total: 0
-<<<<<<< HEAD
 			},
 			{
 				name: "Family",
 				total: 0
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 			}]
 		},
 		{ 
@@ -983,7 +934,6 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			{
 				name: "Wedding",
 				total: 0 
-<<<<<<< HEAD
 			},
 			{
 				name: "Birthday parties",
@@ -996,8 +946,6 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			{
 				name: "Special events",
 				total: 0 
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 			}]
 		},
 		{ 
@@ -1211,12 +1159,9 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			if (this.monthlyExpenses[i].subCategory === "Special Occasion") {
 				this.expCategoryTotals[4].subCategory[5].total += this.monthlyExpenses[i].amount;
 			}
-<<<<<<< HEAD
 			if (this.monthlyExpenses[i].subCategory === "Family") {
 				this.expCategoryTotals[4].subCategory[6].total += this.monthlyExpenses[i].amount;
 			}
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		};
 		if (this.monthlyExpenses[i].category === "Household") {
 			this.expCategoryTotals[5].total += this.monthlyExpenses[i].amount;	
@@ -1319,7 +1264,6 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			if (this.monthlyExpenses[i].subCategory === "Wedding") {
 				this.expCategoryTotals[9].subCategory[1].total += this.monthlyExpenses[i].amount;
 			}
-<<<<<<< HEAD
 			if (this.monthlyExpenses[i].subCategory === "Birthday parties") {
 				this.expCategoryTotals[9].subCategory[2].total += this.monthlyExpenses[i].amount;
 			}
@@ -1329,8 +1273,6 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			if (this.monthlyExpenses[i].subCategory === "Special events") {
 				this.expCategoryTotals[9].subCategory[4].total += this.monthlyExpenses[i].amount;
 			}
-=======
->>>>>>> 9d11c957592315a3b65daf5d8679b2a3219135ba
 		};
 		if (this.monthlyExpenses[i].category === "Transportation") {
 			this.expCategoryTotals[10].total += this.monthlyExpenses[i].amount;	
