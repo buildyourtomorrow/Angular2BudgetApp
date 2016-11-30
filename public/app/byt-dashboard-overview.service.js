@@ -83,6 +83,27 @@ var BYTPostIncome = (function () {
     return BYTPostIncome;
 }());
 exports.BYTPostIncome = BYTPostIncome;
+var BYTPostAsset = (function () {
+    function BYTPostAsset(authHttp) {
+        this.authHttp = authHttp;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+    BYTPostAsset.prototype.bytPostAssetForm = function (bytPostAssetForm) {
+        return this.authHttp.post('/add-asset', { "category": bytPostAssetForm.category,
+            "description": bytPostAssetForm.description,
+            "date": bytPostAssetForm.date,
+            "amount": bytPostAssetForm.amount,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTPostAsset = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTPostAsset);
+    return BYTPostAsset;
+}());
+exports.BYTPostAsset = BYTPostAsset;
 var BYTPostBill = (function () {
     function BYTPostBill(authHttp) {
         this.authHttp = authHttp;
@@ -146,6 +167,12 @@ var BYTRemoveTransaction = (function () {
     };
     BYTRemoveTransaction.prototype.bytRemoveExpense = function (index) {
         return this.authHttp.put('/remove-expense', { "index": index,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTRemoveTransaction.prototype.bytRemoveAsset = function (index) {
+        return this.authHttp.put('/remove-asset', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });

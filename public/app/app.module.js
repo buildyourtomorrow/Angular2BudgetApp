@@ -31,6 +31,9 @@ var byt_income_component_1 = require('./byt-income.component');
 var byt_income_form_component_1 = require('./byt-income-form.component');
 var byt_last_income_entry_component_1 = require('./byt-last-income-entry.component');
 var byt_last_bill_entry_component_1 = require('./byt-last-bill-entry.component');
+var byt_assets_component_1 = require('./byt-assets.component');
+var byt_assets_form_component_1 = require("./byt-assets-form.component");
+var byt_last_asset_entry_component_1 = require("./byt-last-asset-entry.component");
 var byt_bills_component_1 = require('./byt-bills.component');
 var byt_order_by_pipes_1 = require('./byt-order-by.pipes');
 var byt_bills_form_component_1 = require('./byt-bills-form.component');
@@ -48,6 +51,7 @@ var byt_dashboard_overview_service_3 = require("./byt-dashboard-overview.service
 var byt_dashboard_overview_service_4 = require("./byt-dashboard-overview.service");
 var byt_dashboard_overview_service_5 = require("./byt-dashboard-overview.service");
 var byt_dashboard_overview_service_6 = require("./byt-dashboard-overview.service");
+var byt_dashboard_overview_service_7 = require("./byt-dashboard-overview.service");
 var byt_app_component_1 = require("./byt-app.component");
 var routes = [
     { path: 'login', component: byt_login_component_1.BYTLoginComponent, canActivate: [auth_guard_2.AuthCheck] },
@@ -88,12 +92,12 @@ var AppModule = (function () {
                 byt_dashboard_quote_component_1.BYTDashboardQuoteComponent, byt_dashboard_overview_component_1.BYTDashboardOverviewComponent, byt_dashboard_overview_question_component_1.BYTDashboardOverviewQuestionComponent,
                 byt_dashboard_expense_question_component_1.BYTDashboardExpenseQuestionComponent, byt_dashboard_expense_analysis_component_1.BYTDashboardExpenseAnalysisComponent,
                 byt_dashboard_daily_budget_component_1.BYTDashboardDailyBudgetComponent, byt_dashboard_daily_budget_question_component_1.BYTDashboardDailyBudgetQuestionComponent,
-                byt_dashboard_home_arrow_component_1.BYTDashboarHomeArrowComponent, byt_income_component_1.BYTIncomeComponent, byt_income_form_component_1.BYTIncomeFormComponent, byt_last_income_entry_component_1.BYTLastIncomeEntryComponent,
-                byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_bills_form_component_1.BYTBillsFormComponent,
+                byt_dashboard_home_arrow_component_1.BYTDashboarHomeArrowComponent, byt_income_component_1.BYTIncomeComponent, byt_income_form_component_1.BYTIncomeFormComponent, byt_last_income_entry_component_1.BYTLastIncomeEntryComponent, byt_assets_component_1.BYTAssetComponent, byt_assets_form_component_1.BYTAssetFormComponent,
+                byt_last_asset_entry_component_1.BYTLastAssetEntryComponent, byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_bills_form_component_1.BYTBillsFormComponent,
                 byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent, byt_expenses_component_1.BYTExpensesComponent, byt_expenses_form_component_1.BYTExpensesFormComponent, byt_education_component_1.BYTEducationComponent,
                 byt_home_component_1.BYTHomeComponent, byt_login_component_1.BYTLoginComponent, byt_app_component_1.BYTAppComponent],
-            providers: [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, angular2_jwt_1.AUTH_PROVIDERS, auth_guard_1.AuthGuard, auth_guard_2.AuthCheck, byt_dashboard_overview_service_2.BYTPostProjections, byt_dashboard_overview_service_3.BYTPostIncome, byt_dashboard_overview_service_4.BYTPostBill,
-                byt_dashboard_overview_service_5.BYTPostExpense, byt_dashboard_overview_service_6.BYTRemoveTransaction],
+            providers: [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, angular2_jwt_1.AUTH_PROVIDERS, auth_guard_1.AuthGuard, auth_guard_2.AuthCheck, byt_dashboard_overview_service_2.BYTPostProjections, byt_dashboard_overview_service_3.BYTPostIncome, byt_dashboard_overview_service_4.BYTPostAsset, byt_dashboard_overview_service_5.BYTPostBill,
+                byt_dashboard_overview_service_6.BYTPostExpense, byt_dashboard_overview_service_7.BYTRemoveTransaction],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
