@@ -137,7 +137,9 @@ router.post('/add-expenses-projection', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
-
+router.get('/', function(req, res){
+	res.render('index');
+});
 router.get('/home', function(req, res){
 	res.render('index');
 });
