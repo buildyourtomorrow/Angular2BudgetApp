@@ -55,7 +55,7 @@ var byt_dashboard_overview_service_7 = require("./byt-dashboard-overview.service
 var byt_app_component_1 = require("./byt-app.component");
 var routes = [
     { path: 'login', component: byt_login_component_1.BYTLoginComponent, canActivate: [auth_guard_2.AuthCheck] },
-    { path: 'home', component: byt_home_component_1.BYTHomeComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: '', component: byt_home_component_1.BYTHomeComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'app', component: byt_app_component_1.BYTAppComponent, canActivate: [auth_guard_1.AuthGuard],
         children: [
             {
