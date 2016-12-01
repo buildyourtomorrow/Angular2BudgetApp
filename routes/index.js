@@ -140,9 +140,6 @@ router.post('/add-expenses-projection', authCheck, function(req, res){
 router.get('/', function(req, res){
 	res.render('index');
 });
-router.get('/home', function(req, res){
-	res.render('index');
-});
 router.get('/login', function(req, res){
 	res.render('index');
 });
