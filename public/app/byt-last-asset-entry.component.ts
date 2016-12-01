@@ -24,16 +24,16 @@ export class BYTLastAssetEntryComponent implements OnInit {
 		});
 	}
 
-	lastTransactionDateFunction(expense){
-		this.allAssets.unshift(expense)
+	lastTransactionDateFunction(item){
+		this.allAssets.unshift(item)
 		this.allAssetsLength = this.allAssets.length;
 		this.lastTransactionDate = this.allAssets[0].date;
 	}
 
-	updateViewFunction(allAssets){
-		this.allAssetsLength = allAssets.length;
+	updateViewFunction(allItems){
+		this.allAssetsLength = allItems.length;
 		if(this.allAssetsLength > 0){
-			this.lastTransactionDate = allAssets[0].date;	
+			this.lastTransactionDate = allItems[0].date;	
 		}else{
 			this.lastTransactionDate = new Date;
 		}				

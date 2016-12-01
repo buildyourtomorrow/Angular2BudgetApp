@@ -24,6 +24,13 @@ var UserSchema = new mongoose.Schema({
 		amount: Number,
 		date: Date
 	}],
+	liabilities: [{
+		id: Number,
+		description: String,
+		category: String,
+		amount: Number,
+		date: Date
+	}],
 	totalIncome: {
 		id: Number,
 		type: Number,
@@ -43,6 +50,11 @@ var UserSchema = new mongoose.Schema({
 		default: 0
 	},
 	totalAssets: {
+		id: Number,
+		type: Number,
+		default: 0
+	},
+	totalLiabilities: {
 		id: Number,
 		type: Number,
 		default: 0
@@ -106,6 +118,10 @@ var UserSchema = new mongoose.Schema({
 		category: String,
 		total: Number
 	}],
+	liabilitiesCategoryTotals: [{
+		category: String,
+		total: Number
+	}],
 	billsCategoryTotals: [{
 		category: String,
 		total: Number,
@@ -139,6 +155,15 @@ UserSchema.methods.calcTotalAssets = function(assets){
 		total = total + assets[i].amount;
 	};
 	this.totalAssets = total;
+	this.save();
+};
+
+UserSchema.methods.calcTotalLiabilities = function(liabilities){		
+	var total = 0;
+	for (i = 0; i < liabilities.length; i++) {	
+		total = total + liabilities[i].amount;
+	};
+	this.totalLiabilities = total;
 	this.save();
 };
 
@@ -286,36 +311,88 @@ UserSchema.methods.calcAssetCategoryTotals = function(){
 		{category: "Other", total: 0}
 	];
 
-	for (i = 0; i < this.income.length; i++){
-		if (this.income[i].category === "Cash - checking accounts") {
-			this.incomeCategoryTotals[0].total += this.income[i].amount;
+	for (i = 0; i < this.assets.length; i++){
+		if (this.assets[i].category === "Cash - checking accounts") {
+			this.assetCategoryTotals[0].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Cash - savings accounts") {
-			this.incomeCategoryTotals[1].total += this.income[i].amount;
+		if (this.assets[i].category === "Cash - savings accounts") {
+			this.assetCategoryTotals[1].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Special deposit accounts") {
-			this.incomeCategoryTotals[2].total += this.income[i].amount;
+		if (this.assets[i].category === "Special deposit accounts") {
+			this.assetCategoryTotals[2].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Market investments") {
-			this.incomeCategoryTotals[3].total += this.income[i].amount;
+		if (this.assets[i].category === "Market investments") {
+			this.assetCategoryTotals[3].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Certificate of deposit") {
-			this.incomeCategoryTotals[4].total += this.income[i].amount;
+		if (this.assets[i].category === "Certificate of deposit") {
+			this.assetCategoryTotals[4].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Life insurance (cash value") {
-			this.incomeCategoryTotals[5].total += this.income[i].amount;
+		if (this.assets[i].category === "Life insurance (cash value") {
+			this.assetCategoryTotals[5].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Mutual funds") {
-			this.incomeCategoryTotals[6].total += this.income[i].amount;
+		if (this.assets[i].category === "Mutual funds") {
+			this.assetCategoryTotals[6].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Car") {
-			this.incomeCategoryTotals[7].total += this.income[i].amount;
+		if (this.assets[i].category === "Car") {
+			this.assetCategoryTotals[7].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Equity in private company") {
-			this.incomeCategoryTotals[6].total += this.income[i].amount;
+		if (this.assets[i].category === "Equity in private company") {
+			this.assetCategoryTotals[8].total += this.assets[i].amount;
 		};
-		if (this.income[i].category === "Other") {
-			this.incomeCategoryTotals[7].total += this.income[i].amount;
+		if (this.assets[i].category === "Other") {
+			this.assetCategoryTotals[9].total += this.assets[i].amount;
+		};
+		this.save();
+	};
+}
+UserSchema.methods.calcLiabilityCategoryTotals = function(){
+	this.liabilitiesCategoryTotals = [
+		{category: "Credit card debt", total: 0},
+		{category: "Medical debt", total: 0},
+		{category: "Unpaid rent", total: 0},
+		{category: "Unpaid utilities", total: 0},
+		{category: "Auto loan", total: 0},
+		{category: "Personal loan", total: 0},
+		{category: "Consolidation loan", total: 0},
+		{category: "Student loan", total: 0},
+		{category: "Home loan", total: 0},
+		{category: "Business loan", total: 0},
+		{category: "Other", total: 0}
+	];
+
+	for (i = 0; i < this.liabilities.length; i++){
+		if (this.liabilities[i].category === "Credit card debt") {
+			this.liabilitiesCategoryTotals[0].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Medical debt") {
+			this.liabilitiesCategoryTotals[1].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Unpaid rent") {
+			this.liabilitiesCategoryTotals[2].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Unpaid utilities") {
+			this.liabilitiesCategoryTotals[3].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Auto loan") {
+			this.liabilitiesCategoryTotals[4].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Personal loan") {
+			this.liabilitiesCategoryTotals[5].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Consolidation loan") {
+			this.liabilitiesCategoryTotals[6].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Student loan") {
+			this.liabilitiesCategoryTotals[7].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Home loan") {
+			this.liabilitiesCategoryTotals[8].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Business loan") {
+			this.liabilitiesCategoryTotals[9].total += this.liabilities[i].amount;
+		};
+		if (this.liabilities[i].category === "Other") {
+			this.liabilitiesCategoryTotals[10].total += this.liabilities[i].amount;
 		};
 		this.save();
 	};

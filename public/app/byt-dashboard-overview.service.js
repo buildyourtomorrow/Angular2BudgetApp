@@ -104,6 +104,27 @@ var BYTPostAsset = (function () {
     return BYTPostAsset;
 }());
 exports.BYTPostAsset = BYTPostAsset;
+var BYTPostLiability = (function () {
+    function BYTPostLiability(authHttp) {
+        this.authHttp = authHttp;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+    BYTPostLiability.prototype.bytPostLiabilityForm = function (bytPostLiabilityForm) {
+        return this.authHttp.post('/add-liability', { "category": bytPostLiabilityForm.category,
+            "description": bytPostLiabilityForm.description,
+            "date": bytPostLiabilityForm.date,
+            "amount": bytPostLiabilityForm.amount,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTPostLiability = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTPostLiability);
+    return BYTPostLiability;
+}());
+exports.BYTPostLiability = BYTPostLiability;
 var BYTPostBill = (function () {
     function BYTPostBill(authHttp) {
         this.authHttp = authHttp;
@@ -173,6 +194,12 @@ var BYTRemoveTransaction = (function () {
     };
     BYTRemoveTransaction.prototype.bytRemoveAsset = function (index) {
         return this.authHttp.put('/remove-asset', { "index": index,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTRemoveTransaction.prototype.bytRemoveLiability = function (index) {
+        return this.authHttp.put('/remove-liability', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });

@@ -72,6 +72,20 @@ export class BYTPostAsset {
 	}
 }
 @Injectable()
+export class BYTPostLiability {
+	constructor(public authHttp: AuthHttp) {}
+	userProfile: Object = JSON.parse(localStorage.getItem('profile'));
+	bytPostLiabilityForm(bytPostLiabilityForm: Object): Observable<any[]>{
+		return this.authHttp.post('/add-liability', {"category": bytPostLiabilityForm.category,
+												     "description": bytPostLiabilityForm.description,
+												     "date": bytPostLiabilityForm.date,
+												     "amount": bytPostLiabilityForm.amount,
+												     "byt_email": this.userProfile.email})
+			.map((res: Response) => res.json() )
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+	}
+}
+@Injectable()
 export class BYTPostBill {
 	constructor(public authHttp: AuthHttp) {}
 	userProfile: Object = JSON.parse(localStorage.getItem('profile'));
@@ -127,6 +141,12 @@ export class BYTRemoveTransaction {
 	bytRemoveAsset(index: number): Observable<any[]>{
 		return this.authHttp.put('/remove-asset', {"index": index,
 												   "byt_email": this.userProfile.email})
+			.map((res: Response) => res.json() )
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+	}
+	bytRemoveLiability(index: number): Observable<any[]>{
+		return this.authHttp.put('/remove-liability', {"index": index,
+												       "byt_email": this.userProfile.email})
 			.map((res: Response) => res.json() )
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
 	}

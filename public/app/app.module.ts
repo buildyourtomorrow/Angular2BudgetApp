@@ -24,7 +24,19 @@ import {BYTLastIncomeEntryComponent} from './byt-last-income-entry.component';
 import {BYTLastBillEntryComponent} from './byt-last-bill-entry.component';
 import {BYTAssetComponent} from './byt-assets.component';
 import {BYTAssetFormComponent} from "./byt-assets-form.component";
+import {BYTLiabilityFormComponent} from "./byt-liability-form.component";
+
+
 import {BYTLastAssetEntryComponent} from "./byt-last-asset-entry.component";
+
+
+
+
+import {BYTLastLiabilityEntryComponent} from "./byt-last-liability-entry.component";
+
+
+
+
 import {BYTBillsComponent} from './byt-bills.component'
 import {BYTOrderByPipe} from './byt-order-by.pipes';
 import {BYTBillsFormComponent} from './byt-bills-form.component';
@@ -40,10 +52,14 @@ import {AuthCheck} from "./auth.guard";
 import {BYTPostProjections} from './byt-dashboard-overview.service';
 import {BYTPostIncome} from "./byt-dashboard-overview.service";
 import {BYTPostAsset} from "./byt-dashboard-overview.service";
+
+
+import {BYTPostLiability} from "./byt-dashboard-overview.service";
 import {BYTPostBill} from "./byt-dashboard-overview.service";
 import {BYTPostExpense} from "./byt-dashboard-overview.service";
 import {BYTRemoveTransaction} from "./byt-dashboard-overview.service";
 import {BYTAppComponent} from "./byt-app.component";
+import {BYTLiabilityComponent} from "./byt-liability.component"; 
 
 const routes: Routes = [
   
@@ -84,10 +100,10 @@ const routes: Routes = [
   				  BYTDashboardExpenseQuestionComponent, BYTDashboardExpenseAnalysisComponent, 
   				  BYTDashboardDailyBudgetComponent, BYTDashboardDailyBudgetQuestionComponent,
   				  BYTDashboarHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
-            BYTLastAssetEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
+            BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
-            BYTHomeComponent, BYTLoginComponent, BYTAppComponent ],
-  providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostBill, 
+            BYTHomeComponent, BYTLoginComponent, BYTAppComponent, BYTLiabilityFormComponent, BYTLiabilityComponent],
+  providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
   bootstrap: [ AppComponent ]
 })

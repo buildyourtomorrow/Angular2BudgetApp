@@ -10,43 +10,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var byt_dashboard_overview_service_1 = require('./byt-dashboard-overview.service');
-var BYTLastAssetEntryComponent = (function () {
-    function BYTLastAssetEntryComponent(_getBYTUser) {
+var BYTLastLiabilityEntryComponent = (function () {
+    function BYTLastLiabilityEntryComponent(_getBYTUser) {
         this._getBYTUser = _getBYTUser;
     }
-    BYTLastAssetEntryComponent.prototype.ngOnInit = function () {
+    BYTLastLiabilityEntryComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._getBYTUser.getUser().subscribe(function (user) {
-            _this.allAssets = user.assets;
-            _this.allAssetsLength = _this.allAssets.length;
-            if (_this.allAssetsLength > 0) {
-                _this.lastTransactionDate = _this.allAssets[0].date;
+            _this.allLiabilities = user.liabilities;
+            _this.allLiabilitiesLength = _this.allLiabilities.length;
+            if (_this.allLiabilitiesLength > 0) {
+                _this.lastTransactionDate = _this.allLiabilities[0].date;
             }
         });
     };
-    BYTLastAssetEntryComponent.prototype.lastTransactionDateFunction = function (item) {
-        this.allAssets.unshift(item);
-        this.allAssetsLength = this.allAssets.length;
-        this.lastTransactionDate = this.allAssets[0].date;
+    BYTLastLiabilityEntryComponent.prototype.lastTransactionDateFunction = function (item) {
+        this.allLiabilities.unshift(item);
+        this.allLiabilitiesLength = this.allLiabilities.length;
+        this.lastTransactionDate = this.allLiabilities[0].date;
     };
-    BYTLastAssetEntryComponent.prototype.updateViewFunction = function (allItems) {
-        this.allAssetsLength = allItems.length;
-        if (this.allAssetsLength > 0) {
+    BYTLastLiabilityEntryComponent.prototype.updateViewFunction = function (allItems) {
+        this.allLiabilitiesLength = allItems.length;
+        if (this.allLiabilitiesLength > 0) {
             this.lastTransactionDate = allItems[0].date;
         }
         else {
             this.lastTransactionDate = new Date;
         }
     };
-    BYTLastAssetEntryComponent = __decorate([
+    BYTLastLiabilityEntryComponent = __decorate([
         core_1.Component({
-            selector: 'byt-last-asset-entry',
-            templateUrl: '/app/byt-last-asset-entry.component.html',
-            styleUrls: ['app/byt-last-asset-entry.component.css']
+            selector: 'byt-last-liability-entry',
+            templateUrl: '/app/byt-last-liability-entry.component.html',
+            styleUrls: ['app/byt-last-liability-entry.component.css']
         }), 
         __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser])
-    ], BYTLastAssetEntryComponent);
-    return BYTLastAssetEntryComponent;
+    ], BYTLastLiabilityEntryComponent);
+    return BYTLastLiabilityEntryComponent;
 }());
-exports.BYTLastAssetEntryComponent = BYTLastAssetEntryComponent;
-//# sourceMappingURL=byt-last-asset-entry.component.js.map
+exports.BYTLastLiabilityEntryComponent = BYTLastLiabilityEntryComponent;
+//# sourceMappingURL=byt-last-liability-entry.component.js.map

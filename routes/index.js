@@ -51,7 +51,6 @@ router.post('/add-income', authCheck, function(req, res){
 	});
 });
 router.post('/add-asset', authCheck, function(req, res){
-	console.log(req.body)
 	User.findOne({'email': req.body.byt_email}, function(error, user){		
 		if (user.assets.length > 0 ) {
 			user.assets.unshift({'id': user.assets.length,
@@ -66,6 +65,26 @@ router.post('/add-asset', authCheck, function(req, res){
 							     'category': req.body.category,
 							     'amount': req.body.amount,
 							     'date': req.body.date});
+		}
+		user.save();
+		return res.json(user);
+	});
+});
+router.post('/add-liability', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){		
+		if (user.liabilities.length > 0 ) {
+			user.liabilities.unshift({'id': user.liabilities.length,
+								      'description': req.body.description,
+								      'category': req.body.category, 
+								      'amount': req.body.amount,
+								      'date': req.body.date});
+		};
+		if (user.liabilities.length === 0) {
+			user.liabilities.unshift({'id': 0,
+								      'description': req.body.description,
+							          'category': req.body.category,
+							          'amount': req.body.amount,
+							          'date': req.body.date});
 		}
 		user.save();
 		return res.json(user);
@@ -143,21 +162,6 @@ router.get('/', function(req, res){
 router.get('/login', function(req, res){
 	res.render('index');
 });
-router.get('/dashboard', function(req, res){
-	res.render('index');
-});
-router.get('/income', function(req, res){
-	res.render('index');
-});
-router.get('/bills', function(req, res){
-	res.render('index');
-});
-router.get('/expenses', function(req, res){
-	res.render('index');
-});
-router.get('/education', function(req, res){
-	res.render('index');
-});
 router.get('/app', function(req, res){
 	res.render('index');
 });
@@ -176,6 +180,12 @@ router.get('/app/expenses', function(req, res){
 router.get('/app/education', function(req, res){
 	res.render('index');
 });
+router.get('/app/assets', function(req, res){
+	res.render('index');
+});
+router.get('/app/liabilities', function(req, res){
+	res.render('index');
+});
 
 router.get('/get-user', authCheck, function(req, res){
 	User.findOne({'email': req.headers.byt_email}, function(error, user){
@@ -186,6 +196,7 @@ router.get('/get-user', authCheck, function(req, res){
 			user.calcDaysLeft();
 			user.calcTotalIncome(user.income);
 			user.calcTotalAssets(user.assets);
+			user.calcTotalLiabilities(user.liabilities);			
 			user.calcTotalBills(user.monthlyBills);
 			user.calcTotalSpent(user.monthlyExpenses);
 			user.calcLeftOver();
@@ -193,6 +204,7 @@ router.get('/get-user', authCheck, function(req, res){
 			user.calcUpBy();
 			user.calcIncomeCategoryTotals();
 			user.calcAssetCategoryTotals();
+			user.calcLiabilityCategoryTotals();
 			user.calcBillCategoryTotals();
 			user.calcExpCategoryTotals();
 			return res.json(user);
@@ -223,6 +235,13 @@ router.put('/remove-income', authCheck, function(req, res){
 router.put('/remove-asset', authCheck, function(req, res){
 	User.findOne({'email': req.body.byt_email}, function(error, user){
 		user.assets.splice([req.body.index], 1);
+		user.save();
+		return res.json(user);
+	});
+});
+router.put('/remove-liability', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		user.liabilities.splice([req.body.index], 1);
 		user.save();
 		return res.json(user);
 	});
