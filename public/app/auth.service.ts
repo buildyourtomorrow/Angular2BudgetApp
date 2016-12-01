@@ -38,7 +38,7 @@ export class Auth {
         localStorage.setItem('profile', JSON.stringify(profile));
 
         this.authHttp.post('/create-user', profile).subscribe();
-        this._router.navigate(['home']);
+        this._router.navigate(['']);
         this.lock.hide();
       })
     });

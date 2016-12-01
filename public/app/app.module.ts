@@ -48,7 +48,7 @@ import {BYTAppComponent} from "./byt-app.component";
 const routes: Routes = [
   
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
-  { path: 'home', component: BYTHomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
   { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard], 
     children: 
     [
