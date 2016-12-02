@@ -165,25 +165,28 @@ router.get('/login', function(req, res){
 router.get('/app', function(req, res){
 	res.render('index');
 });
-router.get('/app/dashboard', function(req, res){
+router.get('/spending-journal/dashboard', function(req, res){
 	res.render('index');
 });
-router.get('/app/income', function(req, res){
+router.get('/spending-journal/income', function(req, res){
 	res.render('index');
 });
-router.get('/app/bills', function(req, res){
+router.get('/spending-journal/bills', function(req, res){
 	res.render('index');
 });
-router.get('/app/expenses', function(req, res){
+router.get('/spending-journal/expenses', function(req, res){
 	res.render('index');
 });
-router.get('/app/education', function(req, res){
+router.get('/spending-journal/education', function(req, res){
 	res.render('index');
 });
-router.get('/app/assets', function(req, res){
+router.get('/balance-sheet/net-worth', function(req, res){
 	res.render('index');
 });
-router.get('/app/liabilities', function(req, res){
+router.get('/balance-sheet/assets', function(req, res){
+	res.render('index');
+});
+router.get('/balance-sheet/liabilities', function(req, res){
 	res.render('index');
 });
 

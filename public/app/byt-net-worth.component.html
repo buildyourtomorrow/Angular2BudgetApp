@@ -1,0 +1,22 @@
+<section class="row">
+	<section class="table-responsive">
+		<section class="net_worth">
+			<table class="table">	
+				<tbody>
+					<tr>
+						<td class="byt-text">Total assets</td>
+						<td class="byt-data">{{totalAssets|number:'.0-0'}}</td>
+					</tr>	
+					<tr>
+						<td class="byt-text">Total liabilities</td>
+						<td class="byt-data">{{totalLiabilities|number:'.0-0'}}</td>
+					</tr>
+					<tr>
+						<td class="byt-text">Net worth</td>
+						<td class="byt-data">{{ (totalAssets - totalLiabilities ) | number:'.0-0' }} </td>
+					</tr>	
+				</tbody>
+			</table>
+		</section>
+	</section>								
+</section>

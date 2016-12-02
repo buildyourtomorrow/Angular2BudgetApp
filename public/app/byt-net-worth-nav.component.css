@@ -1,0 +1,50 @@
+.net_worth_nav {
+	background-color: #FFFFFF;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding-top: 20px;
+	padding-right: 1px;
+	padding-bottom: 20px;	
+	padding-left: 1px;
+	border-radius: 5px;
+	line-height: 50px;	
+}
+.net_worth_nav ul {
+	text-align: center;
+	padding-left: 1px;
+}
+.net_worth_nav ul li{
+	display: inline;	
+	font-size: 14px;	
+}
+.net_worth_nav_first {
+	margin-left: 10px;
+	margin-right: 16px;
+}
+.net_worth_nav_second {
+	margin-left: 16px;
+	margin-right: 16px;
+}
+.net_worth_nav_third {
+	margin-left: 16px;
+	margin-right: 16px;
+}
+@media screen and (max-width: 550px) {
+ 	.net_worth_nav_first {
+ 		margin-left: 3px !important;
+ 		margin-right: 9px !important;
+ 		font-size: 12px !important;
+ 	}
+ 	.net_worth_nav_second {
+ 		margin-left: 9px !important;
+ 		margin-right: 9px !important;
+ 		font-size: 12px !important;
+ 	}
+ 	.net_worth_nav_third {
+ 		margin-left: 9px !important;
+ 		margin-right: 9px !important;
+ 		font-size: 12px !important;
+ 	}
+ }

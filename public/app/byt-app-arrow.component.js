@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var BYTDashboarHomeArrowComponent = (function () {
-    function BYTDashboarHomeArrowComponent() {
+var BYTAppArrowComponent = (function () {
+    function BYTAppArrowComponent() {
     }
-    BYTDashboarHomeArrowComponent = __decorate([
+    BYTAppArrowComponent = __decorate([
         core_1.Component({
-            selector: 'home-arrow',
-            templateUrl: '/app/byt-dashboard-home-arrow.component.html',
-            styleUrls: ['app/byt-dashboard-home-arrow.component.css'],
+            selector: "app-arrow",
+            templateUrl: '/app/byt-app-arrow.component.html',
+            styleUrls: ['app/byt-app-arrow.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], BYTDashboarHomeArrowComponent);
-    return BYTDashboarHomeArrowComponent;
+    ], BYTAppArrowComponent);
+    return BYTAppArrowComponent;
 }());
-exports.BYTDashboarHomeArrowComponent = BYTDashboarHomeArrowComponent;
-//# sourceMappingURL=byt-dashboard-home-arrow.component.js.map
+exports.BYTAppArrowComponent = BYTAppArrowComponent;
+//# sourceMappingURL=byt-app-arrow.component.js.map

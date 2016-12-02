@@ -16,7 +16,7 @@ import {BYTDashboardExpenseQuestionComponent} from './byt-dashboard-expense-ques
 import {BYTDashboardExpenseAnalysisComponent} from './byt-dashboard-expense-analysis.component';
 import {BYTDashboardDailyBudgetComponent} from './byt-dashboard-daily-budget.component';
 import {BYTDashboardDailyBudgetQuestionComponent} from './byt-dashboard-daily-budget-question.component';
-import {BYTDashboarHomeArrowComponent} from "./byt-dashboard-home-arrow.component";
+import {BYTHomeArrowComponent} from "./byt-home-arrow.component";
 import {GetBYTUser} from './byt-dashboard-overview.service';
 import {BYTIncomeComponent} from './byt-income.component';
 import {BYTIncomeFormComponent} from './byt-income-form.component';
@@ -25,18 +25,8 @@ import {BYTLastBillEntryComponent} from './byt-last-bill-entry.component';
 import {BYTAssetComponent} from './byt-assets.component';
 import {BYTAssetFormComponent} from "./byt-assets-form.component";
 import {BYTLiabilityFormComponent} from "./byt-liability-form.component";
-
-
 import {BYTLastAssetEntryComponent} from "./byt-last-asset-entry.component";
-
-
-
-
 import {BYTLastLiabilityEntryComponent} from "./byt-last-liability-entry.component";
-
-
-
-
 import {BYTBillsComponent} from './byt-bills.component'
 import {BYTOrderByPipe} from './byt-order-by.pipes';
 import {BYTBillsFormComponent} from './byt-bills-form.component';
@@ -52,22 +42,27 @@ import {AuthCheck} from "./auth.guard";
 import {BYTPostProjections} from './byt-dashboard-overview.service';
 import {BYTPostIncome} from "./byt-dashboard-overview.service";
 import {BYTPostAsset} from "./byt-dashboard-overview.service";
-
-
 import {BYTPostLiability} from "./byt-dashboard-overview.service";
 import {BYTPostBill} from "./byt-dashboard-overview.service";
 import {BYTPostExpense} from "./byt-dashboard-overview.service";
 import {BYTRemoveTransaction} from "./byt-dashboard-overview.service";
+import {BYTSpendingJournalComponent} from "./byt-spending-journal.component";
+import {BYTLiabilityComponent} from "./byt-liability.component";
+import {BYTNetWorthComponent} from "./byt-net-worth.component";
+import {BYTNetWorthNavComponent} from "./byt-net-worth-nav.component";
+import {BYTBalanceSheetComponent} from "./byt-balance-sheet.component";
 import {BYTAppComponent} from "./byt-app.component";
-import {BYTLiabilityComponent} from "./byt-liability.component"; 
+import {BYTAppArrowComponent} from "./byt-app-arrow.component";
 
 const routes: Routes = [
-  
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
   { path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
-  { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard], 
-    children: 
-    [
+  { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard] },
+  {
+    path: 'spending-journal',
+    component: BYTSpendingJournalComponent,
+    canActivate: [AuthGuard],
+    children: [
       {
         path: 'dashboard',
         component: BYTDashboardOverviewComponent
@@ -90,6 +85,23 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'balance-sheet', component: BYTBalanceSheetComponent, canActivate: [AuthGuard], 
+    children: 
+    [
+      {
+        path: 'net-worth',
+        component: BYTNetWorthComponent
+      },
+      {
+        path: 'assets',
+        component: BYTAssetComponent
+      },
+      {
+        path: 'liabilities',
+        component: BYTLiabilityComponent
+      }
+    ]
+  },
   { path: '**', component: BYTHomeComponent, canActivate: [AuthGuard] }
 ];
 
@@ -99,10 +111,11 @@ const routes: Routes = [
   				  BYTDashboardQuoteComponent, BYTDashboardOverviewComponent, BYTDashboardOverviewQuestionComponent, 
   				  BYTDashboardExpenseQuestionComponent, BYTDashboardExpenseAnalysisComponent, 
   				  BYTDashboardDailyBudgetComponent, BYTDashboardDailyBudgetQuestionComponent,
-  				  BYTDashboarHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
+  				  BYTHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
-            BYTHomeComponent, BYTLoginComponent, BYTAppComponent, BYTLiabilityFormComponent, BYTLiabilityComponent],
+            BYTHomeComponent, BYTLoginComponent, BYTSpendingJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
+            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
   bootstrap: [ AppComponent ]

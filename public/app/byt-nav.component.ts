@@ -7,8 +7,7 @@ import {Auth} from './auth.service';
 @Component({
 	selector: 'byt-nav',
 	templateUrl: '/app/byt-nav.component.html',
-	styleUrls: ['app/byt-nav.component.css'],
-	providers: [GetBYTUser]
+	styleUrls: ['app/byt-nav.component.css']
 })
 export class BYTNavComponent implements OnInit {
 	nickName: string;

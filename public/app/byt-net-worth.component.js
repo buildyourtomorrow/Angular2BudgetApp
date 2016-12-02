@@ -9,35 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+//import { Router } from '@angular/router';
 var byt_dashboard_overview_service_1 = require('./byt-dashboard-overview.service');
-var auth_service_1 = require('./auth.service');
-var BYTNavComponent = (function () {
-    function BYTNavComponent(_getBYTUser, _auth, router) {
+var BYTNetWorthComponent = (function () {
+    function BYTNetWorthComponent(_getBYTUser) {
         this._getBYTUser = _getBYTUser;
-        this._auth = _auth;
-        this.router = router;
     }
-    BYTNavComponent.prototype.ngOnInit = function () {
+    BYTNetWorthComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._getBYTUser.getUser().subscribe(function (user) {
-            _this.nickName = user.nickName;
+            _this.totalAssets = user.totalAssets;
+            _this.totalLiabilities = user.totalLiabilities;
         });
     };
-    BYTNavComponent.prototype.logout = function () {
-        this._auth.logout();
-        this.router.navigate(['login']);
-        //window.location.href='http://app.buildyourtomorrow.com';
-    };
-    BYTNavComponent = __decorate([
+    BYTNetWorthComponent = __decorate([
         core_1.Component({
-            selector: 'byt-nav',
-            templateUrl: '/app/byt-nav.component.html',
-            styleUrls: ['app/byt-nav.component.css']
+            selector: 'byt-net-worth',
+            templateUrl: '/app/byt-net-worth.component.html',
+            styleUrls: ['app/byt-net-worth.component.css']
         }), 
-        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, router_1.Router])
-    ], BYTNavComponent);
-    return BYTNavComponent;
+        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser])
+    ], BYTNetWorthComponent);
+    return BYTNetWorthComponent;
 }());
-exports.BYTNavComponent = BYTNavComponent;
-//# sourceMappingURL=byt-nav.component.js.map
+exports.BYTNetWorthComponent = BYTNetWorthComponent;
+//# sourceMappingURL=byt-net-worth.component.js.map
