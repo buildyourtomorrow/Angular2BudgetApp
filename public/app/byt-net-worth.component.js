@@ -18,7 +18,6 @@ var BYTNetWorthComponent = (function () {
     BYTNetWorthComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._getBYTUser.getUser().subscribe(function (user) {
-            console.log(user);
             _this.totalAssets = user.totalAssets;
             _this.totalLiabilities = user.totalLiabilities;
             _this.totalIncome = user.totalIncome;

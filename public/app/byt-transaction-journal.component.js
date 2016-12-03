@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var BYTSpendingJournalComponent = (function () {
-    function BYTSpendingJournalComponent() {
+var BYTTransactionJournalComponent = (function () {
+    function BYTTransactionJournalComponent() {
     }
-    BYTSpendingJournalComponent = __decorate([
+    BYTTransactionJournalComponent = __decorate([
         core_1.Component({
-            templateUrl: '/app/byt-spending-journal.component.html',
-            styleUrls: ['app/byt-spending-journal.component.css']
+            templateUrl: '/app/byt-transaction-journal.component.html',
+            styleUrls: ['app/byt-transaction-journal.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], BYTSpendingJournalComponent);
-    return BYTSpendingJournalComponent;
+    ], BYTTransactionJournalComponent);
+    return BYTTransactionJournalComponent;
 }());
-exports.BYTSpendingJournalComponent = BYTSpendingJournalComponent;
-//# sourceMappingURL=byt-spending-journal.component.js.map
+exports.BYTTransactionJournalComponent = BYTTransactionJournalComponent;
+//# sourceMappingURL=byt-transaction-journal.component.js.map

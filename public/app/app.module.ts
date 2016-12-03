@@ -46,7 +46,7 @@ import {BYTPostLiability} from "./byt-dashboard-overview.service";
 import {BYTPostBill} from "./byt-dashboard-overview.service";
 import {BYTPostExpense} from "./byt-dashboard-overview.service";
 import {BYTRemoveTransaction} from "./byt-dashboard-overview.service";
-import {BYTSpendingJournalComponent} from "./byt-spending-journal.component";
+import {BYTTransactionJournalComponent} from "./byt-transaction-journal.component";
 import {BYTLiabilityComponent} from "./byt-liability.component";
 import {BYTNetWorthComponent} from "./byt-net-worth.component";
 import {BYTNetWorthNavComponent} from "./byt-net-worth-nav.component";
@@ -61,7 +61,7 @@ const routes: Routes = [
   { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard] },
   {
     path: 'spending-journal',
-    component: BYTSpendingJournalComponent,
+    component: BYTTransactionJournalComponent,
     canActivate: [AuthGuard],
     children: [
       {
@@ -115,7 +115,7 @@ const routes: Routes = [
   				  BYTHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
-            BYTHomeComponent, BYTLoginComponent, BYTSpendingJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
+            BYTHomeComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
             BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
