@@ -9,7 +9,7 @@
 	padding-bottom: 20px;	
 	padding-left: 1px;
 	border-radius: 5px;
-	line-height: 50px;	
+	line-height: 50px;
 }
 .net_worth_nav ul {
 	text-align: center;
@@ -19,9 +19,12 @@
 	display: inline;	
 	font-size: 14px;	
 }
+.net_worth_nav ul li a{
+	color: #919496;		
+}
 .net_worth_nav_first {
 	margin-left: 10px;
-	margin-right: 16px;
+	margin-right: 16px;	
 }
 .net_worth_nav_second {
 	margin-left: 16px;

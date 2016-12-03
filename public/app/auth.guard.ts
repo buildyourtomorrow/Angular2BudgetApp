@@ -27,7 +27,7 @@ export class AuthCheck implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if(this.auth.authenticated()){
       console.log('passed')
-      this.router.navigate(['app/dashboard'])
+      this.router.navigate(['app'])
       return true;
     }  
     else {

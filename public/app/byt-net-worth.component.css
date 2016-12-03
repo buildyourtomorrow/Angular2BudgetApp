@@ -7,19 +7,21 @@
 	border-radius: 5px;
 	color: #919496;
 }
-.dashboard_analysis table tbody tr td {
-	font-size: 14px;
-	width: 50%;
-	text-align: center;	
-	vertical-align: middle;
-	height: 55px;
-	color: #919496;
-}
 .byt-text {
-    
-}
-.byt-data {
+	font-size: 14px;
 	text-align: center;
 	vertical-align: middle !important;
 	color: #919496;
+	width: 50%;
+	height: 60px;
+    
+}
+.byt-data {
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle !important;
+	color: #919496;
+}
+table td {
+    border-top: none !important;
 }

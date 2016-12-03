@@ -9,32 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-//import { Router } from '@angular/router';
-var byt_dashboard_overview_service_1 = require('./byt-dashboard-overview.service');
-var BYTNetWorthComponent = (function () {
-    function BYTNetWorthComponent(_getBYTUser) {
-        this._getBYTUser = _getBYTUser;
+var router_1 = require('@angular/router');
+var auth_service_1 = require('./auth.service');
+var BYT404Component = (function () {
+    function BYT404Component(auth, router) {
+        this.auth = auth;
+        this.router = router;
     }
-    BYTNetWorthComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._getBYTUser.getUser().subscribe(function (user) {
-            console.log(user);
-            _this.totalAssets = user.totalAssets;
-            _this.totalLiabilities = user.totalLiabilities;
-            _this.totalIncome = user.totalIncome;
-            _this.totalExpenses = user.totalSpent;
-            _this.totalBills = user.billsTotal;
-        });
+    BYT404Component.prototype.ngOnInit = function () {
+        this.auth.logout();
+        this.router.navigate(['/login']);
     };
-    BYTNetWorthComponent = __decorate([
+    BYT404Component = __decorate([
         core_1.Component({
+            // the following three lines are just here to avoid errors
             selector: 'byt-net-worth',
             templateUrl: '/app/byt-net-worth.component.html',
             styleUrls: ['app/byt-net-worth.component.css']
         }), 
-        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser])
-    ], BYTNetWorthComponent);
-    return BYTNetWorthComponent;
+        __metadata('design:paramtypes', [auth_service_1.Auth, router_1.Router])
+    ], BYT404Component);
+    return BYT404Component;
 }());
-exports.BYTNetWorthComponent = BYTNetWorthComponent;
-//# sourceMappingURL=byt-net-worth.component.js.map
+exports.BYT404Component = BYT404Component;
+//# sourceMappingURL=byt-not-found.component.js.map

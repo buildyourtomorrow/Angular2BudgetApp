@@ -53,6 +53,7 @@ import {BYTNetWorthNavComponent} from "./byt-net-worth-nav.component";
 import {BYTBalanceSheetComponent} from "./byt-balance-sheet.component";
 import {BYTAppComponent} from "./byt-app.component";
 import {BYTAppArrowComponent} from "./byt-app-arrow.component";
+import {BYT404Component} from "./byt-not-found.component";
 
 const routes: Routes = [
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
@@ -102,7 +103,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '**', component: BYTHomeComponent, canActivate: [AuthGuard] }
+  { path: '**', component: BYT404Component }
 ];
 
 @NgModule({
@@ -115,7 +116,7 @@ const routes: Routes = [
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
             BYTHomeComponent, BYTLoginComponent, BYTSpendingJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
-            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent],
+            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
   bootstrap: [ AppComponent ]

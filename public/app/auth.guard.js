@@ -42,7 +42,7 @@ var AuthCheck = (function () {
     AuthCheck.prototype.canActivate = function (next, state) {
         if (this.auth.authenticated()) {
             console.log('passed');
-            this.router.navigate(['app/dashboard']);
+            this.router.navigate(['app']);
             return true;
         }
         else {

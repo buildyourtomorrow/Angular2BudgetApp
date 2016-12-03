@@ -249,4 +249,8 @@ router.put('/remove-liability', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
+//The 404 Route (ALWAYS Keep this as the last route)
+router.get('*', function(req, res){
+  res.render('index');
+});
 module.exports = router;
