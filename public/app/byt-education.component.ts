@@ -9,7 +9,5 @@ export class BYTEducationComponent implements OnInit {
 
 	constructor(){}
 
-	ngOnInit(){
-
-    };
+	ngOnInit(){};
 }

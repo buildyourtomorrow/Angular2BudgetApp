@@ -59,6 +59,7 @@ const routes: Routes = [
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
   { path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
   { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard] },
+  { path: 'education', component: BYTEducationComponent, canActivate: [AuthGuard] },
   {
     path: 'spending-journal',
     component: BYTTransactionJournalComponent,
@@ -79,10 +80,6 @@ const routes: Routes = [
       {
         path: 'expenses',
         component: BYTExpensesComponent
-      },
-      {
-        path: 'education',
-        component: BYTEducationComponent
       }
     ]
   },
@@ -116,7 +113,7 @@ const routes: Routes = [
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
             BYTHomeComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
-            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component],
+            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
   bootstrap: [ AppComponent ]

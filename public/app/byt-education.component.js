@@ -12,8 +12,7 @@ var core_1 = require('@angular/core');
 var BYTEducationComponent = (function () {
     function BYTEducationComponent() {
     }
-    BYTEducationComponent.prototype.ngOnInit = function () {
-    };
+    BYTEducationComponent.prototype.ngOnInit = function () { };
     ;
     BYTEducationComponent = __decorate([
         core_1.Component({

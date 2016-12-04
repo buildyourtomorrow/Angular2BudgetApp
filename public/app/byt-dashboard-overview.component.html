@@ -53,7 +53,7 @@
 					<tr>
 						<td>Expenses</td>
 						<td>
-							<span *ngIf="!bytExpProjection">{{projectedExpenses}}</span>
+							<span *ngIf="!bytExpProjection">{{projectedExpenses |number:'.0-0'}}</span>
 							<span *ngIf="bytExpProjection">
 								<input style="width: 50px; display:inline;" class='form-control input-sm' type='number' name="bytExpProjection" [(ngModel)]='projectedExpenses' (keyup.enter)="editExpProjection(projectedExpenses)" required>
 							</span>
