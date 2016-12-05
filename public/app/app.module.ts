@@ -54,6 +54,7 @@ import {BYTBalanceSheetComponent} from "./byt-balance-sheet.component";
 import {BYTAppComponent} from "./byt-app.component";
 import {BYTAppArrowComponent} from "./byt-app-arrow.component";
 import {BYT404Component} from "./byt-not-found.component";
+import {BYTPlanComponent} from "./byt-plan.component"; 
 
 const routes: Routes = [
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
@@ -113,7 +114,7 @@ const routes: Routes = [
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
             BYTHomeComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
-            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent],
+            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent, BYTPlanComponent],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
   bootstrap: [ AppComponent ]
