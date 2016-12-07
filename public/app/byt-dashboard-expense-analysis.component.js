@@ -57,11 +57,11 @@ var BYTDashboardExpenseAnalysisComponent = (function () {
         }
         if (this.upBy === 0) {
             this.specialVarUpByWord = 'Up by';
-            this.upByComment = "Add a spending limit wangsta";
+            this.upByComment = "Add a spending limit wangsta.";
         }
         if (this.upBy < 0) {
             this.specialVarUpByWord = 'Down by';
-            this.upByComment = "OMG, we're behind budget by " + Math.floor(this.upBy) + " Let's get it together people";
+            this.upByComment = "OMG, we're behind budget by " + Math.floor(this.upBy) + " Let's get it together people.";
         }
     };
     BYTDashboardExpenseAnalysisComponent = __decorate([

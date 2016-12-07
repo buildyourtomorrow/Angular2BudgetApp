@@ -30,13 +30,13 @@ var BYTDashboardOverviewComponent = (function () {
             _this.totalSpent = user.totalSpent;
         });
         if (this.totalIncome - this.totalBills - this.totalSpent > 0) {
-            this.savingMoneyBaby = "Keep saving that money homie.";
+            this.DashboardMessage = "Keep saving that money homie.";
         }
-        else if (this.totalIncome - this.totalBills - this.totalSpent === 0) {
-            this.savingMoneyBaby = "Baby boo, stop being lazy and add your income, bills, and expenses.";
+        else if (!this.totalIncome && !this.totalBills && !this.totalSpent) {
+            this.DashboardMessage = "Baby boo, stop being lazy and add your income, bills, and expenses.";
         }
         else {
-            this.savingMoneyBaby = "Yo, stop spending so much money";
+            this.DashboardMessage = "Yo, stop spending so much money.";
         }
         var delay = 8000;
         setInterval(function () { return _this.byt_show_section = true; }, delay);
