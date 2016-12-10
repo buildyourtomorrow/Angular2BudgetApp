@@ -34,7 +34,6 @@ import {BYTLastExpenseEntryComponent} from "./byt-last-expense-entry.component";
 import {BYTExpensesComponent} from "./byt-expenses.component";
 import {BYTExpensesFormComponent} from "./byt-expenses-form.component";
 import {BYTEducationComponent} from "./byt-education.component";
-import {BYTHomeComponent} from "./byt-home.component";
 import {Auth} from "./auth.service";
 import {BYTLoginComponent} from "./byt-login.component";
 import {AuthGuard} from "./auth.guard";
@@ -112,8 +111,7 @@ const routes: Routes = [
   				  BYTDashboardDailyBudgetComponent, BYTDashboardDailyBudgetQuestionComponent,
   				  BYTHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
-  				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, 
-            BYTHomeComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
+  				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
             BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent, BYTPlanComponent],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
                BYTPostExpense, BYTRemoveTransaction ],
