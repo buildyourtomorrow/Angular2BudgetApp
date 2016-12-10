@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var plaid = require('plaid');
 
 //for development
 if (process.env.USER === "eliezernunez") {
@@ -17,6 +18,65 @@ var authCheck = jwt({
 	audience: 'EscYrnfdxcDUs3WJeJL1edHhLVrlFQtB',
 	userProperty: 'payload'
 });
+
+/* plaid stuff
+var public_key='ae6b952559bf225102413e86490fcf';
+var PLAID_SECRET=process.env.PLAID_SECRET;
+var PLAID_CLIENT_ID=process.env.PLAID_CLIENT_ID;
+
+var plaidClient = new plaid.Client(PLAID_CLIENT_ID,
+								   PLAID_SECRET,
+                                   plaid.environments.tartan);
+console.log(plaidClient)
+
+router.post('/authenticate', function(req, res){
+	var public_token = req.body.public_token;
+	console.log(public_token)
+
+	// Exchange a public_token for a Plaid access_token
+	plaidClient.exchangeToken(public_token, function(err, exchangeTokenRes) {
+	    if (err != null) {
+	    	console.log('hi')	
+	    	console.log('here')  	
+	    	console.log(err);
+	    } else {
+	    	// This is your Plaid access token - store somewhere persistent
+	    	// The access_token can be used to make Plaid API calls to
+	    	// retrieve accounts and transactions
+	    	var access_token = exchangeTokenRes.access_token;
+
+	    	console.log('0987');
+	    	console.log(exchangeTokenRes.access_token)
+	    	User.findOne({'email': req.body.email}, function(error, user){
+				if(user){
+					user.access_token = access_token;
+					user.plaid_token = public_token;
+					user.save();
+				}
+			})
+
+	    	plaidClient.getAuthUser(access_token, function(err, authRes) {
+	    		if (err != null) {
+	    			console.log('1234')
+	        		console.log(err);
+	        	} else {
+	        	// An array of accounts for this user, containing account
+	        	// names, balances, and account and routing numbers.
+		        	var accounts = authRes.accounts;
+		        	console.log(accounts)
+		        	// Return account data
+		        	res.json({accounts: accounts});
+	        	}
+	      	});
+	      	plaidClient.getConnectUser(access_token, {gte: '30 days ago'}, function(err, response) {
+				console.log('You have ' + response.transactions.length + ' transactions from the last thirty days.');
+				console.log(response.transactions);
+			});
+	    }
+	});
+})
+*/
+
 router.post('/create-user', authCheck, function(req, res){
 	User.findOne({'email': req.body.email}, function(error, user){
 		if(!user){
@@ -156,9 +216,11 @@ router.post('/add-expenses-projection', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
+/*
 router.get('/', function(req, res){
 	res.render('index');
 });
+*/
 router.get('/login', function(req, res){
 	res.render('index');
 });
