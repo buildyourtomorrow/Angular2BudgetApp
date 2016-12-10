@@ -58,7 +58,7 @@ import {BYTPlanComponent} from "./byt-plan.component";
 
 const routes: Routes = [
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
-  { path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
+  //{ path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
   { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard] },
   { path: 'education', component: BYTEducationComponent, canActivate: [AuthGuard] },
   {
