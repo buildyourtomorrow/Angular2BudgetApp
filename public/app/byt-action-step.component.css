@@ -1,0 +1,17 @@
+.byt-action-step {	
+	background-color: #FFFFFF;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	border-radius: 5px;
+	padding-bottom: 5px;
+	padding-top: 5spx;
+	font-size: 14px;
+}
+.colorOfActionStep {
+	color: #1E90FF;
+	margin-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

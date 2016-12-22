@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var plaid = require('plaid');
 
 //for development
 if (process.env.USER === "eliezernunez") {
@@ -20,6 +19,7 @@ var authCheck = jwt({
 });
 
 /* plaid stuff
+var plaid = require('plaid');
 var public_key='ae6b952559bf225102413e86490fcf';
 var PLAID_SECRET=process.env.PLAID_SECRET;
 var PLAID_CLIENT_ID=process.env.PLAID_CLIENT_ID;
@@ -310,6 +310,9 @@ router.put('/remove-liability', authCheck, function(req, res){
 		user.save();
 		return res.json(user);
 	});
+});
+router.get('/facebook_redirect', function(req, res){
+	res.redirect('https://www.facebook.com/buildyourtomorrow/');
 });
 //The 404 Route (ALWAYS Keep this as the last route)
 router.get('*', function(req, res){
