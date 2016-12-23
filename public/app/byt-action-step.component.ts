@@ -139,15 +139,15 @@ export class BYTActionStep implements OnInit {
 			if(!this.assetCategoryTotals[0].total && !this.assetCategoryTotals[1].total){
 				this.bytActionStep = "Add assets in the Net Worth tab";
 			} else {
-				if( (this.assetCategoryTotals[0].total + this.assetCategoryTotals[1].total) < this.billsTotal ) {
+				if( (this.assetCategoryTotals[0].total + this.assetCategoryTotals[1].total) < (this.billsTotal * 12) ) {
 					this.bytActionStep = "Raise cash";
 				} else {
 					if(  (this.liabilityCategoryTotals[0].total + this.liabilityCategoryTotals[1].total + this.liabilityCategoryTotals[2].total + 
 						this.liabilityCategoryTotals[3].total + this.liabilityCategoryTotals[5].total + this.liabilityCategoryTotals[6].total + 
 						this.liabilityCategoryTotals[6].total) > 0 ) {
-							this.bytActionStep = "Look to reduce debt";
+							this.bytActionStep = "Without touching your savings account, reduce debt";
 					} else {
-						this.bytActionStep = "Look for investment opportunity";
+						this.bytActionStep = "Look for investment opportunities";
 					}
 				}
 			}			

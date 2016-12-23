@@ -314,6 +314,12 @@ router.put('/remove-liability', authCheck, function(req, res){
 router.get('/facebook_redirect', function(req, res){
 	res.redirect('https://www.facebook.com/buildyourtomorrow/');
 });
+router.get('/instagram_redirect', function(req, res){
+	res.redirect('https://www.instagram.com/_buildyourtomorrow/');
+});
+router.get('/twitter_redirect', function(req, res){
+	res.redirect('https://www.twitter.com/__byt__/');
+});
 //The 404 Route (ALWAYS Keep this as the last route)
 router.get('*', function(req, res){
   res.render('index');
