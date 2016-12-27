@@ -77,6 +77,51 @@ router.post('/authenticate', function(req, res){
 })
 */
 
+// Stripe stuff 
+var keyPublishable = process.env.PUBLISHABLE_KEY;
+var keySecret = process.env.SECRET_KEY;
+var stripe = require("stripe")(keySecret);
+
+/*
+router.get("/stripe", function(req, res){
+	res.render("index", {keyPublishable})
+});
+
+router.post('/charge', function(req, res){
+	console.log('lskdjflkjlkjlkjlkjlkjlkjljljj');
+	var keySecret = process.env.SECRET_KEY;
+	var stripe = require("stripe")(keySecret);
+
+	stripe.customers.create({
+		email: req.body.stripeEmail,
+		source: req.body.stripeToken
+	}, function(err, customer){
+		if (err) {
+			console.log(err)
+		}
+		User.findOne({'email': req.headers.byt_email}, function(error, user){
+			if(user){
+				user.stripe_payment_id = customer.id,
+				user.stripe_email_address = customer.email
+			}
+			user.save();
+		});
+	})
+	stripe.subscriptions.create({
+		// store the id value in your own database for later reference (presumably with the customer's email address)
+		customer: customer.id,
+		plan: "byt_annual_subscription_123"
+	}, function(err, subscription) {
+		// asynchronously called
+	});
+	return res.render("done son")
+
+});
+*/
+
+
+
+
 router.post('/create-user', authCheck, function(req, res){
 	User.findOne({'email': req.body.email}, function(error, user){
 		if(!user){

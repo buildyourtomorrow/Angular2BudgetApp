@@ -5,6 +5,8 @@ var jwt = require('jsonwebtoken');
 var UserSchema = new mongoose.Schema({
 	//plaid_token: String,
 	//access_token: String,
+	stripe_payment_id: String,
+	stripe_email_address: String,
 	email: {
 		type: String,
 		lowercase: true

@@ -18,7 +18,8 @@
     "mongoose": "^4.5.3",
     "morgan": "^1.7.0",
     "plaid": "^1.1.0",
-    "sendgrid": "^4.7.1"
+    "sendgrid": "^4.7.1",
+    "stripe": "^4.14.0"
   },
   "devDependencies": {}
 }

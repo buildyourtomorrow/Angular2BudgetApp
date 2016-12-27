@@ -211,4 +211,20 @@ var BYTRemoveTransaction = (function () {
     return BYTRemoveTransaction;
 }());
 exports.BYTRemoveTransaction = BYTRemoveTransaction;
+var BYTStripePayment = (function () {
+    function BYTStripePayment(authHttp) {
+        this.authHttp = authHttp;
+    }
+    BYTStripePayment.prototype.bytPostStripePayment = function (token_id) {
+        return this.authHttp.post('/charge', { token_id: token_id })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTStripePayment = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTStripePayment);
+    return BYTStripePayment;
+}());
+exports.BYTStripePayment = BYTStripePayment;
 //# sourceMappingURL=byt-dashboard-overview.service.js.map

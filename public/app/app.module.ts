@@ -55,11 +55,14 @@ import {BYTAppArrowComponent} from "./byt-app-arrow.component";
 import {BYT404Component} from "./byt-not-found.component";
 import {BYTActionStep} from "./byt-action-step.component";
 import {BYTInstructionsComponent} from "./byt-instructions.component";
+import {BYTStripeComponent} from "./byt-stripe.component"; 
+import {BYTStripePayment} from "./byt-dashboard-overview.service";
 
 const routes: Routes = [
   { path: 'login', component: BYTLoginComponent, canActivate: [AuthCheck] },
   //{ path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
   { path: 'app', component: BYTAppComponent, canActivate: [AuthGuard] },
+  //{ path: 'stripe', component: BYTStripeComponent, canActivate: [AuthGuard] },
   { path: 'education', component: BYTEducationComponent, canActivate: [AuthGuard] },
   { path: 'instructions', component: BYTInstructionsComponent, canActivate: [AuthGuard] },
   {
@@ -114,9 +117,10 @@ const routes: Routes = [
   				  BYTHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
-            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent, BYTActionStep, BYTInstructionsComponent],
+            BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent, BYTActionStep, BYTInstructionsComponent,
+            BYTStripeComponent],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
-               BYTPostExpense, BYTRemoveTransaction ],
+               BYTPostExpense, BYTRemoveTransaction, BYTStripePayment ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}

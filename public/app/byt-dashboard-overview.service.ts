@@ -151,3 +151,13 @@ export class BYTRemoveTransaction {
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
 	}
 }
+
+@Injectable()
+export class BYTStripePayment {
+	constructor(public authHttp: AuthHttp) {}
+	bytPostStripePayment(token_id: any): Observable<any[]>{
+		return this.authHttp.post('/charge', {token_id: token_id})
+			.map((res: Response) => res.json() )
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+	}
+}

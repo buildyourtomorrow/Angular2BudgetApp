@@ -40,7 +40,7 @@ var Auth = (function () {
                 localStorage.setItem('id_token', authResult.idToken);
                 localStorage.setItem('profile', JSON.stringify(profile));
                 _this.authHttp.post('/create-user', profile).subscribe();
-                _this._router.navigate(['app']);
+                _this._router.navigate(['stripe']);
                 _this.lock.hide();
             });
         });

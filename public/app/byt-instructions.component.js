@@ -14,6 +14,7 @@ var BYTInstructionsComponent = (function () {
     }
     BYTInstructionsComponent = __decorate([
         core_1.Component({
+            selector: 'byt-instructions',
             templateUrl: '/app/byt-instructions.component.html',
             styleUrls: ['app/byt-instructions.component.css']
         }), 

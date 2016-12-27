@@ -9,7 +9,7 @@ import { Auth } from './auth.service';
 	styleUrls: ['app/byt-net-worth.component.css']
 })
 export class BYT404Component implements OnInit {
-	  constructor(private auth: Auth, private router: Router) {}
+	constructor(private auth: Auth, private router: Router) {}
 
 	ngOnInit(){
 		this.auth.logout();
