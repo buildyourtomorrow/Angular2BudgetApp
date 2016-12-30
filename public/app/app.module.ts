@@ -104,8 +104,8 @@ const routes: Routes = [
         component: BYTLiabilityComponent
       }
     ]
-  },
-  { path: '**', component: BYT404Component }
+  }//,
+  //{ path: '**', component: BYT404Component }
 ];
 
 @NgModule({

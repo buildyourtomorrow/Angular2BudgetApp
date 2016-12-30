@@ -383,7 +383,9 @@ router.get('/twitter_redirect', function(req, res){
 	res.redirect('https://www.twitter.com/__byt__/');
 });
 //The 404 Route (ALWAYS Keep this as the last route)
+/*
 router.get('*', function(req, res){
   res.render('index');
 });
+*/
 module.exports = router;
