@@ -14,7 +14,8 @@ var angular2_jwt_1 = require('angular2-jwt');
 // Import RxJs required methods
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
-var Observable_1 = require('rxjs/Observable');
+var Rx_1 = require('rxjs/Rx');
+;
 var GetBYTUser = (function () {
     // Set userProfile attribute of already saved profile
     function GetBYTUser(authHttp) {
@@ -26,7 +27,7 @@ var GetBYTUser = (function () {
         ;
         myHeader.append('byt_email', this.userProfile.email);
         return this.authHttp.get('/get-user', { headers: myHeader }).map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     GetBYTUser = __decorate([
         core_1.Injectable(), 
@@ -43,17 +44,17 @@ var BYTPostProjections = (function () {
     BYTPostProjections.prototype.bytPostIncomeProjection = function (bytIncomeProjection) {
         return this.authHttp.post('/add-income-projection', { "bytIncomeProjection": bytIncomeProjection, "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostProjections.prototype.bytPostBillProjection = function (bytBillProjection) {
         return this.authHttp.post('/add-bills-projection', { "bytBillProjection": bytBillProjection, "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostProjections.prototype.bytPostExpensesProjection = function (bytExpensesProjection) {
         return this.authHttp.post('/add-expenses-projection', { "bytExpensesProjection": bytExpensesProjection, "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostProjections = __decorate([
         core_1.Injectable(), 
@@ -74,7 +75,7 @@ var BYTPostIncome = (function () {
             "amount": bytPostIncomeForm.amount,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostIncome = __decorate([
         core_1.Injectable(), 
@@ -95,7 +96,7 @@ var BYTPostAsset = (function () {
             "amount": bytPostAssetForm.amount,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostAsset = __decorate([
         core_1.Injectable(), 
@@ -116,7 +117,7 @@ var BYTPostLiability = (function () {
             "amount": bytPostLiabilityForm.amount,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostLiability = __decorate([
         core_1.Injectable(), 
@@ -138,7 +139,7 @@ var BYTPostBill = (function () {
             "amount": bytPostBillForm.amount,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostBill = __decorate([
         core_1.Injectable(), 
@@ -160,7 +161,7 @@ var BYTPostExpense = (function () {
             "amount": bytPostExpenseForm.amount,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTPostExpense = __decorate([
         core_1.Injectable(), 
@@ -178,31 +179,31 @@ var BYTRemoveTransaction = (function () {
         return this.authHttp.put('/remove-income', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTRemoveTransaction.prototype.bytRemoveBill = function (index) {
         return this.authHttp.put('/remove-bill', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTRemoveTransaction.prototype.bytRemoveExpense = function (index) {
         return this.authHttp.put('/remove-expense', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTRemoveTransaction.prototype.bytRemoveAsset = function (index) {
         return this.authHttp.put('/remove-asset', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTRemoveTransaction.prototype.bytRemoveLiability = function (index) {
         return this.authHttp.put('/remove-liability', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     BYTRemoveTransaction = __decorate([
         core_1.Injectable(), 
@@ -212,17 +213,36 @@ var BYTRemoveTransaction = (function () {
 }());
 exports.BYTRemoveTransaction = BYTRemoveTransaction;
 var BYTStripePayment = (function () {
-    function BYTStripePayment(authHttp) {
-        this.authHttp = authHttp;
+    function BYTStripePayment(_http) {
+        this._http = _http;
     }
-    BYTStripePayment.prototype.bytPostStripePayment = function (token_id) {
-        return this.authHttp.post('/charge', { token_id: token_id })
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
+    BYTStripePayment.prototype.bytPostStripePayment = function (token_id, email) {
+        return this._http.post('/charge', { "token_id": token_id,
+            "byt_email": email })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    BYTStripePayment.prototype.extractData = function (res) {
+        var body = res.json();
+        return body.data || {};
+    };
+    BYTStripePayment.prototype.handleError = function (error) {
+        // In a real world app, we might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof http_1.Response) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Rx_1.Observable.throw(errMsg);
     };
     BYTStripePayment = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+        __metadata('design:paramtypes', [http_1.Http])
     ], BYTStripePayment);
     return BYTStripePayment;
 }());

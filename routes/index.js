@@ -82,45 +82,62 @@ var keyPublishable = process.env.PUBLISHABLE_KEY;
 var keySecret = process.env.SECRET_KEY;
 var stripe = require("stripe")(keySecret);
 
-/*
 router.get("/stripe", function(req, res){
-	res.render("index", {keyPublishable})
+	return res.render("index")
 });
 
 router.post('/charge', function(req, res){
-	console.log('lskdjflkjlkjlkjlkjlkjlkjljljj');
 	var keySecret = process.env.SECRET_KEY;
 	var stripe = require("stripe")(keySecret);
+	var charge = stripe.charges.create({
+		amount: 20000, // Amount in cents
+		currency: "usd",
+		source: req.body.token_id,
+		description: "BYT 1-on-1"
+	}, function(err, charge) {
+		if (err && err.type === 'StripeCardError') {
+			console.log('The card has been declined');
+		}
+	});
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		if(user){
+			user.stripe_token = req.body.token_id;
+			user.save(function (err){						
+				console.log(err);
+			});
+		}		
+	});
+	res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ a: 1 }));
+});
 
+/*
 	stripe.customers.create({
-		email: req.body.stripeEmail,
-		source: req.body.stripeToken
+		email: req.body.byt_email
 	}, function(err, customer){
 		if (err) {
 			console.log(err)
 		}
-		User.findOne({'email': req.headers.byt_email}, function(error, user){
+		User.findOne({'email': req.body.stripeEmail}, function(error, user){
 			if(user){
-				user.stripe_payment_id = customer.id,
+				user.stripe_token = req.body.token_id,
+				user.stripe_customer_id = customer.id,
 				user.stripe_email_address = customer.email
-			}
-			user.save();
+				user.save(function (err){						
+					console.log(err);
+				});
+			}		
 		});
+		stripe.subscriptions.create({
+			// store the id value in your own database for later reference (presumably with the customer's email address)
+			customer: customer.id,
+			plan: "byt_annual_subscription_123"
+		}, function(err, subscription) {
+			// asynchronously called
+		});
+		
 	})
-	stripe.subscriptions.create({
-		// store the id value in your own database for later reference (presumably with the customer's email address)
-		customer: customer.id,
-		plan: "byt_annual_subscription_123"
-	}, function(err, subscription) {
-		// asynchronously called
-	});
-	return res.render("done son")
-
-});
 */
-
-
-
 
 router.post('/create-user', authCheck, function(req, res){
 	User.findOne({'email': req.body.email}, function(error, user){

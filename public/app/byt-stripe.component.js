@@ -10,36 +10,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var byt_dashboard_overview_service_1 = require("./byt-dashboard-overview.service");
+var router_1 = require('@angular/router');
 var BYTStripeComponent = (function () {
-    function BYTStripeComponent(_bytStripePayment) {
+    function BYTStripeComponent(_bytStripePayment, router) {
         this._bytStripePayment = _bytStripePayment;
+        this.router = router;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
     }
     BYTStripeComponent.prototype.openCheckout = function () {
         var _this = this;
         var handler = window.StripeCheckout.configure({
             key: 'pk_test_jIPsDMq98glog9Al3zo3dm3Q',
             locale: 'auto',
+            email: this.userProfile.email,
             image: "https://pbs.twimg.com/profile_images/787741887071260673/u_SdEGpc_400x400.jpg",
             token: function (token) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
                 //localStorage.setItem('stripe_token', token.id);
                 //this1._bytStripePayment.bytPostStripePayment(token.id).subscribe(user => {})
-                _this._bytStripePayment.bytPostStripePayment(token.id).subscribe(function (user) { });
+                _this._bytStripePayment.bytPostStripePayment(token.id, _this.userProfile.email).subscribe(function (data) { });
             }
         });
         handler.open({
             name: 'Build Your Tomorrow',
-            description: 'One year subscription',
-            amount: 5000
+            description: 'Work with Eli 1-on-1 ($200/month)',
         });
     };
     BYTStripeComponent = __decorate([
         core_1.Component({
+            selector: 'byt-stripe',
             templateUrl: '/app/byt-stripe.component.html',
             styleUrls: ['app/byt-stripe.component.css']
         }), 
-        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.BYTStripePayment])
+        __metadata('design:paramtypes', [byt_dashboard_overview_service_1.BYTStripePayment, router_1.Router])
     ], BYTStripeComponent);
     return BYTStripeComponent;
 }());
