@@ -12,6 +12,7 @@ export class BYT404Component implements OnInit {
 	constructor(private auth: Auth, private router: Router) {}
 
 	ngOnInit(){
+		console.log('here we are again my friend');
 		this.auth.logout();
 		this.router.navigate(['/login']);
 	}
