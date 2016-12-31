@@ -14,7 +14,7 @@ export class BYTStripeComponent {
 
 	openCheckout() {
 		var handler = (<any>window).StripeCheckout.configure({
-			key: 'pk_test_jIPsDMq98glog9Al3zo3dm3Q',
+			key: 'pk_live_QEKsPYdgVWVKalp1jNaxTpMc',
 			locale: 'auto',
 			email: this.userProfile.email,
 			image: "https://pbs.twimg.com/profile_images/787741887071260673/u_SdEGpc_400x400.jpg",
