@@ -17,6 +17,7 @@ var BYT404Component = (function () {
         this.router = router;
     }
     BYT404Component.prototype.ngOnInit = function () {
+        console.log('here we are again my friend');
         this.auth.logout();
         this.router.navigate(['/login']);
     };
