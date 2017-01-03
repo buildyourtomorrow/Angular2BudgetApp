@@ -51,7 +51,6 @@ export class BYTActionStep implements OnInit {
 
 			for (let i = 0; i < this.allAssets.length; i++){
 				if (this.allAssets[i].category === "Cash - checking accounts") {
-					console.log(this.assetCategoryTotals[0].total)
 					this.assetCategoryTotals[0].total += this.allAssets[i].amount;
 				};
 				if (this.allAssets[i].category === "Cash - savings accounts") {
