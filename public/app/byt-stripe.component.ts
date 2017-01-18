@@ -29,7 +29,7 @@ export class BYTStripeComponent {
 
 		handler.open({
 			name: 'Build Your Tomorrow',
-			description: 'Work with Eli 1-on-1 ($200/month)',				
+			description: 'Work with a coach $59/month',				
 		});
 
 	}

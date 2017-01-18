@@ -3,8 +3,12 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
 var UserSchema = new mongoose.Schema({
-	//plaid_token: String,
-	//access_token: String,
+	plaid_banking_transactions: [{
+		id: Number,
+		amount: Number,
+		date: String,
+		name: String
+	}],
 	stripe_token: {
 		type: String
 	},
@@ -14,7 +18,30 @@ var UserSchema = new mongoose.Schema({
 	},
 	nickName: {
 		type: String
-	}, // nickname of user in auth0
+	}, // nickname of user in auth0	
+	incomeProjections: [{
+		id: Number,
+		description: String,
+		category: String,
+		amount: Number,
+		date: Date
+	}],
+	billProjections: [{
+		id: Number,
+		description: String,
+		category: String,
+		subCategory: String,
+		amount: Number,
+		date: Date
+	}],
+	expenseProjections: [{
+		id: Number,
+		description: String,
+		category: String,
+		subCategory: String,
+		amount: Number,
+		date: Date
+	}],
 	income: [{
 		id: Number,
 		description: String,

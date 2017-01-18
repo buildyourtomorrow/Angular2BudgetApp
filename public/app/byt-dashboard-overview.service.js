@@ -63,6 +63,69 @@ var BYTPostProjections = (function () {
     return BYTPostProjections;
 }());
 exports.BYTPostProjections = BYTPostProjections;
+var BYTPostIncomeProjections = (function () {
+    function BYTPostIncomeProjections(authHttp) {
+        this.authHttp = authHttp;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+    BYTPostIncomeProjections.prototype.bytPostIncomeProjectionForm = function (byt_model) {
+        return this.authHttp.post('/add-income-projections', { "category": byt_model.category,
+            "description": byt_model.description,
+            "date": byt_model.date,
+            "amount": byt_model.amount,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTPostIncomeProjections = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTPostIncomeProjections);
+    return BYTPostIncomeProjections;
+}());
+exports.BYTPostIncomeProjections = BYTPostIncomeProjections;
+var BYTPostBillProjection = (function () {
+    function BYTPostBillProjection(authHttp) {
+        this.authHttp = authHttp;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+    BYTPostBillProjection.prototype.bytPostBillProjectionForm = function (byt_model) {
+        return this.authHttp.post('/add-bill-projections', { "category": byt_model.category,
+            "subCategory": byt_model.subCategory,
+            "date": byt_model.date,
+            "amount": byt_model.amount,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTPostBillProjection = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTPostBillProjection);
+    return BYTPostBillProjection;
+}());
+exports.BYTPostBillProjection = BYTPostBillProjection;
+var BYTPostExpenseProjection = (function () {
+    function BYTPostExpenseProjection(authHttp) {
+        this.authHttp = authHttp;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+    BYTPostExpenseProjection.prototype.bytPostExpenseProjectionForm = function (byt_model) {
+        return this.authHttp.post('/add-expense-projection', { "category": byt_model.category,
+            "subCategory": byt_model.subCategory,
+            "date": byt_model.date,
+            "amount": byt_model.amount,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTPostExpenseProjection = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTPostExpenseProjection);
+    return BYTPostExpenseProjection;
+}());
+exports.BYTPostExpenseProjection = BYTPostExpenseProjection;
 var BYTPostIncome = (function () {
     function BYTPostIncome(authHttp) {
         this.authHttp = authHttp;
@@ -181,14 +244,32 @@ var BYTRemoveTransaction = (function () {
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
+    BYTRemoveTransaction.prototype.bytRemoveIncomeProjection = function (index) {
+        return this.authHttp.put('/remove-income-projection', { "index": index,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
     BYTRemoveTransaction.prototype.bytRemoveBill = function (index) {
         return this.authHttp.put('/remove-bill', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
+    BYTRemoveTransaction.prototype.bytRemoveBillProjection = function (index) {
+        return this.authHttp.put('/remove-bill-projection', { "index": index,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
     BYTRemoveTransaction.prototype.bytRemoveExpense = function (index) {
         return this.authHttp.put('/remove-expense', { "index": index,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTRemoveTransaction.prototype.bytRemoveExpenseProjection = function (index) {
+        return this.authHttp.put('/remove-expense-projection', { "index": index,
             "byt_email": this.userProfile.email })
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
@@ -247,4 +328,22 @@ var BYTStripePayment = (function () {
     return BYTStripePayment;
 }());
 exports.BYTStripePayment = BYTStripePayment;
+var BYTPlaid = (function () {
+    function BYTPlaid(authHttp) {
+        this.authHttp = authHttp;
+        this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+    BYTPlaid.prototype.bytPostBankTransactions = function (public_token) {
+        return this.authHttp.post('/authenticate', { "public_token": public_token,
+            "byt_email": this.userProfile.email })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    BYTPlaid = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+    ], BYTPlaid);
+    return BYTPlaid;
+}());
+exports.BYTPlaid = BYTPlaid;
 //# sourceMappingURL=byt-dashboard-overview.service.js.map

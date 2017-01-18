@@ -18,7 +18,7 @@ var authCheck = jwt({
 	userProperty: 'payload'
 });
 
-/* plaid stuff
+/*
 var plaid = require('plaid');
 var public_key='ae6b952559bf225102413e86490fcf';
 var PLAID_SECRET=process.env.PLAID_SECRET;
@@ -27,17 +27,13 @@ var PLAID_CLIENT_ID=process.env.PLAID_CLIENT_ID;
 var plaidClient = new plaid.Client(PLAID_CLIENT_ID,
 								   PLAID_SECRET,
                                    plaid.environments.tartan);
-console.log(plaidClient)
 
 router.post('/authenticate', function(req, res){
 	var public_token = req.body.public_token;
-	console.log(public_token)
 
 	// Exchange a public_token for a Plaid access_token
 	plaidClient.exchangeToken(public_token, function(err, exchangeTokenRes) {
-	    if (err != null) {
-	    	console.log('hi')	
-	    	console.log('here')  	
+	    if (err != null) { 	
 	    	console.log(err);
 	    } else {
 	    	// This is your Plaid access token - store somewhere persistent
@@ -45,36 +41,40 @@ router.post('/authenticate', function(req, res){
 	    	// retrieve accounts and transactions
 	    	var access_token = exchangeTokenRes.access_token;
 
-	    	console.log('0987');
-	    	console.log(exchangeTokenRes.access_token)
-	    	User.findOne({'email': req.body.email}, function(error, user){
-				if(user){
-					user.access_token = access_token;
-					user.plaid_token = public_token;
-					user.save();
-				}
-			})
+	    	plaidClient.getConnectUser(access_token, {gte: '30 days ago'}, function(err, response) {	    		
+				User.findOne({'email': req.body.byt_email}, function(error, user){					
+					if(user){
+						for (i=0; i<response.transactions.length; i++){
+							var x = {
+								'id': i,
+								'amount': response.transactions[i].amount,
+								'name': response.transactions[i].name,
+								'date': response.transactions[i].date
+							};
+							console.log(x)
+							console.log(i)
+							user.plaid_banking_transactions.push(x)
+						}
+						user.save();
+					}
+				})
+				return res.json(response.transactions);
+			});
 
 	    	plaidClient.getAuthUser(access_token, function(err, authRes) {
 	    		if (err != null) {
-	    			console.log('1234')
 	        		console.log(err);
 	        	} else {
 	        	// An array of accounts for this user, containing account
 	        	// names, balances, and account and routing numbers.
 		        	var accounts = authRes.accounts;
-		        	console.log(accounts)
 		        	// Return account data
 		        	res.json({accounts: accounts});
 	        	}
 	      	});
-	      	plaidClient.getConnectUser(access_token, {gte: '30 days ago'}, function(err, response) {
-				console.log('You have ' + response.transactions.length + ' transactions from the last thirty days.');
-				console.log(response.transactions);
-			});
 	    }
 	});
-})
+});
 */
 
 // Stripe stuff 
@@ -90,7 +90,7 @@ router.post('/charge', function(req, res){
 	var keySecret = process.env.SECRET_KEY;
 	var stripe = require("stripe")(keySecret);
 	var charge = stripe.charges.create({
-		amount: 20000, // Amount in cents
+		amount: 5900, // Amount in cents
 		currency: "usd",
 		source: req.body.token_id,
 		description: "BYT 1-on-1"
@@ -172,6 +172,26 @@ router.post('/add-income', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
+router.post('/add-income-projections', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		if (user.income.length > 0 ) {
+			user.incomeProjections.unshift({'id': user.income.length,
+										 	'description': req.body.description,
+										 	'category': req.body.category, 
+										 	'amount': req.body.amount,
+										 	'date': req.body.date});
+		};
+		if (user.income.length === 0) {
+			user.incomeProjections.unshift({'id': 0,
+								 			'description': req.body.description,
+							     			'category': req.body.category,
+							     			'amount': req.body.amount,
+							     			'date': req.body.date});
+		}
+		user.save();
+		return res.json(user);
+	});
+});
 router.post('/add-asset', authCheck, function(req, res){
 	User.findOne({'email': req.body.byt_email}, function(error, user){		
 		if (user.assets.length > 0 ) {
@@ -235,6 +255,28 @@ router.post('/add-bill', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
+router.post('/add-bill-projections', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		if (user.billProjections.length > 0 ) {
+			user.billProjections.unshift({'id': user.billProjections.length,
+										  'description': req.body.description,
+								   	      'category': req.body.category, 
+								   	      'subCategory': req.body.subCategory,
+								          'amount': req.body.amount,
+								   	      'date': req.body.date});
+		};
+		if (user.billProjections.length === 0) {
+			user.billProjections.unshift({'id': 0,
+								 		  'category': req.body.category,
+								   	      'description': req.body.description,
+								   	      'subCategory': req.body.subCategory,
+								          'amount': req.body.amount,
+								          'date': req.body.date});
+		}
+		user.save();
+		return res.json(user);
+	});
+});
 router.post('/add-monthly-expense', authCheck, function(req, res){
 	User.findOne({'email': req.body.byt_email}, function(error, user){	
 		if (user.monthlyExpenses.length > 0 ) {
@@ -252,6 +294,29 @@ router.post('/add-monthly-expense', authCheck, function(req, res){
 								   	      'subCategory': req.body.subCategory,
 								          'amount': req.body.amount,
 								          'date': req.body.date});
+		}		
+		user.save();
+		return res.json(user);
+	});
+});
+router.post('/add-expense-projection', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){	
+		console.log(req.body);
+		if (user.expenseProjections.length > 0 ) {
+			user.expenseProjections.unshift({'id': user.expenseProjections.length,
+										  	 'description': req.body.description,
+									   	     'category': req.body.category, 
+									   	     'subCategory': req.body.subCategory,
+									         'amount': req.body.amount,
+									   	     'date': req.body.date});
+		};
+		if (user.expenseProjections.length === 0) {
+			user.expenseProjections.unshift({'id': 0, 
+								   	      	 'category': req.body.category,
+								   	         'description': req.body.description,
+								   	         'subCategory': req.body.subCategory,
+								             'amount': req.body.amount,
+								             'date': req.body.date});
 		}		
 		user.save();
 		return res.json(user);
@@ -345,6 +410,13 @@ router.put('/remove-expense', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
+router.put('/remove-expense-projection', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		user.expenseProjections.splice([req.body.index], 1);
+		user.save();
+		return res.json(user);
+	});
+});
 router.put('/remove-bill', authCheck, function(req, res){
 	User.findOne({'email': req.body.byt_email}, function(error, user){
 		user.monthlyBills.splice([req.body.index], 1);
@@ -352,9 +424,23 @@ router.put('/remove-bill', authCheck, function(req, res){
 		return res.json(user);
 	});
 });
+router.put('/remove-bill-projection', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		user.billProjections.splice([req.body.index], 1);
+		user.save();
+		return res.json(user);
+	});
+});
 router.put('/remove-income', authCheck, function(req, res){
 	User.findOne({'email': req.body.byt_email}, function(error, user){
 		user.income.splice([req.body.index], 1);
+		user.save();
+		return res.json(user);
+	});
+});
+router.put('/remove-income-projection', authCheck, function(req, res){
+	User.findOne({'email': req.body.byt_email}, function(error, user){
+		user.incomeProjections.splice([req.body.index], 1);
 		user.save();
 		return res.json(user);
 	});

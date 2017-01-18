@@ -37,7 +37,6 @@ var BYTActionStep = (function () {
             ];
             for (var i = 0; i < _this.allAssets.length; i++) {
                 if (_this.allAssets[i].category === "Cash - checking accounts") {
-                    console.log(_this.assetCategoryTotals[0].total);
                     _this.assetCategoryTotals[0].total += _this.allAssets[i].amount;
                 }
                 ;

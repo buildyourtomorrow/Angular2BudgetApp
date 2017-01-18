@@ -66,6 +66,17 @@ var byt_action_step_component_1 = require("./byt-action-step.component");
 var byt_instructions_component_1 = require("./byt-instructions.component");
 var byt_stripe_component_1 = require("./byt-stripe.component");
 var byt_dashboard_overview_service_9 = require("./byt-dashboard-overview.service");
+var byt_plaid_component_1 = require("./byt-plaid.component");
+var byt_dashboard_overview_service_10 = require("./byt-dashboard-overview.service");
+var byt_monthly_projections_component_1 = require("./byt-monthly-projections.component");
+var byt_monthly_projections_overview_component_1 = require("./byt-monthly-projections-overview.component");
+var byt_monthly_projections_nav_component_1 = require("./byt-monthly-projections-nav.component");
+var byt_monthly_projections_income_component_1 = require("./byt-monthly-projections-income.component");
+var byt_monthly_projections_bills_component_1 = require("./byt-monthly-projections-bills.component");
+var byt_monthly_projections_expenses_component_1 = require("./byt-monthly-projections-expenses.component");
+var byt_dashboard_overview_service_11 = require('./byt-dashboard-overview.service');
+var byt_dashboard_overview_service_12 = require("./byt-dashboard-overview.service");
+var byt_dashboard_overview_service_13 = require("./byt-dashboard-overview.service");
 var routes = [
     { path: 'login', component: byt_login_component_1.BYTLoginComponent, canActivate: [auth_guard_2.AuthCheck] },
     //{ path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
@@ -73,6 +84,26 @@ var routes = [
     //{ path: 'stripe', component: BYTStripeComponent, canActivate: [AuthGuard] },
     { path: 'education', component: byt_education_component_1.BYTEducationComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'instructions', component: byt_instructions_component_1.BYTInstructionsComponent, canActivate: [auth_guard_1.AuthGuard] },
+    //{ path: 'plaid-transactions', component: BYTPlaidComponent, canActivate: [AuthGuard] },
+    {
+        path: 'monthly-projections',
+        component: byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent,
+        canActivate: [auth_guard_1.AuthGuard],
+        children: [
+            {
+                path: 'income',
+                component: byt_monthly_projections_income_component_1.BYTMonthlyProjectionsIncomeComponent
+            },
+            {
+                path: 'bills',
+                component: byt_monthly_projections_bills_component_1.BYTMonthlyProjectionsBillsComponent
+            },
+            {
+                path: 'expenses',
+                component: byt_monthly_projections_expenses_component_1.BYTMonthlyProjectionsExpensesComponent
+            }
+        ]
+    },
     {
         path: 'spending-journal',
         component: byt_transaction_journal_component_1.BYTTransactionJournalComponent,
@@ -128,9 +159,10 @@ var AppModule = (function () {
                 byt_last_asset_entry_component_1.BYTLastAssetEntryComponent, byt_last_liability_entry_component_1.BYTLastLiabilityEntryComponent, byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_bills_form_component_1.BYTBillsFormComponent,
                 byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent, byt_expenses_component_1.BYTExpensesComponent, byt_expenses_form_component_1.BYTExpensesFormComponent, byt_education_component_1.BYTEducationComponent, byt_login_component_1.BYTLoginComponent, byt_transaction_journal_component_1.BYTTransactionJournalComponent, byt_liability_form_component_1.BYTLiabilityFormComponent, byt_liability_component_1.BYTLiabilityComponent, byt_net_worth_component_1.BYTNetWorthComponent, byt_net_worth_nav_component_1.BYTNetWorthNavComponent,
                 byt_balance_sheet_component_1.BYTBalanceSheetComponent, byt_app_component_1.BYTAppComponent, byt_app_arrow_component_1.BYTAppArrowComponent, byt_not_found_component_1.BYT404Component, byt_education_component_1.BYTEducationComponent, byt_action_step_component_1.BYTActionStep, byt_instructions_component_1.BYTInstructionsComponent,
-                byt_stripe_component_1.BYTStripeComponent],
+                byt_stripe_component_1.BYTStripeComponent, byt_plaid_component_1.BYTPlaidComponent, byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent, byt_monthly_projections_nav_component_1.BYTMonthlyProjectionsNavComponent, byt_monthly_projections_overview_component_1.BYTMonthlyProjectionsOverviewComponent,
+                byt_monthly_projections_income_component_1.BYTMonthlyProjectionsIncomeComponent, byt_monthly_projections_bills_component_1.BYTMonthlyProjectionsBillsComponent, byt_monthly_projections_expenses_component_1.BYTMonthlyProjectionsExpensesComponent],
             providers: [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, angular2_jwt_1.AUTH_PROVIDERS, auth_guard_1.AuthGuard, auth_guard_2.AuthCheck, byt_dashboard_overview_service_2.BYTPostProjections, byt_dashboard_overview_service_3.BYTPostIncome, byt_dashboard_overview_service_4.BYTPostAsset, byt_dashboard_overview_service_5.BYTPostLiability, byt_dashboard_overview_service_6.BYTPostBill,
-                byt_dashboard_overview_service_7.BYTPostExpense, byt_dashboard_overview_service_8.BYTRemoveTransaction, byt_dashboard_overview_service_9.BYTStripePayment],
+                byt_dashboard_overview_service_7.BYTPostExpense, byt_dashboard_overview_service_8.BYTRemoveTransaction, byt_dashboard_overview_service_9.BYTStripePayment, byt_dashboard_overview_service_10.BYTPlaid, byt_dashboard_overview_service_11.BYTPostIncomeProjections, byt_dashboard_overview_service_12.BYTPostBillProjection, byt_dashboard_overview_service_13.BYTPostExpenseProjection],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

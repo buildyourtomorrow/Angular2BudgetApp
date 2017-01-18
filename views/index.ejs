@@ -27,6 +27,7 @@
             System.import('app').catch(function(err){ console.error(err); });
         </script>
         <script src="https://checkout.stripe.com/checkout.js"></script>
+        <link rel="icon" type="image/png" href="/app/images/logo.png">
     </head>
     <body>
         <!-- Plaid stuff -->
@@ -37,15 +38,7 @@
         <!-- To use Link with longtail institutions on Connect, set the
             data-longtail attribute to 'true'. See the Parameter Reference for
             additional documentation. -->
-        <script
-          src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"
-          data-client-name="Build Your Tomorrow"
-          data-form-id="some-id"
-          data-key="ae6b952559bf225102413e86490fcf"
-          data-product="connect"
-          data-env="tartan"
-          data-longtail="true">
-        </script>
+        <!-- <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script> -->
         <my-app>Loading...</my-app>
     </body>
 </html>
