@@ -22,12 +22,12 @@ var BYTDashboardOverviewComponent = (function () {
     BYTDashboardOverviewComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._getBYTUser.getUser().subscribe(function (user) {
-            _this.projectedIncome = user.projectedIncome;
-            _this.projectedBills = user.projectedBills;
-            _this.projectedExpenses = user.projectedExpenses;
             _this.totalIncome = user.totalIncome;
             _this.totalBills = user.billsTotal;
             _this.totalSpent = user.totalSpent;
+            _this.incomeProjectionsTotal = user.incomeProjectionsTotal;
+            _this.billProjectionsTotal = user.billProjectionsTotal;
+            _this.expenseProjectionsTotal = user.expenseProjectionsTotal;
         });
         if (this.totalIncome - this.totalBills - this.totalSpent > 0) {
             this.DashboardMessage = "Keep saving that money homie.";
@@ -40,32 +40,6 @@ var BYTDashboardOverviewComponent = (function () {
         }
         var delay = 8000;
         setInterval(function () { return _this.byt_show_section = true; }, delay);
-    };
-    ;
-    BYTDashboardOverviewComponent.prototype.editIncomeProjection = function (projectedIncome) {
-        var _this = this;
-        this.bytIncomeProjection = !this.bytIncomeProjection;
-        this._bytPostProjections.bytPostIncomeProjection(projectedIncome).subscribe(function (user) {
-            _this.projectedIncome = user.projectedIncome;
-        });
-    };
-    ;
-    BYTDashboardOverviewComponent.prototype.editBillProjection = function (projectedBills) {
-        var _this = this;
-        this.bytBillProjection = !this.bytBillProjection;
-        this._bytPostProjections.bytPostBillProjection(projectedBills).subscribe(function (user) {
-            _this.projectedBills = user.projectedBills;
-        });
-    };
-    ;
-    BYTDashboardOverviewComponent.prototype.editExpProjection = function (projectedExpenses) {
-        var _this = this;
-        this.bytExpProjection = !this.bytExpProjection;
-        this.expenseAnalysis.calcUpBy(); //child function
-        this.dailyBudget.calcDailyBudget(); //child function
-        this._bytPostProjections.bytPostExpensesProjection(projectedExpenses).subscribe(function (user) {
-            _this.projectedExpenses = user.projectedExpenses;
-        });
     };
     ;
     __decorate([

@@ -391,6 +391,9 @@ router.get('/get-user', authCheck, function(req, res){
 			user.calcTotalLiabilities(user.liabilities);			
 			user.calcTotalBills(user.monthlyBills);
 			user.calcTotalSpent(user.monthlyExpenses);
+			user.calcTotalIncomeProjections(user.incomeProjections);
+			user.calcTotalBillProjections(user.billProjections);
+			user.calcTotalExpenseProjections(user.expenseProjections);
 			user.calcLeftOver();
 			user.calcDailyBudget();	
 			user.calcUpBy();

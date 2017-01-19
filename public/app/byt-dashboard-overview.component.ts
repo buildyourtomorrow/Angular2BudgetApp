@@ -12,9 +12,6 @@ import {BYTBodyNavComponent} from './byt-body-nav.component';
     styleUrls: ['app/byt-dashboard-overview.component.css']
 })
 export class BYTDashboardOverviewComponent implements OnInit {
-	projectedIncome: number;
-	projectedBills: number;
-	projectedExpenses: number;
 	totalIncome: number;
 	totalBills: number;
 	totalSpent: number;
@@ -24,6 +21,9 @@ export class BYTDashboardOverviewComponent implements OnInit {
 	bytExpProjection: boolean;
 	DashboardMessage: string;
 	byt_show_section: boolean;
+	incomeProjectionsTotal: number;
+	billProjectionsTotal: number;
+	expenseProjectionsTotal: number;
 
 	@ViewChild(BYTDashboardExpenseAnalysisComponent) expenseAnalysis: BYTDashboardExpenseAnalysisComponent;
 	@ViewChild(BYTDashboardDailyBudgetComponent) dailyBudget: BYTDashboardDailyBudgetComponent;
@@ -32,13 +32,13 @@ export class BYTDashboardOverviewComponent implements OnInit {
 	constructor (private _getBYTUser: GetBYTUser, private _bytPostProjections: BYTPostProjections) {}
 
 	ngOnInit(){
-		this._getBYTUser.getUser().subscribe(user => {	
-			this.projectedIncome = user.projectedIncome;
-			this.projectedBills = user.projectedBills;
-			this.projectedExpenses = user.projectedExpenses;
+		this._getBYTUser.getUser().subscribe(user => {
 			this.totalIncome = user.totalIncome;
 			this.totalBills = user.billsTotal;
-			this.totalSpent = user.totalSpent;			
+			this.totalSpent = user.totalSpent;	
+			this.incomeProjectionsTotal = user.incomeProjectionsTotal;
+			this.billProjectionsTotal = user.billProjectionsTotal;
+			this.expenseProjectionsTotal = user.expenseProjectionsTotal;
 		});
 		if (this.totalIncome - this.totalBills - this.totalSpent > 0) {
 			this.DashboardMessage = "Keep saving that money homie.";
@@ -51,6 +51,7 @@ export class BYTDashboardOverviewComponent implements OnInit {
 		setInterval(() => this.byt_show_section = true, delay);
     };
 
+/*
     editIncomeProjection(projectedIncome){
     	this.bytIncomeProjection = !this.bytIncomeProjection;
     	this._bytPostProjections.bytPostIncomeProjection(projectedIncome).subscribe(user => {
@@ -73,4 +74,5 @@ export class BYTDashboardOverviewComponent implements OnInit {
     		this.projectedExpenses = user.projectedExpenses;
     	});
     };
+*/
 }

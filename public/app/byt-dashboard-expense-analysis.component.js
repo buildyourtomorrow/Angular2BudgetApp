@@ -18,7 +18,7 @@ var BYTDashboardExpenseAnalysisComponent = (function () {
     BYTDashboardExpenseAnalysisComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._getBYTUser.getUser().subscribe(function (user) {
-            _this.projectedExpenses = user.projectedExpenses;
+            _this.expenseProjectionsTotal = user.expenseProjectionsTotal;
             _this.totalSpent = user.totalSpent;
             _this.leftOver = user.leftOver;
             _this.upBy = user.upBy;
@@ -42,8 +42,8 @@ var BYTDashboardExpenseAnalysisComponent = (function () {
         this.periodEnd = new Date(year, month, 0);
     };
     BYTDashboardExpenseAnalysisComponent.prototype.calcDailyBudget = function () {
-        this.dailyBudget = this.projectedExpenses / this.periodEnd.getDate();
-        this.leftOver = this.projectedExpenses - this.totalSpent;
+        this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate();
+        this.leftOver = this.expenseProjectionsTotal - this.totalSpent;
     };
     BYTDashboardExpenseAnalysisComponent.prototype.calcUpBy = function () {
         this.calcDailyBudget();
@@ -68,8 +68,7 @@ var BYTDashboardExpenseAnalysisComponent = (function () {
         core_1.Component({
             selector: 'byt-dashboard-expense-analysis',
             templateUrl: '/app/byt-dashboard-expense-analysis.component.html',
-            styleUrls: ['app/byt-dashboard-expense-analysis.component.css'],
-            inputs: ['projectedExpenses']
+            styleUrls: ['app/byt-dashboard-expense-analysis.component.css']
         }), 
         __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser])
     ], BYTDashboardExpenseAnalysisComponent);

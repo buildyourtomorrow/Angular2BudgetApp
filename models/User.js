@@ -68,6 +68,21 @@ var UserSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
+	incomeProjectionsTotal: {
+		id: Number,
+		type: Number,
+		default: 0
+	},
+	billProjectionsTotal: {
+		id: Number,
+		type: Number,
+		default: 0
+	},
+	expenseProjectionsTotal: {
+		id: Number,
+		type: Number,
+		default: 0
+	},
 	monthlyBills: [{
 		id: Number,
 		description: String,
@@ -110,21 +125,6 @@ var UserSchema = new mongoose.Schema({
 		default: 0
 	},	
 	upBy: {
-		id: Number,
-		type: Number,
-		default: 0
-	},
-	projectedIncome: {
-		id: Number,
-		type: Number,
-		default: 0
-	},
-	projectedBills: {
-		id: Number,
-		type: Number,
-		default: 0
-	},
-	projectedExpenses: {
 		id: Number,
 		type: Number,
 		default: 0
@@ -190,6 +190,33 @@ UserSchema.methods.calcTotalAssets = function(assets){
 	this.save();
 };
 
+UserSchema.methods.calcTotalIncomeProjections = function(incomeProjections){		
+	var total = 0;
+	for (i = 0; i < incomeProjections.length; i++) {	
+		total = total + incomeProjections[i].amount;
+	};
+	this.incomeProjectionsTotal = total;
+	this.save();
+};
+
+UserSchema.methods.calcTotalBillProjections = function(billProjections){		
+	var total = 0;
+	for (i = 0; i < billProjections.length; i++) {	
+		total = total + billProjections[i].amount;
+	};
+	this.billProjectionsTotal = total;
+	this.save();
+};
+
+UserSchema.methods.calcTotalExpenseProjections = function(expenseProjections){		
+	var total = 0;
+	for (i = 0; i < expenseProjections.length; i++) {	
+		total = total + expenseProjections[i].amount;
+	};
+	this.expenseProjectionsTotal = total;
+	this.save();
+};
+
 UserSchema.methods.calcTotalLiabilities = function(liabilities){		
 	var total = 0;
 	for (i = 0; i < liabilities.length; i++) {	
@@ -218,7 +245,7 @@ UserSchema.methods.calcTotalSpent = function(allMonthlyExpenses){
 };
 
 UserSchema.methods.calcLeftOver = function(){
-	this.leftOver = this.projectedExpenses - this.totalSpent;
+	this.leftOver = this.expenseProjectionsTotal - this.totalSpent;
 	this.save();
 };
 
@@ -228,7 +255,7 @@ UserSchema.methods.calcUpBy = function(){
 };
 
 UserSchema.methods.calcDailyBudget = function(){
-	this.dailyBudget = this.projectedExpenses / this.periodEnd.getDate()  
+	this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate()  
 	this.save();
 };
 

@@ -20,60 +20,66 @@
 					<tr>
 						<td>Income</td>
 						<td>
-							<span *ngIf="!bytIncomeProjection">{{projectedIncome}}</span>
+							<span *ngIf="!bytIncomeProjection">{{incomeProjectionsTotal | number:'.0-0'}}</span>
+							<!--
 							<span *ngIf="bytIncomeProjection">
 								<input style="width: 50px; display:inline;" 
 									   class='form-control input-sm' type='number' 
-									   name="projectedIncome" 
-									   [(ngModel)]='projectedIncome' 
-									   (keyup.enter)="editIncomeProjection(projectedIncome)" required>
+									   name="incomeProjectionsTotal" 
+									   [(ngModel)]='incomeProjectionsTotal' 
+									   (keyup.enter)="editIncomeProjection(incomeProjectionsTotal)" required>
 							</span>
-							<span style="display:inline; cursor:pointer;" (click)="editIncomeProjection(projectedIncome)"> <i *ngIf="!bytIncomeProjection" class="glyphicon glyphicon-edit"></i><i *ngIf="bytIncomeProjection" class="glyphicon glyphicon-ok"></i></span>
+							<span style="display:inline; cursor:pointer;" (click)="editIncomeProjection(incomeProjectionsTotal)"> <i *ngIf="!bytIncomeProjection" class="glyphicon glyphicon-edit"></i><i *ngIf="bytIncomeProjection" class="glyphicon glyphicon-ok"></i></span>
+							-->
 						</td>
 						<td>{{totalIncome |number:'.0-0'}}</td>
-						<td *ngIf="(projectedIncome - totalIncome) > 0" style="color: red">{{ (projectedIncome - totalIncome) * -1 |number:'.0-0'}}</td>
-						<td *ngIf="(projectedIncome - totalIncome) < 0" style="color: #32CD32">{{ (projectedIncome - totalIncome) * -1 |number:'.0-0'}}</td>
-						<td *ngIf="(projectedIncome - totalIncome) === 0" >{{ (projectedIncome - totalIncome) |number:'.0-0'}}</td>
+						<td *ngIf="(incomeProjectionsTotal - totalIncome) > 0" style="color: red">{{ (incomeProjectionsTotal - totalIncome) * -1 |number:'.0-0'}}</td>
+						<td *ngIf="(incomeProjectionsTotal - totalIncome) < 0" style="color: #32CD32">{{ (incomeProjectionsTotal - totalIncome) * -1 |number:'.0-0'}}</td>
+						<td *ngIf="(incomeProjectionsTotal - totalIncome) === 0" >{{ (incomeProjectionsTotal - totalIncome) |number:'.0-0'}}</td>
 					</tr>
 					<tr>
 						<td>Bills <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></td>
 						<td>
-							<span *ngIf="!bytBillProjection">{{projectedBills |number:'.0-0'}}</span>
+							<span *ngIf="!bytBillProjection">{{billProjectionsTotal |number:'.0-0'}}</span>
+							<!--
 							<span *ngIf="bytBillProjection">												
-								<input style="width: 50px; display:inline;" class='form-control input-sm' type='number' name="projectedBill" [(ngModel)]='projectedBills' (keyup.enter)="editBillProjection(projectedBills)" required>
+								<input style="width: 50px; display:inline;" class='form-control input-sm' type='number' name="projectedBill" [(ngModel)]='billProjectionsTotal' (keyup.enter)="editBillProjection(billProjectionsTotal)" required>
 							</span>
 
-							<span style="display:inline; cursor:pointer;" (click)="editBillProjection(projectedBills)"> <i *ngIf="!bytBillProjection" class="glyphicon glyphicon-edit"></i><i *ngIf="bytBillProjection" class="glyphicon glyphicon-ok"></i></span> 
+							<span style="display:inline; cursor:pointer;" (click)="editBillProjection(billProjectionsTotal)"> <i *ngIf="!bytBillProjection" class="glyphicon glyphicon-edit"></i><i *ngIf="bytBillProjection" class="glyphicon glyphicon-ok"></i></span> 
+							-->
 						</td>
 						<td>{{totalBills |number:'.0-0'}}</td>
-						<td *ngIf="(projectedBills - totalBills) > 0" style="color: #32CD32">{{ (projectedBills - totalBills) |number:'.0-0'}}</td>
-						<td *ngIf="(projectedBills - totalBills) < 0" style="color: red">{{ (projectedBills - totalBills) |number:'.0-0'}}</td>
-						<td *ngIf="(projectedBills - totalBills) === 0" >{{ (projectedBills - totalBills) |number:'.0-0'}}</td>
+						<td *ngIf="(billProjectionsTotal - totalBills) > 0" style="color: #32CD32">{{ (billProjectionsTotal - totalBills) |number:'.0-0'}}</td>
+						<td *ngIf="(billProjectionsTotal - totalBills) < 0" style="color: red">{{ (billProjectionsTotal - totalBills) |number:'.0-0'}}</td>
+						<td *ngIf="(billProjectionsTotal - totalBills) === 0" >{{ (billProjectionsTotal - totalBills) |number:'.0-0'}}</td>
 					</tr>
 					<tr>
 						<td>Expenses</td>
 						<td>
-							<span *ngIf="!bytExpProjection">{{projectedExpenses |number:'.0-0'}}</span>
+							<span *ngIf="!bytExpProjection">{{expenseProjectionsTotal |number:'.0-0'}}</span>
+							<!--
 							<span *ngIf="bytExpProjection">
-								<input style="width: 50px; display:inline;" class='form-control input-sm' type='number' name="bytExpProjection" [(ngModel)]='projectedExpenses' (keyup.enter)="editExpProjection(projectedExpenses)" required>
+								<input style="width: 50px; display:inline;" class='form-control input-sm' type='number' name="bytExpProjection" [(ngModel)]='expenseProjectionsTotal' (keyup.enter)="editExpProjection(expenseProjectionsTotal)" required>
 							</span>
-							<span style="display:inline; cursor:pointer;" (click)="editExpProjection(projectedExpenses)"> <i *ngIf="!bytExpProjection" class="glyphicon glyphicon-edit"></i><i *ngIf="bytExpProjection" class="glyphicon glyphicon-ok"></i></span> 
+							<span style="display:inline; cursor:pointer;" (click)="editExpProjection(expenseProjectionsTotal)"> <i *ngIf="!bytExpProjection" class="glyphicon glyphicon-edit"></i><i *ngIf="bytExpProjection" class="glyphicon glyphicon-ok"></i></span> 
+							-->
 						</td>
 						<td>{{totalSpent |number:'.0-0'}}</td>
-						<td *ngIf="(projectedExpenses - totalSpent) > 0" style="color: #32CD32">{{ (projectedExpenses - totalSpent) |number:'.0-0'}}</td>
-						<td *ngIf="(projectedExpenses - totalSpent) < 0" style="color: red">{{ (projectedExpenses - totalSpent) |number:'.0-0'}}</td>
-						<td *ngIf="(projectedExpenses - totalSpent) === 0">{{ (projectedExpenses - totalSpent) |number:'.0-0'}}</td>
+						<td *ngIf="(expenseProjectionsTotal - totalSpent) > 0" style="color: #32CD32">{{ (expenseProjectionsTotal - totalSpent) |number:'.0-0'}}</td>
+						<td *ngIf="(expenseProjectionsTotal - totalSpent) < 0" style="color: red">{{ (expenseProjectionsTotal - totalSpent) |number:'.0-0'}}</td>
+						<td *ngIf="(expenseProjectionsTotal - totalSpent) === 0">{{ (expenseProjectionsTotal - totalSpent) |number:'.0-0'}}</td>
 					</tr>
 					<tr>
 						<td>Savings</td>
-						<td>{{projectedIncome - projectedBills - projectedExpenses}}</td>
+						<td>{{incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal |number:'.0-0'}}</td>
 						<td *ngIf="totalIncome-totalBills-totalSpent > 0">{{totalIncome - totalBills - totalSpent |number:'.0-0'}} 🙂 </td>
 						<td *ngIf="totalIncome-totalBills-totalSpent < 0">{{totalIncome - totalBills - totalSpent |number:'.0-0'}} 😡 </td>
 						<td *ngIf="totalIncome-totalBills-totalSpent === 0">{{totalIncome - totalBills - totalSpent |number:'.0-0'}} </td>
 
-						<td *ngIf="(projectedIncome - projectedBills - projectedExpenses) - (totalIncome-totalBills-totalSpent) === 0">{{ (projectedIncome - projectedBills - projectedExpenses) - (totalIncome-totalBills-totalSpent) |number:'.0-0'}}</td>
-						<td style="color: red" *ngIf="(projectedIncome - projectedBills - projectedExpenses) - (totalIncome-totalBills-totalSpent) > 0">{{ (projectedIncome - projectedBills - projectedExpenses) - (totalIncome-totalBills-totalSpent) |number:'.0-0'}}</td>
-						<td style="color: #32CD32" *ngIf="(projectedIncome - projectedBills - projectedExpenses) - (totalIncome-totalBills-totalSpent) < 0">{{ ( (projectedIncome - projectedBills - projectedExpenses) - (totalIncome-totalBills-totalSpent) ) * -1|number:'.0-0'}}</td>
+						<td *ngIf="(incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal) - (totalIncome-totalBills-totalSpent) === 0">{{ (incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal) - (totalIncome-totalBills-totalSpent) |number:'.0-0'}}</td>
+						<td style="color: red" *ngIf="(incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal) - (totalIncome-totalBills-totalSpent) > 0">{{ (incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal) - (totalIncome-totalBills-totalSpent) |number:'.0-0'}}</td>
+						<td style="color: #32CD32" *ngIf="(incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal) - (totalIncome-totalBills-totalSpent) < 0">{{ ( (incomeProjectionsTotal - billProjectionsTotal - expenseProjectionsTotal) - (totalIncome-totalBills-totalSpent) ) * -1|number:'.0-0'}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -93,6 +99,6 @@
 		</section>						
 	</section>
 </section>
-<byt-dashboard-expense-analysis [projectedExpenses]="projectedExpenses"></byt-dashboard-expense-analysis>
-<byt-dashboard-daily-budget [projectedExpenses]="projectedExpenses"></byt-dashboard-daily-budget>
+<byt-dashboard-expense-analysis></byt-dashboard-expense-analysis>
+<byt-dashboard-daily-budget></byt-dashboard-daily-budget>
 <br>

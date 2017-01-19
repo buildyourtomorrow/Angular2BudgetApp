@@ -19,7 +19,7 @@ var BYTDashboardDailyBudgetComponent = (function () {
         var _this = this;
         this._getBYTUser.getUser().subscribe(function (user) {
             _this.daysLeft = user.daysLeft;
-            _this.projectedExpenses = user.projectedExpenses;
+            _this.expenseProjectionsTotal = user.expenseProjectionsTotal;
             _this.calcPeriodStart();
             _this.calcPeriodEnd();
             _this.calcDailyBudget();
@@ -38,14 +38,13 @@ var BYTDashboardDailyBudgetComponent = (function () {
         this.periodEnd = new Date(year, month, 0);
     };
     BYTDashboardDailyBudgetComponent.prototype.calcDailyBudget = function () {
-        this.dailyBudget = this.projectedExpenses / this.periodEnd.getDate();
+        this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate();
     };
     BYTDashboardDailyBudgetComponent = __decorate([
         core_1.Component({
             selector: 'byt-dashboard-daily-budget',
             templateUrl: '/app/byt-dashboard-daily-budget.component.html',
-            styleUrls: ['app/byt-dashboard-daily-budget.component.css'],
-            inputs: ['projectedExpenses']
+            styleUrls: ['app/byt-dashboard-daily-budget.component.css']
         }), 
         __metadata('design:paramtypes', [byt_dashboard_overview_service_1.GetBYTUser])
     ], BYTDashboardDailyBudgetComponent);

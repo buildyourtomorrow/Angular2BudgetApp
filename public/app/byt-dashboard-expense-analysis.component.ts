@@ -5,11 +5,10 @@ import {GetBYTUser} from './byt-dashboard-overview.service';
 @Component({
     selector: 'byt-dashboard-expense-analysis',
     templateUrl: '/app/byt-dashboard-expense-analysis.component.html',
-    styleUrls: ['app/byt-dashboard-expense-analysis.component.css'],
-    inputs: ['projectedExpenses']
+    styleUrls: ['app/byt-dashboard-expense-analysis.component.css']
 })
 export class BYTDashboardExpenseAnalysisComponent implements OnInit {
-	projectedExpenses: number;
+	expenseProjectionsTotal: number;
 	totalSpent: number;
 	leftOver: number;
 	upBy: number;
@@ -27,7 +26,7 @@ export class BYTDashboardExpenseAnalysisComponent implements OnInit {
 
 	ngOnInit(){
 		this._getBYTUser.getUser().subscribe(user => {
-			this.projectedExpenses = user.projectedExpenses;
+			this.expenseProjectionsTotal = user.expenseProjectionsTotal;
 			this.totalSpent = user.totalSpent;
 			this.leftOver = user.leftOver;
 			this.upBy = user.upBy;
@@ -52,8 +51,8 @@ export class BYTDashboardExpenseAnalysisComponent implements OnInit {
 		this.periodEnd = new Date(year, month, 0);
 	}
 	calcDailyBudget(){
-		this.dailyBudget = this.projectedExpenses / this.periodEnd.getDate();
-		this.leftOver = this.projectedExpenses - this.totalSpent;
+		this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate();
+		this.leftOver = this.expenseProjectionsTotal - this.totalSpent;
 	}
 	calcUpBy(){
 		this.calcDailyBudget()

@@ -6,8 +6,7 @@ import {BYTBodyNavComponent} from './byt-body-nav.component';
 @Component({
     selector: 'byt-dashboard-daily-budget',
     templateUrl: '/app/byt-dashboard-daily-budget.component.html',
-    styleUrls: ['app/byt-dashboard-daily-budget.component.css'],
-    inputs: ['projectedExpenses']
+    styleUrls: ['app/byt-dashboard-daily-budget.component.css']
 })
 export class BYTDashboardDailyBudgetComponent implements OnInit {
 	dailyBudget: number;
@@ -15,7 +14,7 @@ export class BYTDashboardDailyBudgetComponent implements OnInit {
 	today: Date = new Date;
 	periodStart: Date;
 	periodEnd: Date;
-	projectedExpenses: number;
+	expenseProjectionsTotal: number;
 	byt_show_section: boolean;
 
 	constructor (private _getBYTUser: GetBYTUser) {}
@@ -24,7 +23,7 @@ export class BYTDashboardDailyBudgetComponent implements OnInit {
 
 		this._getBYTUser.getUser().subscribe(user => {
 			this.daysLeft = user.daysLeft;
-			this.projectedExpenses = user.projectedExpenses;
+			this.expenseProjectionsTotal = user.expenseProjectionsTotal;
 			this.calcPeriodStart();
 			this.calcPeriodEnd();
 			this.calcDailyBudget();			
@@ -45,6 +44,6 @@ export class BYTDashboardDailyBudgetComponent implements OnInit {
 		this.periodEnd = new Date(year, month, 0);
 	}
 	calcDailyBudget(){		
-		this.dailyBudget = this.projectedExpenses / this.periodEnd.getDate();
+		this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate();
 	}
 }
