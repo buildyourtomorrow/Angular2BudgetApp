@@ -35,7 +35,7 @@ export class BYTMonthlyProjectionsIncomeComponent implements OnInit {
 	removeIncomeProjection(index){
 		this.allIncomeProjections.splice(index, 1);
 		this._BYTRemoveTransaction.bytRemoveIncomeProjection(index).subscribe(user => {});
-		this.allIncomeProjectionsLength = this.allIncomeProjections.length;
+		this.allIncomeProjectionsLength = this.allIncomeProjections.length;	
 	};
 	
 	categories: Object[] = [

@@ -43,7 +43,8 @@ export class BYTDashboardDailyBudgetComponent implements OnInit {
 		let month = this.today.getMonth() + 1;
 		this.periodEnd = new Date(year, month, 0);
 	}
-	calcDailyBudget(){		
+	calcDailyBudget(){
+		console.log()
 		this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate();
 	}
 }

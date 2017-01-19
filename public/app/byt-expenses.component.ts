@@ -897,23 +897,14 @@ export class BYTExpensesComponent implements OnInit {
 				if (this.allExpenses[i].subCategory === "Tithing") {
 					this.expensesCategoryTotals[4].subCategory[0].total += this.allExpenses[i].amount;
 				}
-				if (this.allExpenses[i].subCategory === "Valentine's Day") {
+				if (this.allExpenses[i].subCategory === "Offerings") {
 					this.expensesCategoryTotals[4].subCategory[1].total += this.allExpenses[i].amount;
 				}
-				if (this.allExpenses[i].subCategory === "Anniversary") {
+				if (this.allExpenses[i].subCategory === "Charities") {
 					this.expensesCategoryTotals[4].subCategory[2].total += this.allExpenses[i].amount;
 				}
-				if (this.allExpenses[i].subCategory === "Wedding") {
+				if (this.allExpenses[i].subCategory === "Family") {
 					this.expensesCategoryTotals[4].subCategory[3].total += this.allExpenses[i].amount;
-				}
-				if (this.allExpenses[i].subCategory === "Christmas") {
-					this.expensesCategoryTotals[4].subCategory[4].total += this.allExpenses[i].amount;
-				}
-				if (this.allExpenses[i].subCategory === "Special Occasion") {
-					this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
-				}
-				if (this.allExpenses[i].subCategory === "Giving") {
-					this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
 				}
 			};
 			if (this.allExpenses[i].category === "Household") {
@@ -1601,23 +1592,14 @@ export class BYTExpensesComponent implements OnInit {
 				if (this.allExpenses[i].subCategory === "Tithing") {
 					this.expensesCategoryTotals[4].subCategory[0].total += this.allExpenses[i].amount;
 				}
-				if (this.allExpenses[i].subCategory === "Valentine's Day") {
+				if (this.allExpenses[i].subCategory === "Offerings") {
 					this.expensesCategoryTotals[4].subCategory[1].total += this.allExpenses[i].amount;
 				}
-				if (this.allExpenses[i].subCategory === "Anniversary") {
+				if (this.allExpenses[i].subCategory === "Charities") {
 					this.expensesCategoryTotals[4].subCategory[2].total += this.allExpenses[i].amount;
 				}
-				if (this.allExpenses[i].subCategory === "Wedding") {
+				if (this.allExpenses[i].subCategory === "Family") {
 					this.expensesCategoryTotals[4].subCategory[3].total += this.allExpenses[i].amount;
-				}
-				if (this.allExpenses[i].subCategory === "Christmas") {
-					this.expensesCategoryTotals[4].subCategory[4].total += this.allExpenses[i].amount;
-				}
-				if (this.allExpenses[i].subCategory === "Special Occasion") {
-					this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
-				}
-				if (this.allExpenses[i].subCategory === "Giving") {
-					this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
 				}
 			};
 			if (this.allExpenses[i].category === "Household") {
@@ -1926,10 +1908,10 @@ export class BYTExpensesComponent implements OnInit {
 				}]
 			},
 			{
-				category: "Giving",
-				total: 0,
-				show: true,
-				subCategory: [{
+			category: "Giving",
+			total: 0,
+			show: true,
+			subCategory: [{
 					name: "Tithing",
 					total: 0 
 				},
@@ -1942,7 +1924,7 @@ export class BYTExpensesComponent implements OnInit {
 					total: 0
 				},
 				{
-					name: "x",
+					name: "Family",
 					total: 0
 				}]
 			},
@@ -2299,23 +2281,14 @@ export class BYTExpensesComponent implements OnInit {
 					if (this.allExpenses[i].subCategory === "Tithing") {
 						this.expensesCategoryTotals[4].subCategory[0].total += this.allExpenses[i].amount;
 					}
-					if (this.allExpenses[i].subCategory === "Valentine's Day") {
+					if (this.allExpenses[i].subCategory === "Offerings") {
 						this.expensesCategoryTotals[4].subCategory[1].total += this.allExpenses[i].amount;
 					}
-					if (this.allExpenses[i].subCategory === "Anniversary") {
+					if (this.allExpenses[i].subCategory === "Charities") {
 						this.expensesCategoryTotals[4].subCategory[2].total += this.allExpenses[i].amount;
 					}
-					if (this.allExpenses[i].subCategory === "Wedding") {
+					if (this.allExpenses[i].subCategory === "Family") {
 						this.expensesCategoryTotals[4].subCategory[3].total += this.allExpenses[i].amount;
-					}
-					if (this.allExpenses[i].subCategory === "Christmas") {
-						this.expensesCategoryTotals[4].subCategory[4].total += this.allExpenses[i].amount;
-					}
-					if (this.allExpenses[i].subCategory === "Special Occasion") {
-						this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
-					}
-					if (this.allExpenses[i].subCategory === "Giving") {
-						this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
 					}
 				};
 				if (this.allExpenses[i].category === "Household") {

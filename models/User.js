@@ -1280,23 +1280,14 @@ UserSchema.methods.calcExpCategoryTotals = function(){
 			if (this.monthlyExpenses[i].subCategory === "Tithing") {
 				this.expCategoryTotals[4].subCategory[0].total += this.monthlyExpenses[i].amount;
 			}
-			if (this.monthlyExpenses[i].subCategory === "Valentine's Day") {
+			if (this.monthlyExpenses[i].subCategory === "Offerings") {
 				this.expCategoryTotals[4].subCategory[1].total += this.monthlyExpenses[i].amount;
 			}
-			if (this.monthlyExpenses[i].subCategory === "Anniversary") {
+			if (this.monthlyExpenses[i].subCategory === "Charities") {
 				this.expCategoryTotals[4].subCategory[2].total += this.monthlyExpenses[i].amount;
 			}
-			if (this.monthlyExpenses[i].subCategory === "Wedding") {
-				this.expCategoryTotals[4].subCategory[3].total += this.monthlyExpenses[i].amount;
-			}
-			if (this.monthlyExpenses[i].subCategory === "Christmas") {
-				this.expCategoryTotals[4].subCategory[4].total += this.monthlyExpenses[i].amount;
-			}
-			if (this.monthlyExpenses[i].subCategory === "Special Occasion") {
-				this.expCategoryTotals[4].subCategory[5].total += this.monthlyExpenses[i].amount;
-			}
 			if (this.monthlyExpenses[i].subCategory === "Family") {
-				this.expCategoryTotals[4].subCategory[6].total += this.monthlyExpenses[i].amount;
+				this.expCategoryTotals[4].subCategory[3].total += this.monthlyExpenses[i].amount;
 			}
 		};
 		if (this.monthlyExpenses[i].category === "Household") {

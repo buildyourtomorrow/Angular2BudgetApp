@@ -897,23 +897,14 @@ var BYTExpensesComponent = (function () {
                 if (this.allExpenses[i].subCategory === "Tithing") {
                     this.expensesCategoryTotals[4].subCategory[0].total += this.allExpenses[i].amount;
                 }
-                if (this.allExpenses[i].subCategory === "Valentine's Day") {
+                if (this.allExpenses[i].subCategory === "Offerings") {
                     this.expensesCategoryTotals[4].subCategory[1].total += this.allExpenses[i].amount;
                 }
-                if (this.allExpenses[i].subCategory === "Anniversary") {
+                if (this.allExpenses[i].subCategory === "Charities") {
                     this.expensesCategoryTotals[4].subCategory[2].total += this.allExpenses[i].amount;
                 }
-                if (this.allExpenses[i].subCategory === "Wedding") {
+                if (this.allExpenses[i].subCategory === "Family") {
                     this.expensesCategoryTotals[4].subCategory[3].total += this.allExpenses[i].amount;
-                }
-                if (this.allExpenses[i].subCategory === "Christmas") {
-                    this.expensesCategoryTotals[4].subCategory[4].total += this.allExpenses[i].amount;
-                }
-                if (this.allExpenses[i].subCategory === "Special Occasion") {
-                    this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
-                }
-                if (this.allExpenses[i].subCategory === "Giving") {
-                    this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
                 }
             }
             ;
@@ -1615,23 +1606,14 @@ var BYTExpensesComponent = (function () {
                 if (this.allExpenses[i].subCategory === "Tithing") {
                     this.expensesCategoryTotals[4].subCategory[0].total += this.allExpenses[i].amount;
                 }
-                if (this.allExpenses[i].subCategory === "Valentine's Day") {
+                if (this.allExpenses[i].subCategory === "Offerings") {
                     this.expensesCategoryTotals[4].subCategory[1].total += this.allExpenses[i].amount;
                 }
-                if (this.allExpenses[i].subCategory === "Anniversary") {
+                if (this.allExpenses[i].subCategory === "Charities") {
                     this.expensesCategoryTotals[4].subCategory[2].total += this.allExpenses[i].amount;
                 }
-                if (this.allExpenses[i].subCategory === "Wedding") {
+                if (this.allExpenses[i].subCategory === "Family") {
                     this.expensesCategoryTotals[4].subCategory[3].total += this.allExpenses[i].amount;
-                }
-                if (this.allExpenses[i].subCategory === "Christmas") {
-                    this.expensesCategoryTotals[4].subCategory[4].total += this.allExpenses[i].amount;
-                }
-                if (this.allExpenses[i].subCategory === "Special Occasion") {
-                    this.expensesCategoryTotals[4].subCategory[5].total += this.allExpenses[i].amount;
-                }
-                if (this.allExpenses[i].subCategory === "Giving") {
-                    this.expensesCategoryTotals[4].subCategory[6].total += this.allExpenses[i].amount;
                 }
             }
             ;
@@ -1967,7 +1949,7 @@ var BYTExpensesComponent = (function () {
                                 total: 0
                             },
                             {
-                                name: "x",
+                                name: "Family",
                                 total: 0
                             }]
                     },
@@ -2327,23 +2309,14 @@ var BYTExpensesComponent = (function () {
                     if (_this.allExpenses[i].subCategory === "Tithing") {
                         _this.expensesCategoryTotals[4].subCategory[0].total += _this.allExpenses[i].amount;
                     }
-                    if (_this.allExpenses[i].subCategory === "Valentine's Day") {
+                    if (_this.allExpenses[i].subCategory === "Offerings") {
                         _this.expensesCategoryTotals[4].subCategory[1].total += _this.allExpenses[i].amount;
                     }
-                    if (_this.allExpenses[i].subCategory === "Anniversary") {
+                    if (_this.allExpenses[i].subCategory === "Charities") {
                         _this.expensesCategoryTotals[4].subCategory[2].total += _this.allExpenses[i].amount;
                     }
-                    if (_this.allExpenses[i].subCategory === "Wedding") {
+                    if (_this.allExpenses[i].subCategory === "Family") {
                         _this.expensesCategoryTotals[4].subCategory[3].total += _this.allExpenses[i].amount;
-                    }
-                    if (_this.allExpenses[i].subCategory === "Christmas") {
-                        _this.expensesCategoryTotals[4].subCategory[4].total += _this.allExpenses[i].amount;
-                    }
-                    if (_this.allExpenses[i].subCategory === "Special Occasion") {
-                        _this.expensesCategoryTotals[4].subCategory[5].total += _this.allExpenses[i].amount;
-                    }
-                    if (_this.allExpenses[i].subCategory === "Giving") {
-                        _this.expensesCategoryTotals[4].subCategory[6].total += _this.allExpenses[i].amount;
                     }
                 }
                 ;
