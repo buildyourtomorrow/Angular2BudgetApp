@@ -31,7 +31,7 @@ html, body, h1, h2, h3, h4, ul, ol, li, p, a {
 .animate-show {
   line-height: 20px;
   opacity: 1;
-  background: #f8f8f8;
+  background: #D8D4FF;
 }
 .panel-title {
 	font-size: 14px !important;

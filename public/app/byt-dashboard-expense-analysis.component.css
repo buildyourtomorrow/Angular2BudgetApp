@@ -31,7 +31,7 @@ html, body, h1, h2, h3, h4, ul, ol, li, p, a {
 .animate-show {
   line-height: 20px;
   opacity: 1;
-  background: #f8f8f8;
+  background: #D8D4FF;
 }
 .panel-title {
 	font-size: 14px !important;
@@ -54,12 +54,6 @@ html, body, h1, h2, h3, h4, ul, ol, li, p, a {
 .validation_1 {
 	color:red; 
 	margin-bottom: 9px;
-}
-.main_content {
-	background-color: #f8f8f8;
-	border-radius: 5px;
-	font-family: sans-serif; 
-	color: #919496;
 }
 .dashboard_text_analysis_1 {
 	text-align: center; 
