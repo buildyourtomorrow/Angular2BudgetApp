@@ -38,6 +38,7 @@ var BYTDashboardDailyBudgetComponent = (function () {
         this.periodEnd = new Date(year, month, 0);
     };
     BYTDashboardDailyBudgetComponent.prototype.calcDailyBudget = function () {
+        console.log();
         this.dailyBudget = this.expenseProjectionsTotal / this.periodEnd.getDate();
     };
     BYTDashboardDailyBudgetComponent = __decorate([
