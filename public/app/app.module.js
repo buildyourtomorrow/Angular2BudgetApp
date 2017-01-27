@@ -84,7 +84,7 @@ var routes = [
     //{ path: 'stripe', component: BYTStripeComponent, canActivate: [AuthGuard] },
     { path: 'education', component: byt_education_component_1.BYTEducationComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'instructions', component: byt_instructions_component_1.BYTInstructionsComponent, canActivate: [auth_guard_1.AuthGuard] },
-    //{ path: 'plaid-transactions', component: BYTPlaidComponent, canActivate: [AuthGuard] },
+    { path: 'plaid-transactions', component: byt_plaid_component_1.BYTPlaidComponent, canActivate: [auth_guard_1.AuthGuard] },
     {
         path: 'monthly-projections',
         component: byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent,

@@ -21,7 +21,7 @@ var BYTPlaidComponent = (function () {
         var linkHandler = window.Plaid.create({
             env: 'tartan',
             clientName: 'Build Your Tomorrow',
-            key: 'ae6b952559bf225102413e86490fcf',
+            key: '0cde5ad06e72646c0a7a2587ab9062',
             product: 'connect',
             longtail: true,
             onSuccess: function (public_token) {
