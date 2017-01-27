@@ -76,7 +76,7 @@ const routes: Routes = [
   //{ path: 'stripe', component: BYTStripeComponent, canActivate: [AuthGuard] },
   { path: 'education', component: BYTEducationComponent, canActivate: [AuthGuard] },
   { path: 'instructions', component: BYTInstructionsComponent, canActivate: [AuthGuard] },
-  { path: 'plaid-transactions', component: BYTPlaidComponent, canActivate: [AuthGuard] },
+  //{ path: 'plaid-transactions', component: BYTPlaidComponent, canActivate: [AuthGuard] },
   { 
     path: 'monthly-projections', 
     component: BYTMonthlyProjectionsComponent, 

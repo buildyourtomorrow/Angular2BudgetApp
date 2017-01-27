@@ -18,7 +18,7 @@ var authCheck = jwt({
 	userProperty: 'payload'
 });
 
-
+/*
 var plaid = require('plaid');
 var public_key='0cde5ad06e72646c0a7a2587ab9062';
 var PLAID_SECRET=process.env.PLAID_SECRET;
@@ -75,6 +75,7 @@ router.post('/authenticate', function(req, res){
 	    }
 	});
 });
+*/
 
 // Stripe stuff 
 var keyPublishable = process.env.PUBLISHABLE_KEY;
