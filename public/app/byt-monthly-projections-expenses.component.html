@@ -5,11 +5,13 @@
 				<section>
 					<section *ngFor="let expenseProjection of expenseProjections; let i=index">
 						<section class="btn btn-info" style="padding:13px; width: 100%;">
+							<!--
 							<section style="width:20%; float:left; text-align:center; display:inline">{{expenseProjection.date | date:'MM/dd'}}</section>
+							-->
 							<section style="width:40%; float:left; text-align:center; display:inline">{{expenseProjection.subCategory}}</section>
-							<section style="width:30%; float:left; text-align:center; display:inline">{{expenseProjection.amount | number:'.0-0'}}
+							<section style="width:40%; float:left; text-align:center; display:inline">{{expenseProjection.amount | number:'.0-0'}}
 							</section>
-							<section role="button" style="width:10%; float:right; text-align:center; display:inline" (click)="removeExpenseProjection(i)"><i class="glyphicon glyphicon-remove"></i></section>
+							<section role="button" style="width:20%; float:right; text-align:center; display:inline" (click)="removeExpenseProjection(i)"><i class="glyphicon glyphicon-remove"></i></section>
 						</section>
 					</section>
 				</section>
@@ -40,12 +42,12 @@
         	<label for="description">Description</label>
         	<input type="text" id="description" class="form-control" [(ngModel)]="model.description" name="description" placeholder='Lil titos gift' #description="ngModel" [disabled]="!category.valid || !subCategory.valid" required>
         	<section [hidden]="description.valid" class="alert alert-danger">Description is required</section>
-      	</section>
-		-->
+      	</section>		
 		<section class="form-group">
         	<label for="date">Date</label>
         	<input type="date" id="date" class="form-control" [(ngModel)]="model.date" name="date" #date="ngModel" [disabled]="!category.valid || !subCategory.valid">
       	</section>
+      	-->
 		<section class="form-group">
         	<label for="amount">Amount</label>
         	<input type="number" id="amount" class="form-control" [(ngModel)]="model.amount" name="amount" placeholder='12.59' #amount="ngModel" [disabled]="!category.valid || !subCategory.valid" required>
@@ -70,12 +72,12 @@
 	<section class="row">
 		<section class="col-xs-3">Description</section>
 		<section class="col-xs-9 pull-left">{{ model.description }}</section>
-	</section>
-	-->
+	</section>	
 	<section class="row">
 		<section class="col-xs-3">Date</section>
 		<section class="col-xs-9 pull-left">{{ model.date }}</section>
 	</section>
+	-->
 	<section class="row">
 		<section class="col-xs-3">Amount</section>
 		<section class="col-xs-9 pull-left">{{ model.amount }}</section>

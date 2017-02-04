@@ -20,11 +20,11 @@ var app_component_1 = require('./app.component');
 var byt_body_nav_component_1 = require('./byt-body-nav.component');
 var byt_dashboard_quote_component_1 = require('./byt-dashboard-quote.component');
 var byt_dashboard_overview_component_1 = require('./byt-dashboard-overview.component');
-var byt_dashboard_overview_question_component_1 = require('./byt-dashboard-overview-question.component');
-var byt_dashboard_expense_question_component_1 = require('./byt-dashboard-expense-question.component');
+//import {BYTDashboardOverviewQuestionComponent} from './byt-dashboard-overview-question.component';
+//import {BYTDashboardExpenseQuestionComponent} from './byt-dashboard-expense-question.component';
 var byt_dashboard_expense_analysis_component_1 = require('./byt-dashboard-expense-analysis.component');
 var byt_dashboard_daily_budget_component_1 = require('./byt-dashboard-daily-budget.component');
-var byt_dashboard_daily_budget_question_component_1 = require('./byt-dashboard-daily-budget-question.component');
+//import {BYTDashboardDailyBudgetQuestionComponent} from './byt-dashboard-daily-budget-question.component';
 var byt_home_arrow_component_1 = require("./byt-home-arrow.component");
 var byt_dashboard_overview_service_1 = require('./byt-dashboard-overview.service');
 var byt_income_component_1 = require('./byt-income.component');
@@ -66,17 +66,17 @@ var byt_action_step_component_1 = require("./byt-action-step.component");
 var byt_instructions_component_1 = require("./byt-instructions.component");
 var byt_stripe_component_1 = require("./byt-stripe.component");
 var byt_dashboard_overview_service_9 = require("./byt-dashboard-overview.service");
-var byt_plaid_component_1 = require("./byt-plaid.component");
-var byt_dashboard_overview_service_10 = require("./byt-dashboard-overview.service");
+//import {BYTPlaidComponent} from "./byt-plaid.component";
+//import {BYTPlaid} from "./byt-dashboard-overview.service";
 var byt_monthly_projections_component_1 = require("./byt-monthly-projections.component");
-var byt_monthly_projections_overview_component_1 = require("./byt-monthly-projections-overview.component");
+//import {BYTMonthlyProjectionsOverviewComponent} from "./byt-monthly-projections-overview.component";
 var byt_monthly_projections_nav_component_1 = require("./byt-monthly-projections-nav.component");
 var byt_monthly_projections_income_component_1 = require("./byt-monthly-projections-income.component");
 var byt_monthly_projections_bills_component_1 = require("./byt-monthly-projections-bills.component");
 var byt_monthly_projections_expenses_component_1 = require("./byt-monthly-projections-expenses.component");
-var byt_dashboard_overview_service_11 = require('./byt-dashboard-overview.service');
+var byt_dashboard_overview_service_10 = require('./byt-dashboard-overview.service');
+var byt_dashboard_overview_service_11 = require("./byt-dashboard-overview.service");
 var byt_dashboard_overview_service_12 = require("./byt-dashboard-overview.service");
-var byt_dashboard_overview_service_13 = require("./byt-dashboard-overview.service");
 var routes = [
     { path: 'login', component: byt_login_component_1.BYTLoginComponent, canActivate: [auth_guard_2.AuthCheck] },
     //{ path: '', component: BYTHomeComponent, canActivate: [AuthGuard] },
@@ -84,7 +84,7 @@ var routes = [
     //{ path: 'stripe', component: BYTStripeComponent, canActivate: [AuthGuard] },
     { path: 'education', component: byt_education_component_1.BYTEducationComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'instructions', component: byt_instructions_component_1.BYTInstructionsComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'plaid-transactions', component: byt_plaid_component_1.BYTPlaidComponent, canActivate: [auth_guard_1.AuthGuard] },
+    //{ path: 'plaid-transactions', component: BYTPlaidComponent, canActivate: [AuthGuard] },
     {
         path: 'monthly-projections',
         component: byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent,
@@ -152,17 +152,17 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_2.ReactiveFormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(routes)],
             declarations: [app_component_1.AppComponent, byt_nav_component_1.BYTNavComponent, byt_body_nav_component_1.BYTBodyNavComponent,
-                byt_dashboard_quote_component_1.BYTDashboardQuoteComponent, byt_dashboard_overview_component_1.BYTDashboardOverviewComponent, byt_dashboard_overview_question_component_1.BYTDashboardOverviewQuestionComponent,
-                byt_dashboard_expense_question_component_1.BYTDashboardExpenseQuestionComponent, byt_dashboard_expense_analysis_component_1.BYTDashboardExpenseAnalysisComponent,
-                byt_dashboard_daily_budget_component_1.BYTDashboardDailyBudgetComponent, byt_dashboard_daily_budget_question_component_1.BYTDashboardDailyBudgetQuestionComponent,
+                byt_dashboard_quote_component_1.BYTDashboardQuoteComponent, byt_dashboard_overview_component_1.BYTDashboardOverviewComponent,
+                /*BYTDashboardExpenseQuestionComponent,*/ byt_dashboard_expense_analysis_component_1.BYTDashboardExpenseAnalysisComponent,
+                byt_dashboard_daily_budget_component_1.BYTDashboardDailyBudgetComponent,
                 byt_home_arrow_component_1.BYTHomeArrowComponent, byt_income_component_1.BYTIncomeComponent, byt_income_form_component_1.BYTIncomeFormComponent, byt_last_income_entry_component_1.BYTLastIncomeEntryComponent, byt_assets_component_1.BYTAssetComponent, byt_assets_form_component_1.BYTAssetFormComponent,
                 byt_last_asset_entry_component_1.BYTLastAssetEntryComponent, byt_last_liability_entry_component_1.BYTLastLiabilityEntryComponent, byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_bills_form_component_1.BYTBillsFormComponent,
                 byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent, byt_expenses_component_1.BYTExpensesComponent, byt_expenses_form_component_1.BYTExpensesFormComponent, byt_education_component_1.BYTEducationComponent, byt_login_component_1.BYTLoginComponent, byt_transaction_journal_component_1.BYTTransactionJournalComponent, byt_liability_form_component_1.BYTLiabilityFormComponent, byt_liability_component_1.BYTLiabilityComponent, byt_net_worth_component_1.BYTNetWorthComponent, byt_net_worth_nav_component_1.BYTNetWorthNavComponent,
                 byt_balance_sheet_component_1.BYTBalanceSheetComponent, byt_app_component_1.BYTAppComponent, byt_app_arrow_component_1.BYTAppArrowComponent, byt_not_found_component_1.BYT404Component, byt_education_component_1.BYTEducationComponent, byt_action_step_component_1.BYTActionStep, byt_instructions_component_1.BYTInstructionsComponent,
-                byt_stripe_component_1.BYTStripeComponent, byt_plaid_component_1.BYTPlaidComponent, byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent, byt_monthly_projections_nav_component_1.BYTMonthlyProjectionsNavComponent, byt_monthly_projections_overview_component_1.BYTMonthlyProjectionsOverviewComponent,
+                byt_stripe_component_1.BYTStripeComponent, byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent, byt_monthly_projections_nav_component_1.BYTMonthlyProjectionsNavComponent,
                 byt_monthly_projections_income_component_1.BYTMonthlyProjectionsIncomeComponent, byt_monthly_projections_bills_component_1.BYTMonthlyProjectionsBillsComponent, byt_monthly_projections_expenses_component_1.BYTMonthlyProjectionsExpensesComponent],
             providers: [byt_dashboard_overview_service_1.GetBYTUser, auth_service_1.Auth, angular2_jwt_1.AUTH_PROVIDERS, auth_guard_1.AuthGuard, auth_guard_2.AuthCheck, byt_dashboard_overview_service_2.BYTPostProjections, byt_dashboard_overview_service_3.BYTPostIncome, byt_dashboard_overview_service_4.BYTPostAsset, byt_dashboard_overview_service_5.BYTPostLiability, byt_dashboard_overview_service_6.BYTPostBill,
-                byt_dashboard_overview_service_7.BYTPostExpense, byt_dashboard_overview_service_8.BYTRemoveTransaction, byt_dashboard_overview_service_9.BYTStripePayment, byt_dashboard_overview_service_10.BYTPlaid, byt_dashboard_overview_service_11.BYTPostIncomeProjections, byt_dashboard_overview_service_12.BYTPostBillProjection, byt_dashboard_overview_service_13.BYTPostExpenseProjection],
+                byt_dashboard_overview_service_7.BYTPostExpense, byt_dashboard_overview_service_8.BYTRemoveTransaction, byt_dashboard_overview_service_9.BYTStripePayment, byt_dashboard_overview_service_10.BYTPostIncomeProjections, byt_dashboard_overview_service_11.BYTPostBillProjection, byt_dashboard_overview_service_12.BYTPostExpenseProjection],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

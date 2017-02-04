@@ -11,11 +11,11 @@ import {AppComponent} from './app.component';
 import {BYTBodyNavComponent} from './byt-body-nav.component';
 import {BYTDashboardQuoteComponent} from './byt-dashboard-quote.component';
 import {BYTDashboardOverviewComponent} from './byt-dashboard-overview.component';
-import {BYTDashboardOverviewQuestionComponent} from './byt-dashboard-overview-question.component';
-import {BYTDashboardExpenseQuestionComponent} from './byt-dashboard-expense-question.component';
+//import {BYTDashboardOverviewQuestionComponent} from './byt-dashboard-overview-question.component';
+//import {BYTDashboardExpenseQuestionComponent} from './byt-dashboard-expense-question.component';
 import {BYTDashboardExpenseAnalysisComponent} from './byt-dashboard-expense-analysis.component';
 import {BYTDashboardDailyBudgetComponent} from './byt-dashboard-daily-budget.component';
-import {BYTDashboardDailyBudgetQuestionComponent} from './byt-dashboard-daily-budget-question.component';
+//import {BYTDashboardDailyBudgetQuestionComponent} from './byt-dashboard-daily-budget-question.component';
 import {BYTHomeArrowComponent} from "./byt-home-arrow.component";
 import {GetBYTUser} from './byt-dashboard-overview.service';
 import {BYTIncomeComponent} from './byt-income.component';
@@ -57,10 +57,10 @@ import {BYTActionStep} from "./byt-action-step.component";
 import {BYTInstructionsComponent} from "./byt-instructions.component";
 import {BYTStripeComponent} from "./byt-stripe.component"; 
 import {BYTStripePayment} from "./byt-dashboard-overview.service";
-import {BYTPlaidComponent} from "./byt-plaid.component";
-import {BYTPlaid} from "./byt-dashboard-overview.service";
+//import {BYTPlaidComponent} from "./byt-plaid.component";
+//import {BYTPlaid} from "./byt-dashboard-overview.service";
 import {BYTMonthlyProjectionsComponent} from "./byt-monthly-projections.component";
-import {BYTMonthlyProjectionsOverviewComponent} from "./byt-monthly-projections-overview.component";
+//import {BYTMonthlyProjectionsOverviewComponent} from "./byt-monthly-projections-overview.component";
 import {BYTMonthlyProjectionsNavComponent} from "./byt-monthly-projections-nav.component";
 import {BYTMonthlyProjectionsIncomeComponent} from "./byt-monthly-projections-income.component";
 import {BYTMonthlyProjectionsBillsComponent} from "./byt-monthly-projections-bills.component";
@@ -142,17 +142,17 @@ const routes: Routes = [
 @NgModule({
   imports: [ BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule.forRoot(routes)],
   declarations: [ AppComponent, BYTNavComponent, BYTBodyNavComponent, 
-  				  BYTDashboardQuoteComponent, BYTDashboardOverviewComponent, BYTDashboardOverviewQuestionComponent, 
-  				  BYTDashboardExpenseQuestionComponent, BYTDashboardExpenseAnalysisComponent, 
-  				  BYTDashboardDailyBudgetComponent, BYTDashboardDailyBudgetQuestionComponent,
+  				  BYTDashboardQuoteComponent, BYTDashboardOverviewComponent, /*BYTDashboardOverviewQuestionComponent,*/ 
+  				  /*BYTDashboardExpenseQuestionComponent,*/ BYTDashboardExpenseAnalysisComponent, 
+  				  BYTDashboardDailyBudgetComponent, /*BYTDashboardDailyBudgetQuestionComponent,*/
   				  BYTHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
             BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
             BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent, BYTActionStep, BYTInstructionsComponent,
-            BYTStripeComponent, BYTPlaidComponent, BYTMonthlyProjectionsComponent, BYTMonthlyProjectionsNavComponent, BYTMonthlyProjectionsOverviewComponent, 
+            BYTStripeComponent, /*BYTPlaidComponent,*/ BYTMonthlyProjectionsComponent, BYTMonthlyProjectionsNavComponent, /*BYTMonthlyProjectionsOverviewComponent,*/ 
             BYTMonthlyProjectionsIncomeComponent, BYTMonthlyProjectionsBillsComponent, BYTMonthlyProjectionsExpensesComponent],
   providers: [ GetBYTUser, Auth, AUTH_PROVIDERS, AuthGuard, AuthCheck, BYTPostProjections, BYTPostIncome, BYTPostAsset, BYTPostLiability, BYTPostBill, 
-               BYTPostExpense, BYTRemoveTransaction, BYTStripePayment, BYTPlaid, BYTPostIncomeProjections, BYTPostBillProjection, BYTPostExpenseProjection ],
+               BYTPostExpense, BYTRemoveTransaction, BYTStripePayment, /*BYTPlaid,*/ BYTPostIncomeProjections, BYTPostBillProjection, BYTPostExpenseProjection ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
