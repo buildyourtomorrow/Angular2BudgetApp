@@ -27,4 +27,22 @@ var BYTOrderByPipe = (function () {
     return BYTOrderByPipe;
 }());
 exports.BYTOrderByPipe = BYTOrderByPipe;
+var BYTOrderByDatePipe = (function () {
+    function BYTOrderByDatePipe() {
+    }
+    BYTOrderByDatePipe.prototype.transform = function (value) {
+        value.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+        return value;
+    };
+    BYTOrderByDatePipe = __decorate([
+        core_1.Pipe({
+            name: "bytOrderByDate"
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BYTOrderByDatePipe);
+    return BYTOrderByDatePipe;
+}());
+exports.BYTOrderByDatePipe = BYTOrderByDatePipe;
 //# sourceMappingURL=byt-order-by.pipes.js.map

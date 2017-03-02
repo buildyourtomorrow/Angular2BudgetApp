@@ -13,13 +13,15 @@
 					</section>
 				</section>
 				<section id="collapse" class="panel-collapse collapse">
-					<section *ngFor="let expense of allExpenses | bytOrderBy; let i=index">
+					<section *ngFor="let expense of allExpenses | bytOrderByDate; let i=index">
 						<section class="panel-body" style="padding:13px">
 							<section style="width:20%; float:left; text-align:center; display:inline">{{expense.date | date:'MM/dd'}}</section>
 							<section style="width:40%; float:left; text-align:center; display:inline">{{expense.description}}</section>
 							<section style="width:30%; float:left; text-align:center; display:inline">{{expense.amount | number:'1.2-2'}}
 							</section>
-							<section role="button" style="width:10%; float:right; text-align:center; display:inline" (click)="removeBill(i)"><i class="glyphicon glyphicon-remove"></i></section>
+							<section role="button" style="width:10%; float:right; text-align:center; display:inline" (click)="removeBill(i)">
+								<i class="glyphicon glyphicon-remove"></i>
+							</section>
 						</section>
 					</section>
 				</section>

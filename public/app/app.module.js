@@ -38,6 +38,7 @@ var byt_last_asset_entry_component_1 = require("./byt-last-asset-entry.component
 var byt_last_liability_entry_component_1 = require("./byt-last-liability-entry.component");
 var byt_bills_component_1 = require('./byt-bills.component');
 var byt_order_by_pipes_1 = require('./byt-order-by.pipes');
+var byt_order_by_pipes_2 = require('./byt-order-by.pipes');
 var byt_bills_form_component_1 = require('./byt-bills-form.component');
 var byt_last_expense_entry_component_1 = require("./byt-last-expense-entry.component");
 var byt_expenses_component_1 = require("./byt-expenses.component");
@@ -156,7 +157,7 @@ var AppModule = (function () {
                 /*BYTDashboardExpenseQuestionComponent,*/ byt_dashboard_expense_analysis_component_1.BYTDashboardExpenseAnalysisComponent,
                 byt_dashboard_daily_budget_component_1.BYTDashboardDailyBudgetComponent,
                 byt_home_arrow_component_1.BYTHomeArrowComponent, byt_income_component_1.BYTIncomeComponent, byt_income_form_component_1.BYTIncomeFormComponent, byt_last_income_entry_component_1.BYTLastIncomeEntryComponent, byt_assets_component_1.BYTAssetComponent, byt_assets_form_component_1.BYTAssetFormComponent,
-                byt_last_asset_entry_component_1.BYTLastAssetEntryComponent, byt_last_liability_entry_component_1.BYTLastLiabilityEntryComponent, byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_bills_form_component_1.BYTBillsFormComponent,
+                byt_last_asset_entry_component_1.BYTLastAssetEntryComponent, byt_last_liability_entry_component_1.BYTLastLiabilityEntryComponent, byt_last_bill_entry_component_1.BYTLastBillEntryComponent, byt_bills_component_1.BYTBillsComponent, byt_order_by_pipes_1.BYTOrderByPipe, byt_order_by_pipes_2.BYTOrderByDatePipe, byt_bills_form_component_1.BYTBillsFormComponent,
                 byt_last_expense_entry_component_1.BYTLastExpenseEntryComponent, byt_expenses_component_1.BYTExpensesComponent, byt_expenses_form_component_1.BYTExpensesFormComponent, byt_education_component_1.BYTEducationComponent, byt_login_component_1.BYTLoginComponent, byt_transaction_journal_component_1.BYTTransactionJournalComponent, byt_liability_form_component_1.BYTLiabilityFormComponent, byt_liability_component_1.BYTLiabilityComponent, byt_net_worth_component_1.BYTNetWorthComponent, byt_net_worth_nav_component_1.BYTNetWorthNavComponent,
                 byt_balance_sheet_component_1.BYTBalanceSheetComponent, byt_app_component_1.BYTAppComponent, byt_app_arrow_component_1.BYTAppArrowComponent, byt_not_found_component_1.BYT404Component, byt_education_component_1.BYTEducationComponent, byt_action_step_component_1.BYTActionStep, byt_instructions_component_1.BYTInstructionsComponent,
                 byt_stripe_component_1.BYTStripeComponent, byt_monthly_projections_component_1.BYTMonthlyProjectionsComponent, byt_monthly_projections_nav_component_1.BYTMonthlyProjectionsNavComponent,

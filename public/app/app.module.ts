@@ -29,6 +29,7 @@ import {BYTLastAssetEntryComponent} from "./byt-last-asset-entry.component";
 import {BYTLastLiabilityEntryComponent} from "./byt-last-liability-entry.component";
 import {BYTBillsComponent} from './byt-bills.component'
 import {BYTOrderByPipe} from './byt-order-by.pipes';
+import {BYTOrderByDatePipe} from './byt-order-by.pipes';
 import {BYTBillsFormComponent} from './byt-bills-form.component';
 import {BYTLastExpenseEntryComponent} from "./byt-last-expense-entry.component";
 import {BYTExpensesComponent} from "./byt-expenses.component";
@@ -146,7 +147,7 @@ const routes: Routes = [
   				  /*BYTDashboardExpenseQuestionComponent,*/ BYTDashboardExpenseAnalysisComponent, 
   				  BYTDashboardDailyBudgetComponent, /*BYTDashboardDailyBudgetQuestionComponent,*/
   				  BYTHomeArrowComponent, BYTIncomeComponent, BYTIncomeFormComponent, BYTLastIncomeEntryComponent, BYTAssetComponent, BYTAssetFormComponent,
-            BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTBillsFormComponent,
+            BYTLastAssetEntryComponent, BYTLastLiabilityEntryComponent, BYTLastBillEntryComponent, BYTBillsComponent, BYTOrderByPipe, BYTOrderByDatePipe, BYTBillsFormComponent,
   				  BYTLastExpenseEntryComponent, BYTExpensesComponent, BYTExpensesFormComponent, BYTEducationComponent, BYTLoginComponent, BYTTransactionJournalComponent, BYTLiabilityFormComponent, BYTLiabilityComponent, BYTNetWorthComponent, BYTNetWorthNavComponent, 
             BYTBalanceSheetComponent, BYTAppComponent, BYTAppArrowComponent, BYT404Component, BYTEducationComponent, BYTActionStep, BYTInstructionsComponent,
             BYTStripeComponent, /*BYTPlaidComponent,*/ BYTMonthlyProjectionsComponent, BYTMonthlyProjectionsNavComponent, /*BYTMonthlyProjectionsOverviewComponent,*/ 
